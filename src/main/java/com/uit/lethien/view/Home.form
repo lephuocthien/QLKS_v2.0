@@ -226,9 +226,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Hi: Admin"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="LabelUserAncestorAdded"/>
-                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel32">
                   <Properties>
@@ -574,9 +571,6 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="Madatlapphieu">
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MadatlapphieuActionPerformed"/>
-                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="Tracuulapphieu">
                               <Properties>
@@ -950,9 +944,6 @@
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Cancel"/>
                                   </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CanceldichvuActionPerformed"/>
-                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="Deletedichvu">
                                   <Properties>
@@ -1543,9 +1534,6 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="selected" type="boolean" value="true"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jphong2ActionPerformed"/>
-                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="Jphong3">
                               <Properties>
@@ -1868,9 +1856,6 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="jButton24"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jphong22ActionPerformed"/>
-                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="Jphong23">
                               <Properties>
@@ -1887,9 +1872,6 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="jButton26"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jphong24ActionPerformed"/>
-                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="Jphong25">
                               <Properties>
@@ -1906,9 +1888,6 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="jButton23"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jphong26ActionPerformed"/>
-                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="Jphong27">
                               <Properties>
@@ -2220,9 +2199,6 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="jButton49"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jphong48ActionPerformed"/>
-                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="Jphong49">
                               <Properties>
@@ -2279,9 +2255,6 @@
                           </StringArray>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboBoxTinhtrangphongActionPerformed"/>
-                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -2695,9 +2668,6 @@
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JTextField" name="Texthoten1">
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Texthoten1ActionPerformed"/>
-                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel28">
                                   <Properties>
@@ -2909,9 +2879,6 @@
                                   <Properties>
                                     <Property name="editable" type="boolean" value="false"/>
                                   </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Texthoten2ActionPerformed"/>
-                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel52">
                                   <Properties>
@@ -3103,9 +3070,6 @@
                               </Layout>
                               <SubComponents>
                                 <Component class="javax.swing.JTextField" name="Textdaluutru">
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextdaluutruActionPerformed"/>
-                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JCheckBox" name="Hoten2">
                                   <Properties>
@@ -3994,9 +3958,6 @@
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JTextField" name="Madatphonghientai">
-                                      <Events>
-                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MadatphonghientaiActionPerformed"/>
-                                      </Events>
                                     </Component>
                                     <Component class="javax.swing.JButton" name="Lammoiphonghientai">
                                       <Properties>
@@ -4429,9 +4390,6 @@
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JTextField" name="Madatphongdathanhtoan">
-                                      <Events>
-                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MadatphongdathanhtoanActionPerformed"/>
-                                      </Events>
                                     </Component>
                                     <Component class="javax.swing.JButton" name="Lammoiphongdathanhtoan">
                                       <Properties>
@@ -5171,9 +5129,6 @@
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JTextField" name="Madattiechientai">
-                                      <Events>
-                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MadattiechientaiActionPerformed"/>
-                                      </Events>
                                     </Component>
                                     <Component class="javax.swing.JButton" name="Lammoitiechientai">
                                       <Properties>
@@ -5688,9 +5643,6 @@
                                       </Properties>
                                     </Component>
                                     <Component class="javax.swing.JTextField" name="Madattiecdathanhtoan">
-                                      <Events>
-                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MadattiecdathanhtoanActionPerformed"/>
-                                      </Events>
                                     </Component>
                                     <Component class="javax.swing.JButton" name="Lammoitiecdathanhtoan">
                                       <Properties>

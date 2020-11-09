@@ -5,8 +5,10 @@
  */
 package com.uit.lethien.repository;
 
-import com.uit.lethien.database.connectDatabase;
+import com.uit.lethien.database.ConnectDatabase;
 import com.uit.lethien.model.Role;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,16 +20,18 @@ import java.util.List;
  */
 public class RoleRepository {
 
-    private connectDatabase conn;
+    private Connection conn;
 
     public RoleRepository() {
-        conn = new connectDatabase();
+        conn = ConnectDatabase.connectDatabase() ;
     }
 
     public List<Role> findAll() {
         List<Role> roles = new ArrayList<Role>();
-        ResultSet rs = conn.ExcuteQueryGetTable("SELECT * from ROLES");
+//        ResultSet rs = conn.ExcuteQueryGetTable("SELECT * from ROLES");
         try {
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM ROLES");
+            ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Role role = new Role();
                 role.setId(rs.getInt("id"));
@@ -39,5 +43,23 @@ public class RoleRepository {
             ex.printStackTrace();
         }
         return roles;
+    }
+    
+    public Role findById(int id){
+        Role role = new Role();
+        try{
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM ROLES WHERE id = ?");
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                role.setId(rs.getInt("id"));
+                role.setName(rs.getString("name"));
+                role.setDescription(rs.getString("description"));
+                break;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+        return role; 
     }
 }

@@ -5,7 +5,7 @@
  */
 package com.uit.lethien.view;
 
-import com.uit.lethien.database.connectDatabase;
+import com.uit.lethien.database.ConnectDatabase;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -32,113 +32,113 @@ public class Booking extends javax.swing.JFrame {
     public String TIENDV;
     public String MANV;
     public Home H;
-    public connectDatabase conn= new connectDatabase();
+    public ConnectDatabase conn= new ConnectDatabase();
         
     public Booking() {
         initComponents(); 
-        MADAT="DP120";
-        MAPHONG="P1001";
-        TIENDV="0";
-        DecimalFormat decimalFormat = (DecimalFormat)
-        NumberFormat.getNumberInstance(new Locale("<em>vi</em>" , "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        ResultSet rs = conn.ExcuteQueryGetTable("Select LP.GIA from PHONG P inner join LOAI_PHONG LP"+
-                                                " on P.MALP=LP.MALP where SOPHONG='"+MAPHONG+"'");
-        try {
-            while(rs.next()){
-                GIA=rs.getString("GIA");
-                System.out.print(GIA);
-            }
-            rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("Select* from HD_DICH_VU DV "+
-                                                        " where DV.MADAT='"+MADAT+"'");
-        try {
-            while(rs2.next()){
-                TIENDV=rs2.getString("THANHTIEN");
-            }
-            rs2.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(!MADAT.equals("")){
-            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG DP "+
-                                                        " where DP.MADAT='"+MADAT+"'");
-            try {
-                while(rs1.next()){
-                    System.out.println();
-                    //TIENDV=rs1.getString("THANHTIEN");
-                    HoTen.setText(rs1.getString("HOTEN"));
-                    SoCMND.setText(rs1.getString("CMND"));
-                    SoDienThoai.setText(rs1.getString("SDT"));
-                    NgaySinh.setDate(rs1.getDate("NGAYSINH"));
-                    DateIn.setDate(rs1.getDate("NGAYTHUE"));
-                    DateOut.setDate(rs1.getDate("NGAYTRA"));
-                    SumTien.setText(decimalFormat.format(rs1.getInt("TIENTRA")+rs1.getInt("TIENCON")));
-                    TienCoc.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
-                    MaDatPhong.setText(MADAT);
-                }
-                rs1.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//        MADAT="DP120";
+//        MAPHONG="P1001";
+//        TIENDV="0";
+//        DecimalFormat decimalFormat = (DecimalFormat)
+//        NumberFormat.getNumberInstance(new Locale("<em>vi</em>" , "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        ResultSet rs = conn.ExcuteQueryGetTable("Select LP.GIA from PHONG P inner join LOAI_PHONG LP"+
+//                                                " on P.MALP=LP.MALP where SOPHONG='"+MAPHONG+"'");
+//        try {
+//            while(rs.next()){
+//                GIA=rs.getString("GIA");
+//                System.out.print(GIA);
+//            }
+//            rs.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("Select* from HD_DICH_VU DV "+
+//                                                        " where DV.MADAT='"+MADAT+"'");
+//        try {
+//            while(rs2.next()){
+//                TIENDV=rs2.getString("THANHTIEN");
+//            }
+//            rs2.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        if(!MADAT.equals("")){
+//            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG DP "+
+//                                                        " where DP.MADAT='"+MADAT+"'");
+//            try {
+//                while(rs1.next()){
+//                    System.out.println();
+//                    //TIENDV=rs1.getString("THANHTIEN");
+//                    HoTen.setText(rs1.getString("HOTEN"));
+//                    SoCMND.setText(rs1.getString("CMND"));
+//                    SoDienThoai.setText(rs1.getString("SDT"));
+//                    NgaySinh.setDate(rs1.getDate("NGAYSINH"));
+//                    DateIn.setDate(rs1.getDate("NGAYTHUE"));
+//                    DateOut.setDate(rs1.getDate("NGAYTRA"));
+//                    SumTien.setText(decimalFormat.format(rs1.getInt("TIENTRA")+rs1.getInt("TIENCON")));
+//                    TienCoc.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
+//                    MaDatPhong.setText(MADAT);
+//                }
+//                rs1.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
     }
     public Booking(Home test,String M, String N, String NV) {
         initComponents(); 
-        MANV=NV;
-        MADAT=N;
-        MAPHONG=M;
-        TIENDV="0";
-        H=test;
-        DecimalFormat decimalFormat = (DecimalFormat)
-        NumberFormat.getNumberInstance(new Locale("<em>vi</em>" , "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        ResultSet rs = conn.ExcuteQueryGetTable("Select LP.GIA from PHONG P inner join LOAI_PHONG LP"+
-                                                " on P.MALP=LP.MALP where SOPHONG='"+MAPHONG+"'");
-        try {
-            while(rs.next()){
-                GIA=rs.getString("GIA");
-                System.out.print(GIA);
-            }
-            rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("Select* from HD_DICH_VU DV "+
-                                                        " where DV.MADAT='"+MADAT+"'");
-        try {
-            while(rs2.next()){
-                TIENDV=rs2.getString("THANHTIEN");
-            }
-            rs2.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(!MADAT.equals("")){
-            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG DP "+
-                                                        " where DP.MADAT='"+MADAT+"'");
-            try {
-                while(rs1.next()){
-                    System.out.println();
-                    //TIENDV=rs1.getString("THANHTIEN");
-                    HoTen.setText(rs1.getString("HOTEN"));
-                    SoCMND.setText(rs1.getString("CMND"));
-                    SoDienThoai.setText(rs1.getString("SDT"));
-                    NgaySinh.setDate(rs1.getDate("NGAYSINH"));
-                    DateIn.setDate(rs1.getDate("NGAYTHUE"));
-                    DateOut.setDate(rs1.getDate("NGAYTRA"));
-                    SumTien.setText(decimalFormat.format(rs1.getInt("TIENTRA")+rs1.getInt("TIENCON")));
-                    TienCoc.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
-                    MaDatPhong.setText(MADAT);
-                }
-                rs1.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//        MANV=NV;
+//        MADAT=N;
+//        MAPHONG=M;
+//        TIENDV="0";
+//        H=test;
+//        DecimalFormat decimalFormat = (DecimalFormat)
+//        NumberFormat.getNumberInstance(new Locale("<em>vi</em>" , "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        ResultSet rs = conn.ExcuteQueryGetTable("Select LP.GIA from PHONG P inner join LOAI_PHONG LP"+
+//                                                " on P.MALP=LP.MALP where SOPHONG='"+MAPHONG+"'");
+//        try {
+//            while(rs.next()){
+//                GIA=rs.getString("GIA");
+//                System.out.print(GIA);
+//            }
+//            rs.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("Select* from HD_DICH_VU DV "+
+//                                                        " where DV.MADAT='"+MADAT+"'");
+//        try {
+//            while(rs2.next()){
+//                TIENDV=rs2.getString("THANHTIEN");
+//            }
+//            rs2.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        if(!MADAT.equals("")){
+//            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG DP "+
+//                                                        " where DP.MADAT='"+MADAT+"'");
+//            try {
+//                while(rs1.next()){
+//                    System.out.println();
+//                    //TIENDV=rs1.getString("THANHTIEN");
+//                    HoTen.setText(rs1.getString("HOTEN"));
+//                    SoCMND.setText(rs1.getString("CMND"));
+//                    SoDienThoai.setText(rs1.getString("SDT"));
+//                    NgaySinh.setDate(rs1.getDate("NGAYSINH"));
+//                    DateIn.setDate(rs1.getDate("NGAYTHUE"));
+//                    DateOut.setDate(rs1.getDate("NGAYTRA"));
+//                    SumTien.setText(decimalFormat.format(rs1.getInt("TIENTRA")+rs1.getInt("TIENCON")));
+//                    TienCoc.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
+//                    MaDatPhong.setText(MADAT);
+//                }
+//                rs1.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
     }
 
     /**
@@ -351,103 +351,103 @@ public class Booking extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        DecimalFormat decimalFormat = (DecimalFormat)
-        NumberFormat.getNumberInstance(new Locale("<em>vi</em>" , "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        if(!MADAT.equals("")){
-            String HOTEN = HoTen.getText();
-            String CMND = SoCMND.getText();
-            String SDT = SoDienThoai.getText();
-            if (!SDT.equals("")&&
-                    !HOTEN.equals("")&&!CMND.equals("")&&
-                    !NgaySinh.getDate().equals(null)&&
-                    !DateIn.getDate().equals(null)&&
-                    !DateOut.getDate().equals(null)){
-                String NGSINH = dateFormat.format(NgaySinh.getDate());
-                String NGTHUE = dateFormat.format(DateIn.getDate());
-                String NGTRA = dateFormat.format(DateOut.getDate());    
-                conn.ExcuteQueryUpdateDB("UPDATE DAT_PHONG set "+
-                        "DAT_PHONG.MANV='"+MANV+"',DAT_PHONG.NGAYTHUE=to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI'),"+
-                        "DAT_PHONG.NGAYTRA=to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
-                        "DAT_PHONG.TIENTRA=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
-                                "DAT_PHONG.TIENCON=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
-                                "DAT_PHONG.HOTEN='"+HOTEN+"',DAT_PHONG.CMND="+CMND+",DAT_PHONG.SDT="+SDT+",DAT_PHONG.NGAYSINH=to_date('"+NGSINH+"','DD/MM/YYYY')"+
-                        "where DAT_PHONG.MADAT='"+MADAT+"'");
-                conn.ExcuteQueryUpdateDB("UPDATE LUU_TRU set "+
-                        "LUU_TRU.NGAYDEN=to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI'),"+
-                        "LUU_TRU.NGAYDI=to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
-                        //"DAT_PHONG.NGAYTRA=to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
-                        //"DAT_PHONG.TIENTRA=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
-                               // "DAT_PHONG.TIENCON=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
-                                "LUU_TRU.HOTEN='"+HOTEN+"',LUU_TRU.CMND="+CMND+",LUU_TRU.SDT="+SDT+",LUU_TRU.NGAYSINH=to_date('"+NGSINH+"','DD/MM/YYYY')"+
-                        "where LUU_TRU.MADAT='"+MADAT+"'");
-                conn.ExcuteQueryUpdateDB("UPDATE HOA_DON set HOA_DON.MANV='"+MANV+"',HOA_DON.TONGTIEN="+
-                        "(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+")+"+
-                        TIENDV+" where HOA_DON.MADAT='"+MADAT+"'");
-                ResultSet rs3 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG where MADAT='"+MADAT+"'");
-                try {
-                    while(rs3.next()){
-                        SumTien.setText(decimalFormat.format(rs3.getInt("TIENTRA")+rs3.getInt("TIENCON")));
-                        TienCoc.setText(decimalFormat.format(rs3.getInt("TIENTRA")));
-                    }
-                    JOptionPane.showMessageDialog(rootPane," Cập nhật thành công "+MADAT+"");
-                    rs3.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(rootPane," Chưa nhập đủ thông tin!");
-            }    
-        }
-        else{
-            String HOTEN = HoTen.getText();
-            String CMND = SoCMND.getText();
-            String SDT = SoDienThoai.getText();
-            if (!SDT.equals("")&&
-                    !HOTEN.equals("")&&!CMND.equals("")&&
-                    !NgaySinh.getDate().equals(null)&&
-                    !DateIn.getDate().equals(null)&&
-                    !DateOut.getDate().equals(null)){
-                String NGSINH = dateFormat.format(NgaySinh.getDate());
-                String NGTHUE = dateFormat.format(DateIn.getDate());
-                String NGTRA = dateFormat.format(DateOut.getDate());
-                ResultSet rs3 = conn.ExcuteQueryGetTable("Select'DP'||to_char(MADAT_SEQ.NEXTVAL) from dual");
-                try {
-                    while(rs3.next()){
-                        MADAT=rs3.getString("'DP'||to_char(MADAT_SEQ.NEXTVAL)");
-                    }
-                    rs3.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                conn.ExcuteQueryUpdateDB("Insert into DAT_PHONG(MANV,MADAT,SOPHONG,NGAYTHUE,NGAYTRA,TIENTRA, TIENCON, HOTEN, CMND, SDT, NGAYSINH) VALUES('"+MANV+"','"+MADAT+"','"+
-                        MAPHONG+"',to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI'),"+
-                        "to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
-                        "(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
-                                "(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
-                                "'"+HOTEN+"',"+CMND+","+SDT+",to_date('"+NGSINH+"','DD/MM/YYYY'))");
-                ResultSet rs2 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG where MADAT='"+MADAT+"'");
-                try {
-                    while(rs2.next()){
-                        SumTien.setText(decimalFormat.format(rs2.getInt("TIENTRA")+rs2.getInt("TIENCON")));
-                        TienCoc.setText(decimalFormat.format(rs2.getInt("TIENTRA")));
-                        MaDatPhong.setText(MADAT);
-                        JOptionPane.showMessageDialog(rootPane," Mã đặt phòng là "+MADAT+"");
-                    }
-                    rs2.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else {
-            JOptionPane.showMessageDialog(rootPane," Chưa nhập đủ thông tin!");
-            }    
-        }
-//        H.SetTinhTrangPhongDefault();
-//        H.SetMauPhong("tat ca","tat ca");
-    // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        DecimalFormat decimalFormat = (DecimalFormat)
+//        NumberFormat.getNumberInstance(new Locale("<em>vi</em>" , "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        if(!MADAT.equals("")){
+//            String HOTEN = HoTen.getText();
+//            String CMND = SoCMND.getText();
+//            String SDT = SoDienThoai.getText();
+//            if (!SDT.equals("")&&
+//                    !HOTEN.equals("")&&!CMND.equals("")&&
+//                    !NgaySinh.getDate().equals(null)&&
+//                    !DateIn.getDate().equals(null)&&
+//                    !DateOut.getDate().equals(null)){
+//                String NGSINH = dateFormat.format(NgaySinh.getDate());
+//                String NGTHUE = dateFormat.format(DateIn.getDate());
+//                String NGTRA = dateFormat.format(DateOut.getDate());    
+//                conn.ExcuteQueryUpdateDB("UPDATE DAT_PHONG set "+
+//                        "DAT_PHONG.MANV='"+MANV+"',DAT_PHONG.NGAYTHUE=to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI'),"+
+//                        "DAT_PHONG.NGAYTRA=to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
+//                        "DAT_PHONG.TIENTRA=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
+//                                "DAT_PHONG.TIENCON=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
+//                                "DAT_PHONG.HOTEN='"+HOTEN+"',DAT_PHONG.CMND="+CMND+",DAT_PHONG.SDT="+SDT+",DAT_PHONG.NGAYSINH=to_date('"+NGSINH+"','DD/MM/YYYY')"+
+//                        "where DAT_PHONG.MADAT='"+MADAT+"'");
+//                conn.ExcuteQueryUpdateDB("UPDATE LUU_TRU set "+
+//                        "LUU_TRU.NGAYDEN=to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI'),"+
+//                        "LUU_TRU.NGAYDI=to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
+//                        //"DAT_PHONG.NGAYTRA=to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
+//                        //"DAT_PHONG.TIENTRA=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
+//                               // "DAT_PHONG.TIENCON=(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
+//                                "LUU_TRU.HOTEN='"+HOTEN+"',LUU_TRU.CMND="+CMND+",LUU_TRU.SDT="+SDT+",LUU_TRU.NGAYSINH=to_date('"+NGSINH+"','DD/MM/YYYY')"+
+//                        "where LUU_TRU.MADAT='"+MADAT+"'");
+//                conn.ExcuteQueryUpdateDB("UPDATE HOA_DON set HOA_DON.MANV='"+MANV+"',HOA_DON.TONGTIEN="+
+//                        "(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+")+"+
+//                        TIENDV+" where HOA_DON.MADAT='"+MADAT+"'");
+//                ResultSet rs3 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG where MADAT='"+MADAT+"'");
+//                try {
+//                    while(rs3.next()){
+//                        SumTien.setText(decimalFormat.format(rs3.getInt("TIENTRA")+rs3.getInt("TIENCON")));
+//                        TienCoc.setText(decimalFormat.format(rs3.getInt("TIENTRA")));
+//                    }
+//                    JOptionPane.showMessageDialog(rootPane," Cập nhật thành công "+MADAT+"");
+//                    rs3.close();
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//            else {
+//                JOptionPane.showMessageDialog(rootPane," Chưa nhập đủ thông tin!");
+//            }    
+//        }
+//        else{
+//            String HOTEN = HoTen.getText();
+//            String CMND = SoCMND.getText();
+//            String SDT = SoDienThoai.getText();
+//            if (!SDT.equals("")&&
+//                    !HOTEN.equals("")&&!CMND.equals("")&&
+//                    !NgaySinh.getDate().equals(null)&&
+//                    !DateIn.getDate().equals(null)&&
+//                    !DateOut.getDate().equals(null)){
+//                String NGSINH = dateFormat.format(NgaySinh.getDate());
+//                String NGTHUE = dateFormat.format(DateIn.getDate());
+//                String NGTRA = dateFormat.format(DateOut.getDate());
+//                ResultSet rs3 = conn.ExcuteQueryGetTable("Select'DP'||to_char(MADAT_SEQ.NEXTVAL) from dual");
+//                try {
+//                    while(rs3.next()){
+//                        MADAT=rs3.getString("'DP'||to_char(MADAT_SEQ.NEXTVAL)");
+//                    }
+//                    rs3.close();
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                conn.ExcuteQueryUpdateDB("Insert into DAT_PHONG(MANV,MADAT,SOPHONG,NGAYTHUE,NGAYTRA,TIENTRA, TIENCON, HOTEN, CMND, SDT, NGAYSINH) VALUES('"+MANV+"','"+MADAT+"','"+
+//                        MAPHONG+"',to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI'),"+
+//                        "to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'),"+
+//                        "(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
+//                                "(ROUND((to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI')-to_date('"+NGTHUE+" 14:00','DD/MM/YYYY HH24:MI')))*"+GIA+"*0.5),"+
+//                                "'"+HOTEN+"',"+CMND+","+SDT+",to_date('"+NGSINH+"','DD/MM/YYYY'))");
+//                ResultSet rs2 = conn.ExcuteQueryGetTable("Select* from DAT_PHONG where MADAT='"+MADAT+"'");
+//                try {
+//                    while(rs2.next()){
+//                        SumTien.setText(decimalFormat.format(rs2.getInt("TIENTRA")+rs2.getInt("TIENCON")));
+//                        TienCoc.setText(decimalFormat.format(rs2.getInt("TIENTRA")));
+//                        MaDatPhong.setText(MADAT);
+//                        JOptionPane.showMessageDialog(rootPane," Mã đặt phòng là "+MADAT+"");
+//                    }
+//                    rs2.close();
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//            else {
+//            JOptionPane.showMessageDialog(rootPane," Chưa nhập đủ thông tin!");
+//            }    
+//        }
+////        H.SetTinhTrangPhongDefault();
+////        H.SetMauPhong("tat ca","tat ca");
+//    // TODO add your handling code here:
     }//GEN-LAST:event_OKActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
@@ -455,32 +455,32 @@ public class Booking extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
-        if (!MADAT.equals("")){
-            boolean check=false;
-            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from HOA_DON where MADAT='"+MADAT+"'");
-            try {
-                while(rs1.next()){
-                    check=true;
-                }
-                rs1.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (check==false){
-                int click=JOptionPane.showConfirmDialog(rootPane,"Bạn muốn xóa ?", "Delete", WIDTH);
-                if(click == JOptionPane.YES_OPTION){
-                    conn.ExcuteQueryUpdateDB("Delete from DAT_PHONG where DAT_PHONG.MADAT='"+MADAT+"'");
-                    JOptionPane.showMessageDialog(rootPane, "Xóa thành công "+MADAT);
-                    this.setVisible(false);
-                }
-            }
-            else{
-                JOptionPane.showMessageDialog(rootPane, "Phòng đang thuê không được xóa !");
-            }
-        }
-//        H.SetTinhTrangPhongDefault();
-//        H.SetMauPhong("tat ca","tat ca");
-        // TODO add your handling code here:
+//        if (!MADAT.equals("")){
+//            boolean check=false;
+//            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from HOA_DON where MADAT='"+MADAT+"'");
+//            try {
+//                while(rs1.next()){
+//                    check=true;
+//                }
+//                rs1.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Booking.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            if (check==false){
+//                int click=JOptionPane.showConfirmDialog(rootPane,"Bạn muốn xóa ?", "Delete", WIDTH);
+//                if(click == JOptionPane.YES_OPTION){
+//                    conn.ExcuteQueryUpdateDB("Delete from DAT_PHONG where DAT_PHONG.MADAT='"+MADAT+"'");
+//                    JOptionPane.showMessageDialog(rootPane, "Xóa thành công "+MADAT);
+//                    this.setVisible(false);
+//                }
+//            }
+//            else{
+//                JOptionPane.showMessageDialog(rootPane, "Phòng đang thuê không được xóa !");
+//            }
+//        }
+////        H.SetTinhTrangPhongDefault();
+////        H.SetMauPhong("tat ca","tat ca");
+//        // TODO add your handling code here:
     }//GEN-LAST:event_DeleteActionPerformed
 
     /**

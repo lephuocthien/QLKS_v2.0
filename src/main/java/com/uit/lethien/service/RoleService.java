@@ -34,4 +34,13 @@ public class RoleService {
         }
         return dtos;  
     }
+    
+    public RoleDto getById(int id){
+        Role role = roleRepository.findById(id);
+        RoleDto dto = new RoleDto();
+        dto.setId(role.getId());
+        dto.setName(role.getName());
+        dto.setDescription(role.getDescription());
+        return dto;
+    }
 }

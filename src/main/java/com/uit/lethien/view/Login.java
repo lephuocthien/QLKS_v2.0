@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package com.uit.lethien.view;
-import com.uit.lethien.database.connectDatabase;
+
+import com.uit.lethien.database.ConnectDatabase;
 import java.awt.Component;
 import java.sql.*;
 import java.util.Arrays;
@@ -12,19 +13,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+
 /**
  *
  * @author LeThien
  */
 public class Login extends javax.swing.JFrame {
 
-    
-    public connectDatabase connect = new  connectDatabase ();
+    public Connection conn;
+
     /**
      * Creates new form Login
      */
     public Login() {
 //        System.out.println(getClass().getResource(""));
+        conn = ConnectDatabase.connectDatabase();
         initComponents();
 //        Component[] component = jPanel1.getComponents();
 //
@@ -45,6 +48,7 @@ public class Login extends javax.swing.JFrame {
 //
 //    }
 //}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -237,40 +241,45 @@ public class Login extends javax.swing.JFrame {
 
     private void Login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_buttonActionPerformed
 //        User.setEditable(false);
-        String User_name = userLogin.getText(); 
+        String User_name = userLogin.getText();
         char[] Password = passwordLogin.getPassword();
         boolean check = false;
-        ResultSet rs1 = connect.ExcuteQueryGetTable("Select MANV, HOTEN from NHAN_VIEN where TENTK='"+User_name+"'");
-        ResultSet rs2 = connect.ExcuteQueryGetTable("Select* from TAI_KHOAN");
+
         String HOTEN = null;
         String MANV = null;
         try {
-            while(rs2.next()){
+            PreparedStatement statement1 = conn.prepareStatement("Select MANV, HOTEN from NHAN_VIEN where TENTK=?");
+            statement1.setString(1, User_name);
+            PreparedStatement statement2 = conn.prepareStatement("Select* from TAI_KHOAN");
+//        ResultSet rs1 = connect.ExcuteQueryGetTable("Select MANV, HOTEN from NHAN_VIEN where TENTK='"+User_name+"'");
+//        ResultSet rs2 = connect.ExcuteQueryGetTable("Select* from TAI_KHOAN");
+            ResultSet rs1 = statement1.executeQuery();
+            ResultSet rs2 = statement2.executeQuery();
+            while (rs2.next()) {
                 char[] temp1 = rs2.getString("MATKHAU").toCharArray();
                 String temp2 = rs2.getString("TENTK");
-                if ((Arrays.equals(temp1,Password))&&(User_name.equals(temp2))){   
-                    while(rs1.next()){
+                if ((Arrays.equals(temp1, Password)) && (User_name.equals(temp2))) {
+                    while (rs1.next()) {
                         MANV = rs1.getString("MANV");
                         HOTEN = rs1.getString("HOTEN");
                     }
                     check = true;
-                    JOptionPane.showMessageDialog(rootPane,"Chào "+HOTEN);
+                    JOptionPane.showMessageDialog(rootPane, "Chào " + HOTEN);
                     this.setVisible(false);
                     new Home(HOTEN, MANV).setVisible(true);
                     new Infor().setVisible(true);
                 }
             }
             if (check == false) {
-                JOptionPane.showMessageDialog(rootPane,"Nhập sai user name hoặc password!");
-            } 
+                JOptionPane.showMessageDialog(rootPane, "Nhập sai user name hoặc password!");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
     }//GEN-LAST:event_Login_buttonActionPerformed
 
     private void showPasswordCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordCheckBoxActionPerformed
-        passwordLogin.setEchoChar(showPasswordCheckBox.isSelected() ? '\u0000' : (Character)          
-                 UIManager.get("PasswordField.echoChar"));
+        passwordLogin.setEchoChar(showPasswordCheckBox.isSelected() ? '\u0000' : (Character) UIManager.get("PasswordField.echoChar"));
     }//GEN-LAST:event_showPasswordCheckBoxActionPerformed
 
     /**
@@ -328,5 +337,4 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField userLogin;
     // End of variables declaration//GEN-END:variables
 
-   
 }

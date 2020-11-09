@@ -6,7 +6,7 @@
 
 package com.uit.lethien.main;
 import com.uit.lethien.repository.RoleRepository;
-import com.uit.lethien.database.connectDatabase;
+import com.uit.lethien.database.ConnectDatabase;
 import com.uit.lethien.model.Role;
 import com.uit.lethien.view.Home;
 import com.uit.lethien.view.Infor;
@@ -51,7 +51,7 @@ public class TestDA {
 //        for(int i=1;i<=50;i++){
 //            System.out.print("Jphong"+i+", ");
 //        }
-//        connectDatabase connect = new  connectDatabase ();
+//        ConnectDatabase connect = new  ConnectDatabase ();
 //        ResultSet rs = connect.ExcuteQueryGetTable("Select MATD from THUC_DON");
 //        while (rs.next()){
 //            String MATD = rs.getString("MATD");

@@ -16,7 +16,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import com.uit.lethien.database.connectDatabase;
+import com.uit.lethien.database.ConnectDatabase;
 import com.uit.lethien.dto.RoleDto;
 import com.uit.lethien.model.Role;
 import com.uit.lethien.repository.RoleRepository;
@@ -89,7 +89,7 @@ public final class Home extends javax.swing.JFrame {
     public Order od;
     public String HOTEN_NV;
     public String MANV;
-    public connectDatabase conn = new connectDatabase();
+    public ConnectDatabase conn = new ConnectDatabase();
     public JButton Jphong[] = new JButton[50];
     public String Tenphong[] = new String[50];
     public String Madatphong[] = new String[50];
@@ -353,7 +353,7 @@ public final class Home extends javax.swing.JFrame {
 //        }
     }
 
-//    public void SetTinhTrangPhongDefault(){
+    public void SetTinhTrangPhongDefault(){
 //        //Sophongthue=0;
 //        //Sophongcoc=0;
 //        //Sophongtrong=0;
@@ -454,8 +454,8 @@ public final class Home extends javax.swing.JFrame {
 //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        SetSoPhong();
-//    }
-//    public void SetMauPhong(String TTP,String L){
+    }
+    public void SetMauPhong(String TTP,String L){
 //            for(int i=0; i<50;i++){
 //                String SOPHONG = Tenphong[i];
 //                String TINHTRANG = Tinhtrangphong[i];
@@ -643,8 +643,8 @@ public final class Home extends javax.swing.JFrame {
 //                    Jphong[i].setText("");
 //                }
 //            }
-//    }
-//    public void SetTinhTrangPhongDateToDate(String DateIn, String DateOut){
+    }
+    public void SetTinhTrangPhongDateToDate(String DateIn, String DateOut){
 //        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 //        DateIn = DateIn+" 14:00";
 //        DateOut = DateOut+" 12:00";
@@ -715,9 +715,9 @@ public final class Home extends javax.swing.JFrame {
 //        } catch (SQLException ex) {
 //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-//    }
+    }
 //    
-//    public void SetSoSanh(){
+   public void SetSoSanh(){
 //        Sosanhthue=0;
 //        Sosanhcoc=0;
 //        Sosanhtrong=0;
@@ -739,9 +739,9 @@ public final class Home extends javax.swing.JFrame {
 //                Sanhcoc.setText(String.valueOf(Sosanhcoc));
 //        }
 //    }
-//    }
+    }
 //    
-//    public void SetSoPhong(){
+    public void SetSoPhong(){
 //        Sophongthue=0;
 //        Sophongcoc=0;
 //        Sophongtrong=0;
@@ -765,9 +765,9 @@ public final class Home extends javax.swing.JFrame {
 //                break;
 //        }
 //    }
-//    }
+    }
 //    
-//    public void SetTinhTrangSanhDefault(){
+   public void SetTinhTrangSanhDefault(){
 //        //=0;
 //        //Sosanhcoc=0;
 //        //Sosanhtrong=0;
@@ -870,9 +870,9 @@ public final class Home extends javax.swing.JFrame {
 //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        SetSoSanh();
-//    }
+    }
 //    
-//    public void SetMauSanh(String TTS){
+   public void SetMauSanh(String TTS){
 //        for(int i=0; i<6;i++){
 //                String TENSANH = Maloaisanh[i];
 //                String TINHTRANG = Tinhtrangsanh[i];
@@ -965,9 +965,9 @@ public final class Home extends javax.swing.JFrame {
 //
 //                    }
 //        }
-//    }
+   }
 //    
-//    public void SetTinhTrangSanhDate(String DateIn2){
+   public void SetTinhTrangSanhDate(String DateIn2){
 //        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 //        //DateIn = DateIn;
 //        //DateOut = DateOut;
@@ -1044,7 +1044,7 @@ public final class Home extends javax.swing.JFrame {
 //        } catch (SQLException ex) {
 //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-//    }
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1497,15 +1497,6 @@ public final class Home extends javax.swing.JFrame {
 
         LabelUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin.png"))); // NOI18N
         LabelUser.setText("Hi: Admin");
-        LabelUser.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                LabelUserAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
 
         jPanel32.setBackground(new java.awt.Color(204, 204, 204));
         jPanel32.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sảnh", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
@@ -1677,12 +1668,6 @@ public final class Home extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel11.setText("Mã đặt phòng:");
 
-        Madatlapphieu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MadatlapphieuActionPerformed(evt);
-            }
-        });
-
         Tracuulapphieu.setText("Tra cứu");
         Tracuulapphieu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1827,11 +1812,6 @@ public final class Home extends javax.swing.JFrame {
         jScrollPane9.setViewportView(Tabledichvu);
 
         Canceldichvu.setText("Cancel");
-        Canceldichvu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CanceldichvuActionPerformed(evt);
-            }
-        });
 
         Deletedichvu.setText("Delete");
         Deletedichvu.addActionListener(new java.awt.event.ActionListener() {
@@ -2134,11 +2114,6 @@ public final class Home extends javax.swing.JFrame {
         Jphong2.setText("SD001-02");
         Jphong2.setBorderPainted(false);
         Jphong2.setSelected(true);
-        Jphong2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jphong2ActionPerformed(evt);
-            }
-        });
 
         Jphong3.setBackground(new java.awt.Color(0, 204, 102));
         Jphong3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -2308,33 +2283,18 @@ public final class Home extends javax.swing.JFrame {
 
         Jphong22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong22.setText("jButton24");
-        Jphong22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jphong22ActionPerformed(evt);
-            }
-        });
 
         Jphong23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong23.setText("jButton25");
 
         Jphong24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong24.setText("jButton26");
-        Jphong24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jphong24ActionPerformed(evt);
-            }
-        });
 
         Jphong25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong25.setText("jButton27");
 
         Jphong26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong26.setText("jButton23");
-        Jphong26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jphong26ActionPerformed(evt);
-            }
-        });
 
         Jphong27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong27.setText("jButton28");
@@ -2498,11 +2458,6 @@ public final class Home extends javax.swing.JFrame {
 
         Jphong48.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong48.setText("jButton49");
-        Jphong48.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jphong48ActionPerformed(evt);
-            }
-        });
 
         Jphong49.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong49.setText("jButton50");
@@ -2568,11 +2523,6 @@ public final class Home extends javax.swing.JFrame {
         jLabel10.setText("Tình trạng:");
 
         ComboBoxTinhtrangphong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Còn trống", "Đã cọc", "Đang thuê" }));
-        ComboBoxTinhtrangphong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxTinhtrangphongActionPerformed(evt);
-            }
-        });
 
         Tracuuphong.setText("Tra cứu");
         Tracuuphong.addActionListener(new java.awt.event.ActionListener() {
@@ -2748,12 +2698,6 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel19.setText("Họ tên:");
 
-        Texthoten1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Texthoten1ActionPerformed(evt);
-            }
-        });
-
         jLabel28.setText("Số phòng:");
 
         jLabel46.setText("SĐT:");
@@ -2898,11 +2842,6 @@ public final class Home extends javax.swing.JFrame {
         jLabel51.setText("Họ tên:");
 
         Texthoten2.setEditable(false);
-        Texthoten2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Texthoten2ActionPerformed(evt);
-            }
-        });
 
         jLabel52.setText("Số phòng:");
 
@@ -3019,12 +2958,6 @@ public final class Home extends javax.swing.JFrame {
 
         jPanel43.setBackground(new java.awt.Color(204, 204, 204));
         jPanel43.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tìm kiếm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
-
-        Textdaluutru.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextdaluutruActionPerformed(evt);
-            }
-        });
 
         Hoten2.setText("Họ tên");
         Hoten2.setOpaque(false);
@@ -3480,12 +3413,6 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel43.setText("Mã đặt phòng:");
 
-        Madatphonghientai.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MadatphonghientaiActionPerformed(evt);
-            }
-        });
-
         Lammoiphonghientai.setText("Làm mới");
         Lammoiphonghientai.setOpaque(false);
         Lammoiphonghientai.addActionListener(new java.awt.event.ActionListener() {
@@ -3752,12 +3679,6 @@ public final class Home extends javax.swing.JFrame {
         jPanel54.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tìm kiếm\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
 
         jLabel87.setText("Mã đặt phòng:");
-
-        Madatphongdathanhtoan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MadatphongdathanhtoanActionPerformed(evt);
-            }
-        });
 
         Lammoiphongdathanhtoan.setText("Làm mới");
         Lammoiphongdathanhtoan.setOpaque(false);
@@ -4151,12 +4072,6 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel95.setText("Mã đặt tiệc:");
 
-        Madattiechientai.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MadattiechientaiActionPerformed(evt);
-            }
-        });
-
         Lammoitiechientai.setText("Làm mới");
         Lammoitiechientai.setOpaque(false);
         Lammoitiechientai.addActionListener(new java.awt.event.ActionListener() {
@@ -4469,12 +4384,6 @@ public final class Home extends javax.swing.JFrame {
         jPanel59.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tìm kiếm\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
 
         jLabel115.setText("Mã đặt tiệc:");
-
-        Madattiecdathanhtoan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MadattiecdathanhtoanActionPerformed(evt);
-            }
-        });
 
         Lammoitiecdathanhtoan.setText("Làm mới");
         Lammoitiecdathanhtoan.setOpaque(false);
@@ -5096,344 +5005,288 @@ public final class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MadatlapphieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MadatlapphieuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MadatlapphieuActionPerformed
-
     private void TracuulapdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TracuulapdichvuActionPerformed
-        DefaultTableModel model = (DefaultTableModel) Tablelapdichvu.getModel();
-        DefaultTableModel model1 = (DefaultTableModel) Tabledichvu.getModel();
-        String MADAT = Madatlapdichvu.getText();
-        String SOHDDV = "";
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        boolean check = false;
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON where MADAT='" + MADAT + "'");
-        int temp1 = model.getRowCount();
-        int temp2 = model1.getRowCount();
-        for (int i = temp1 - 1; i >= 0; i--) {
-            model.removeRow(i);
-        }
-        for (int i = temp2 - 1; i >= 0; i--) {
-            model1.removeRow(i);
-        }
-        try {
-            while (rs1.next()) {
-                check = true;
-            }
-            if (check == false) {
-                JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng chưa được thêm vào hóa đơn");
-            } else {
-                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DAT_PHONG where MADAT='" + MADAT + "'");
-                while (rs.next()) {
-                    model.addRow(new Object[]{rs.getString("MADAT"), rs.getString("HOTEN"), rs.getString("CMND"),
-                        rs.getString("SDT"), rs.getString("SOPHONG")
-                    });
-                }
-                check = false;
-                ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU where MADAT='" + MADAT + "'");
-                while (rs2.next()) {
-                    check = true;
-                    SOHDDV = rs2.getString("SOHDDV");
-                }
-                if (check == true) {
-                    ResultSet rs3 = conn.ExcuteQueryGetTable("SELECT * FROM CTHD_DICH_VU where SOHDDV='" + SOHDDV + "'");
-                    while (rs3.next()) {
-                        ResultSet rs4 = conn.ExcuteQueryGetTable("SELECT * FROM DICH_VU where MADV='" + rs3.getString("MADV") + "'");
-                        while (rs4.next()) {
-                            model1.addRow(new Object[]{MADAT, rs3.getString("MADV"), rs4.getString("TENDV"),
-                                decimalFormat.format(rs4.getInt("GIA")), rs3.getInt("SOLUONG"),
-                                decimalFormat.format(rs3.getInt("SOLUONG") * rs4.getInt("GIA"))
-                            });
-                        }
-                    }
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        DefaultTableModel model = (DefaultTableModel) Tablelapdichvu.getModel();
+//        DefaultTableModel model1 = (DefaultTableModel) Tabledichvu.getModel();
+//        String MADAT = Madatlapdichvu.getText();
+//        String SOHDDV = "";
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        boolean check = false;
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON where MADAT='" + MADAT + "'");
+//        int temp1 = model.getRowCount();
+//        int temp2 = model1.getRowCount();
+//        for (int i = temp1 - 1; i >= 0; i--) {
+//            model.removeRow(i);
+//        }
+//        for (int i = temp2 - 1; i >= 0; i--) {
+//            model1.removeRow(i);
+//        }
+//        try {
+//            while (rs1.next()) {
+//                check = true;
+//            }
+//            if (check == false) {
+//                JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng chưa được thêm vào hóa đơn");
+//            } else {
+//                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DAT_PHONG where MADAT='" + MADAT + "'");
+//                while (rs.next()) {
+//                    model.addRow(new Object[]{rs.getString("MADAT"), rs.getString("HOTEN"), rs.getString("CMND"),
+//                        rs.getString("SDT"), rs.getString("SOPHONG")
+//                    });
+//                }
+//                check = false;
+//                ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU where MADAT='" + MADAT + "'");
+//                while (rs2.next()) {
+//                    check = true;
+//                    SOHDDV = rs2.getString("SOHDDV");
+//                }
+//                if (check == true) {
+//                    ResultSet rs3 = conn.ExcuteQueryGetTable("SELECT * FROM CTHD_DICH_VU where SOHDDV='" + SOHDDV + "'");
+//                    while (rs3.next()) {
+//                        ResultSet rs4 = conn.ExcuteQueryGetTable("SELECT * FROM DICH_VU where MADV='" + rs3.getString("MADV") + "'");
+//                        while (rs4.next()) {
+//                            model1.addRow(new Object[]{MADAT, rs3.getString("MADV"), rs4.getString("TENDV"),
+//                                decimalFormat.format(rs4.getInt("GIA")), rs3.getInt("SOLUONG"),
+//                                decimalFormat.format(rs3.getInt("SOLUONG") * rs4.getInt("GIA"))
+//                            });
+//                        }
+//                    }
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_TracuulapdichvuActionPerformed
 
-    private void Jphong2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jphong2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jphong2ActionPerformed
-
-    private void Jphong26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jphong26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jphong26ActionPerformed
-
-    private void Jphong24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jphong24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jphong24ActionPerformed
-
-    private void Jphong48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jphong48ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jphong48ActionPerformed
-
-    private void Texthoten1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Texthoten1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Texthoten1ActionPerformed
-
-    private void Texthoten2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Texthoten2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Texthoten2ActionPerformed
-
-    private void TextdaluutruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextdaluutruActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextdaluutruActionPerformed
-
     private void ThanhtoanphongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThanhtoanphongActionPerformed
-        int index = Tablephonghientai.getSelectedRow();
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
-        String SOHD = model.getValueAt(index, 0).toString();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP "
-                + "on HD.MADAT=DP.MADAT "
-                + "where HD.SOHD='" + SOHD + "' and HD.TINHTRANG='chua thanh toan'");
-        try {
-            while (rs1.next()) {
-                String TIENNHAN = Tiennhan_1.getText();
-                int Tien = Integer.parseInt(TIENNHAN);
-                if (Tien >= (rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA"))) {
-                    String Tienthua = String.valueOf(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA")));
-                    System.out.println(Tienthua);
-                    conn.ExcuteQueryUpdateDB("Update HOA_DON HD "
-                            + "set HD.TIENNHAN=" + TIENNHAN + ",HD.TIENTHUA=" + Tienthua + ","
-                            + "HD.NGAYLAP=to_date(to_char(SYSDATE,'DD/MM/YYYY HH24:MI'),'DD/MM/YYYY HH24:MI'),"
-                            + "HD.TINHTRANG='da thanh toan' "
-                            + "where HD.SOHD='" + SOHD + "'");
-                    Tienthua_1.setText(decimalFormat.format(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA"))));
-                    JOptionPane.showMessageDialog(rootPane, "Thanh toán thành công");
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Nhập số tiền sai !");
-                }
-            }
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//        SetTinhTrangPhongDefault();
-//        SetMauPhong("tat ca","tat ca");
-//        SetTinhTrangPhongDefault();
-//        SetMauPhong("tat ca","tat ca");
+//        int index = Tablephonghientai.getSelectedRow();
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
+//        String SOHD = model.getValueAt(index, 0).toString();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP "
+//                + "on HD.MADAT=DP.MADAT "
+//                + "where HD.SOHD='" + SOHD + "' and HD.TINHTRANG='chua thanh toan'");
+//        try {
+//            while (rs1.next()) {
+//                String TIENNHAN = Tiennhan_1.getText();
+//                int Tien = Integer.parseInt(TIENNHAN);
+//                if (Tien >= (rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA"))) {
+//                    String Tienthua = String.valueOf(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA")));
+//                    System.out.println(Tienthua);
+//                    conn.ExcuteQueryUpdateDB("Update HOA_DON HD "
+//                            + "set HD.TIENNHAN=" + TIENNHAN + ",HD.TIENTHUA=" + Tienthua + ","
+//                            + "HD.NGAYLAP=to_date(to_char(SYSDATE,'DD/MM/YYYY HH24:MI'),'DD/MM/YYYY HH24:MI'),"
+//                            + "HD.TINHTRANG='da thanh toan' "
+//                            + "where HD.SOHD='" + SOHD + "'");
+//                    Tienthua_1.setText(decimalFormat.format(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA"))));
+//                    JOptionPane.showMessageDialog(rootPane, "Thanh toán thành công");
+//                } else {
+//                    JOptionPane.showMessageDialog(rootPane, "Nhập số tiền sai !");
+//                }
+//            }
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+////        SetTinhTrangPhongDefault();
+////        SetMauPhong("tat ca","tat ca");
+////        SetTinhTrangPhongDefault();
+////        SetMauPhong("tat ca","tat ca");
     }//GEN-LAST:event_ThanhtoanphongActionPerformed
 
     private void OkelogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkelogoutActionPerformed
         System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_OkelogoutActionPerformed
 
-    private void Jphong22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jphong22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jphong22ActionPerformed
-
-    private void MadatphonghientaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MadatphonghientaiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MadatphonghientaiActionPerformed
-
-    private void MadatphongdathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MadatphongdathanhtoanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MadatphongdathanhtoanActionPerformed
-
     private void ThanhtoantiecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThanhtoantiecActionPerformed
-        int index = Tabletiechientai.getSelectedRow();
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
-        String SOHDTIEC = model.getValueAt(index, 0).toString();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DT "
-                + "on HD.SOTIEC=DT.SOTIEC "
-                + "where HD.SOHDTIEC='" + SOHDTIEC + "' and HD.TINHTRANG='chua thanh toan'");
-        try {
-            while (rs1.next()) {
-                String TIENNHAN = Tiennhan_3.getText();
-                int Tien = Integer.parseInt(TIENNHAN);
-                if (Tien >= (rs1.getInt("TONGTIEN") - rs1.getInt("COC"))) {
-                    String Tienthua = String.valueOf(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("COC")));
-                    System.out.println(Tienthua);
-                    conn.ExcuteQueryUpdateDB("Update HD_TIEC HD "
-                            + "set HD.TIENTRA=" + TIENNHAN + ",HD.TIENTHUA=" + Tienthua + ","
-                            + "HD.NGAYLAP=to_date(to_char(SYSDATE,'DD/MM/YYYY HH24:MI'),'DD/MM/YYYY HH24:MI'),"
-                            + "HD.TINHTRANG='da thanh toan' "
-                            + "where HD.SOHDTIEC='" + SOHDTIEC + "'");
-                    Tienthua_3.setText(decimalFormat.format(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("COC"))));
-                    JOptionPane.showMessageDialog(rootPane, "Thanh toán thành công");
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Nhập số tiền sai !");
-                }
-            }
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//        SetTinhTrangSanhDefault();
-//        SetMauSanh("tat ca");
-        // TODO add your handling code here:
-//        SetTinhTrangSanhDefault();
-//        SetMauSanh("tat ca");
-        // TODO add your handling code here:
+//        int index = Tabletiechientai.getSelectedRow();
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
+//        String SOHDTIEC = model.getValueAt(index, 0).toString();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DT "
+//                + "on HD.SOTIEC=DT.SOTIEC "
+//                + "where HD.SOHDTIEC='" + SOHDTIEC + "' and HD.TINHTRANG='chua thanh toan'");
+//        try {
+//            while (rs1.next()) {
+//                String TIENNHAN = Tiennhan_3.getText();
+//                int Tien = Integer.parseInt(TIENNHAN);
+//                if (Tien >= (rs1.getInt("TONGTIEN") - rs1.getInt("COC"))) {
+//                    String Tienthua = String.valueOf(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("COC")));
+//                    System.out.println(Tienthua);
+//                    conn.ExcuteQueryUpdateDB("Update HD_TIEC HD "
+//                            + "set HD.TIENTRA=" + TIENNHAN + ",HD.TIENTHUA=" + Tienthua + ","
+//                            + "HD.NGAYLAP=to_date(to_char(SYSDATE,'DD/MM/YYYY HH24:MI'),'DD/MM/YYYY HH24:MI'),"
+//                            + "HD.TINHTRANG='da thanh toan' "
+//                            + "where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//                    Tienthua_3.setText(decimalFormat.format(Tien - (rs1.getInt("TONGTIEN") - rs1.getInt("COC"))));
+//                    JOptionPane.showMessageDialog(rootPane, "Thanh toán thành công");
+//                } else {
+//                    JOptionPane.showMessageDialog(rootPane, "Nhập số tiền sai !");
+//                }
+//            }
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+////        SetTinhTrangSanhDefault();
+////        SetMauSanh("tat ca");
+//        // TODO add your handling code here:
+////        SetTinhTrangSanhDefault();
+////        SetMauSanh("tat ca");
+//        // TODO add your handling code here:
     }//GEN-LAST:event_ThanhtoantiecActionPerformed
 
-    private void MadattiechientaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MadattiechientaiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MadattiechientaiActionPerformed
-
-    private void MadattiecdathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MadattiecdathanhtoanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MadattiecdathanhtoanActionPerformed
-
-    private void LabelUserAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_LabelUserAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LabelUserAncestorAdded
-
     private void LapPhieuThueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LapPhieuThueActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String SOHDDV = "";
-        try {
-            ResultSet rs3 = conn.ExcuteQueryGetTable("select 'HD'||to_char(SOHDDV_SEQ.NEXTVAL) from dual");
-            while (rs3.next()) {
-                SOHDDV = rs3.getString("'HD'||to_char(SOHDDV_SEQ.NEXTVAL)");
-            }
-            //conn.ExcuteQueryUpdateDB("Insert into HD_DICH_VU VALUES('"+SOHDDV+"','"+MANV+"','"+MADAT+"',"+
-            //String.valueOf(THANHTIEN)+",SYSDATE)");
-            //conn.ExcuteQueryUpdateDB("update HOA_DON set HOA_DON.TONGTIEN=HOA_DON.TONGTIEN+"+String.valueOf(THANHTIEN)+
-            //  ",HOA_DON.SOHDDV='"+SOHDDV+"' where HOA_DON.MADAT='"+MADAT+"'");
-            DefaultTableModel model = (DefaultTableModel) Tablephieuthue.getModel();
-            int index = Tablephieuthue.getSelectedRow();
-            if (index != -1) {
-                boolean check = false;
-                String MADAT = (String) model.getValueAt(index, 0);
-                ResultSet rs = conn.ExcuteQueryGetTable("Select * from HOA_DON where MADAT='" + MADAT + "'");
-                while (rs.next()) {
-                    check = true;
-                }
-                if (check == true) {
-                    JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng này đã được thêm trước đó!");
-                } else {
-                    ResultSet rs1 = conn.ExcuteQueryGetTable("Select * from DAT_PHONG where MADAT='" + MADAT + "'");
-                    while (rs1.next()) {
-                        String TONGTIEN = String.valueOf(rs1.getInt("TIENTRA") + rs1.getInt("TIENCON"));
-                        String NGSINH = dateFormat.format(rs1.getDate("NGAYSINH"));
-                        String NGTHUE = dateFormat.format(rs1.getDate("NGAYTHUE"));
-                        String NGTRA = dateFormat.format(rs1.getDate("NGAYTRA"));
-                        conn.ExcuteQueryUpdateDB("Insert into HD_DICH_VU VALUES('" + SOHDDV + "','" + MANV + "','" + MADAT + "',0,SYSDATE)");
-                        conn.ExcuteQueryUpdateDB("Insert into HOA_DON(SOHDDV,MANV,MADAT, TINHTRANG, TONGTIEN) VALUES('" + SOHDDV + "','" + MANV + "','" + MADAT + "','chua thanh toan'," + TONGTIEN + ")");
-                        conn.ExcuteQueryUpdateDB("Insert into LUU_TRU values('LT'||to_char(ID_SEQ.NEXTVAL),'" + rs1.getString("SOPHONG")
-                                + "','" + rs1.getString("HOTEN") + "'," + rs1.getString("CMND") + "," + rs1.getString("SDT")
-                                + ",to_date('" + NGSINH + "','DD/MM/YYYY'),to_date('" + NGTHUE + " 12:00','DD/MM/YYYY HH24:MI'),"
-                                + "'" + MADAT + "',to_date('" + NGTRA + " 12:00','DD/MM/YYYY HH24:MI'))");
-                        //System.out.printf("Insert into HOA_DON(MADAT, TINHTRANG, TONGTIEN) VALUES('"+MADAT+"','chua thanh toan',"+TONGTIEN+")");
-                        /*for (int i=0;i<50;i++){
-                            if(rs1.getString("SOPHONG").equals(Tenphong[i])){
-                                index=i;
-                            }
-                        }
-                        Jphong[index].setOpaque(true);
-                        Jphong[index].setBorderPainted(false);
-                        Jphong[index].setBackground(new Color(255,0,0));
-                        Sophongthue++;
-                        Sophongcoc--;
-                        Phongthue.setText(String.valueOf(Sophongthue));
-//                        Phongcoc.setText(String.valueOf(Sophongcoc)); */
-//                        SetTinhTrangPhongDefault();
-//                        SetMauPhong("tat ca","tat ca");
-                        Class.forName("oracle.jdbc.driver.OracleDriver");
-                        java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "lethien", "31101999");
-                        JasperDesign jd = JRXmlLoader.load("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieuthue.jrxml");
-                        JRDesignQuery newQuery = new JRDesignQuery();
-                        newQuery.setText("select DISTINCT DP.MADAT, DP.SOPHONG, DP.MANV,DP.NGAYTHUE,DP.NGAYTRA,DP.TIENTRA,DP.TIENCON, DP.HOTEN, DP.CMND,DP.SDT, DP.DIACHI, NV.HOTEN as TENNV, DP.TIENTRA+DP.TIENCON as TONGTIEN,LP.GIA,LP.LOAI\n"
-                                + "from DAT_PHONG DP inner join NHAN_VIEN NV\n"
-                                + "on DP.MANV=NV.MANV\n"
-                                + "inner join PHONG P\n"
-                                + "on DP.SOPHONG=P.SOPHONG\n"
-                                + "inner join LOAI_PHONG LP\n"
-                                + "on P.MALP=LP.MALP	\n"
-                                + "where DP.MADAT='" + MADAT + "'");
-                        jd.setQuery(newQuery);
-                        JasperReport jr = JasperCompileManager.compileReport(jd);
-                        JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
-                        JasperViewer.viewReport(jp, false);
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng !");
-            }
-        } catch (JRException | ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        String SOHDDV = "";
+//        try {
+//            ResultSet rs3 = conn.ExcuteQueryGetTable("select 'HD'||to_char(SOHDDV_SEQ.NEXTVAL) from dual");
+//            while (rs3.next()) {
+//                SOHDDV = rs3.getString("'HD'||to_char(SOHDDV_SEQ.NEXTVAL)");
+//            }
+//            //conn.ExcuteQueryUpdateDB("Insert into HD_DICH_VU VALUES('"+SOHDDV+"','"+MANV+"','"+MADAT+"',"+
+//            //String.valueOf(THANHTIEN)+",SYSDATE)");
+//            //conn.ExcuteQueryUpdateDB("update HOA_DON set HOA_DON.TONGTIEN=HOA_DON.TONGTIEN+"+String.valueOf(THANHTIEN)+
+//            //  ",HOA_DON.SOHDDV='"+SOHDDV+"' where HOA_DON.MADAT='"+MADAT+"'");
+//            DefaultTableModel model = (DefaultTableModel) Tablephieuthue.getModel();
+//            int index = Tablephieuthue.getSelectedRow();
+//            if (index != -1) {
+//                boolean check = false;
+//                String MADAT = (String) model.getValueAt(index, 0);
+//                ResultSet rs = conn.ExcuteQueryGetTable("Select * from HOA_DON where MADAT='" + MADAT + "'");
+//                while (rs.next()) {
+//                    check = true;
+//                }
+//                if (check == true) {
+//                    JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng này đã được thêm trước đó!");
+//                } else {
+//                    ResultSet rs1 = conn.ExcuteQueryGetTable("Select * from DAT_PHONG where MADAT='" + MADAT + "'");
+//                    while (rs1.next()) {
+//                        String TONGTIEN = String.valueOf(rs1.getInt("TIENTRA") + rs1.getInt("TIENCON"));
+//                        String NGSINH = dateFormat.format(rs1.getDate("NGAYSINH"));
+//                        String NGTHUE = dateFormat.format(rs1.getDate("NGAYTHUE"));
+//                        String NGTRA = dateFormat.format(rs1.getDate("NGAYTRA"));
+//                        conn.ExcuteQueryUpdateDB("Insert into HD_DICH_VU VALUES('" + SOHDDV + "','" + MANV + "','" + MADAT + "',0,SYSDATE)");
+//                        conn.ExcuteQueryUpdateDB("Insert into HOA_DON(SOHDDV,MANV,MADAT, TINHTRANG, TONGTIEN) VALUES('" + SOHDDV + "','" + MANV + "','" + MADAT + "','chua thanh toan'," + TONGTIEN + ")");
+//                        conn.ExcuteQueryUpdateDB("Insert into LUU_TRU values('LT'||to_char(ID_SEQ.NEXTVAL),'" + rs1.getString("SOPHONG")
+//                                + "','" + rs1.getString("HOTEN") + "'," + rs1.getString("CMND") + "," + rs1.getString("SDT")
+//                                + ",to_date('" + NGSINH + "','DD/MM/YYYY'),to_date('" + NGTHUE + " 12:00','DD/MM/YYYY HH24:MI'),"
+//                                + "'" + MADAT + "',to_date('" + NGTRA + " 12:00','DD/MM/YYYY HH24:MI'))");
+//                        //System.out.printf("Insert into HOA_DON(MADAT, TINHTRANG, TONGTIEN) VALUES('"+MADAT+"','chua thanh toan',"+TONGTIEN+")");
+//                        /*for (int i=0;i<50;i++){
+//                            if(rs1.getString("SOPHONG").equals(Tenphong[i])){
+//                                index=i;
+//                            }
+//                        }
+//                        Jphong[index].setOpaque(true);
+//                        Jphong[index].setBorderPainted(false);
+//                        Jphong[index].setBackground(new Color(255,0,0));
+//                        Sophongthue++;
+//                        Sophongcoc--;
+//                        Phongthue.setText(String.valueOf(Sophongthue));
+////                        Phongcoc.setText(String.valueOf(Sophongcoc)); */
+////                        SetTinhTrangPhongDefault();
+////                        SetMauPhong("tat ca","tat ca");
+//                        Class.forName("oracle.jdbc.driver.OracleDriver");
+//                        java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "lethien", "31101999");
+//                        JasperDesign jd = JRXmlLoader.load("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieuthue.jrxml");
+//                        JRDesignQuery newQuery = new JRDesignQuery();
+//                        newQuery.setText("select DISTINCT DP.MADAT, DP.SOPHONG, DP.MANV,DP.NGAYTHUE,DP.NGAYTRA,DP.TIENTRA,DP.TIENCON, DP.HOTEN, DP.CMND,DP.SDT, DP.DIACHI, NV.HOTEN as TENNV, DP.TIENTRA+DP.TIENCON as TONGTIEN,LP.GIA,LP.LOAI\n"
+//                                + "from DAT_PHONG DP inner join NHAN_VIEN NV\n"
+//                                + "on DP.MANV=NV.MANV\n"
+//                                + "inner join PHONG P\n"
+//                                + "on DP.SOPHONG=P.SOPHONG\n"
+//                                + "inner join LOAI_PHONG LP\n"
+//                                + "on P.MALP=LP.MALP	\n"
+//                                + "where DP.MADAT='" + MADAT + "'");
+//                        jd.setQuery(newQuery);
+//                        JasperReport jr = JasperCompileManager.compileReport(jd);
+//                        JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+//                        JasperViewer.viewReport(jp, false);
+//                    }
+//                }
+//            } else {
+//                JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng !");
+//            }
+//        } catch (JRException | ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_LapPhieuThueActionPerformed
 
     private void LapPhieuTiecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LapPhieuTiecActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        try {
-            DefaultTableModel model = (DefaultTableModel) Tablephieutiec.getModel();
-            int index = Tablephieutiec.getSelectedRow();
-            if (index != -1) {
-                boolean check = false;
-                String SOTIEC = (String) model.getValueAt(index, 0);
-                ResultSet rs = conn.ExcuteQueryGetTable("Select * from HD_TIEC where SOTIEC='" + SOTIEC + "'");
-                while (rs.next()) {
-                    check = true;
-                }
-                if (check == true) {
-                    JOptionPane.showMessageDialog(rootPane, "Mã đặt tiệc này đã được thêm trước đó!");
-                } else {
-                    ResultSet rs1 = conn.ExcuteQueryGetTable("Select * from DAT_TIEC where SOTIEC='" + SOTIEC + "'");
-                    while (rs1.next()) {
-                        String TONGTIEN = String.valueOf(rs1.getInt("COC") + rs1.getInt("TIENCON"));
-                        //String NGSINH = dateFormat.format(rs1.getDate("NGAYSINH"));
-                        //String TGDIENRA= dateFormat.format(rs1.getDate("NGAYTHUE"));
-                        //String NGTRA = dateFormat.format(rs1.getDate("NGAYTRA"));
-                        conn.ExcuteQueryUpdateDB("Insert into HD_TIEC(SOTIEC, TINHTRANG, TONGTIEN, TIENNUOC) VALUES('" + SOTIEC + "','chua thanh toan'," + TONGTIEN + ",0)");
-                        /*conn.ExcuteQueryUpdateDB("Insert into LUU_TRU values('LT'||to_char(ID_SEQ.NEXTVAL),'"+rs1.getString("SOPHONG")
-                        +"','"+rs1.getString("HOTEN")+"',"+rs1.getString("CMND")+","+rs1.getString("SDT")
-                        +",to_date('"+NGSINH+"','DD/MM/YYYY HH24:MI'),to_date('"+NGTHUE+" 12:00','DD/MM/YYYY HH24:MI'),"
-                                +"'"+MADAT+"',to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'))");*/
-                        //System.out.printf("Insert into HOA_DON(MADAT, TINHTRANG, TONGTIEN) VALUES('"+MADAT+"','chua thanh toan',"+TONGTIEN+")");
-                        /*for (int i=0;i<50;i++){
-                            if(rs1.getString("SOPHONG").equals(Tenphong[i])){
-                                index=i;
-                            }
-                        }
-                        Jphong[index].setOpaque(true);
-                        Jphong[index].setBorderPainted(false);
-                        Jphong[index].setBackground(new Color(255,0,0));
-                        Sophongthue++;
-                        Sophongcoc--;
-                        Phongthue.setText(String.valueOf(Sophongthue));
-                        Phongcoc.setText(String.valueOf(Sophongcoc)); */
-//                        SetTinhTrangSanhDefault();
-//                        SetMauSanh("tat ca");
-                        Class.forName("oracle.jdbc.driver.OracleDriver");
-                        java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "lethien", "31101999");
-                        //InputStream in = new FileInputStream(new File("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieuthue.jrxml"));  
-                        JasperDesign jd = JRXmlLoader.load("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieutiec.jrxml");
-                        JRDesignQuery newQuery = new JRDesignQuery();
-                        newQuery.setText("select DISTINCT DT.SOTIEC, KHT.HOTEN, KHT.SDT, KHT.CMND, LT.TENLT, S.TENSANH, DT.SOBAN, TD.TEN, TD.GIA, CTTD.TENMON,CTTD.MATD, NV.MANV, NV.HOTEN AS TENNV,TD.GIA*DT.SOBAN as THANHTIEN, DT.COC,DT.TIENCON, DT.TGDIENRA\n"
-                                + "from \n"
-                                + "DAT_TIEC DT inner join KHACH_HANG_TIEC KHT on DT.MAKHTIEC=KHT.MAKHTIEC\n"
-                                + "inner join LOAI_TIEC LT on LT.MALT=DT.MALT\n"
-                                + "inner join SANH S on S.MASANH=DT.MASANH\n"
-                                + "inner join THUC_DON TD on TD.MATD=DT.MATD\n"
-                                + "inner join CT_THUC_DON CTTD on TD.MATD=CTTD.MATD\n"
-                                + "inner join NHAN_VIEN NV on NV.MANV=DT.MANV\n"
-                                + "WHERE DT.SOTIEC='" + SOTIEC + "'");
-                        jd.setQuery(newQuery);
-                        JasperReport jr = JasperCompileManager.compileReport(jd);
-                        HashMap para = new HashMap();
-                        JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
-                        JasperViewer.viewReport(jp, false);
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng !");
-            }
-        } catch (JRException | ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        try {
+//            DefaultTableModel model = (DefaultTableModel) Tablephieutiec.getModel();
+//            int index = Tablephieutiec.getSelectedRow();
+//            if (index != -1) {
+//                boolean check = false;
+//                String SOTIEC = (String) model.getValueAt(index, 0);
+//                ResultSet rs = conn.ExcuteQueryGetTable("Select * from HD_TIEC where SOTIEC='" + SOTIEC + "'");
+//                while (rs.next()) {
+//                    check = true;
+//                }
+//                if (check == true) {
+//                    JOptionPane.showMessageDialog(rootPane, "Mã đặt tiệc này đã được thêm trước đó!");
+//                } else {
+//                    ResultSet rs1 = conn.ExcuteQueryGetTable("Select * from DAT_TIEC where SOTIEC='" + SOTIEC + "'");
+//                    while (rs1.next()) {
+//                        String TONGTIEN = String.valueOf(rs1.getInt("COC") + rs1.getInt("TIENCON"));
+//                        //String NGSINH = dateFormat.format(rs1.getDate("NGAYSINH"));
+//                        //String TGDIENRA= dateFormat.format(rs1.getDate("NGAYTHUE"));
+//                        //String NGTRA = dateFormat.format(rs1.getDate("NGAYTRA"));
+//                        conn.ExcuteQueryUpdateDB("Insert into HD_TIEC(SOTIEC, TINHTRANG, TONGTIEN, TIENNUOC) VALUES('" + SOTIEC + "','chua thanh toan'," + TONGTIEN + ",0)");
+//                        /*conn.ExcuteQueryUpdateDB("Insert into LUU_TRU values('LT'||to_char(ID_SEQ.NEXTVAL),'"+rs1.getString("SOPHONG")
+//                        +"','"+rs1.getString("HOTEN")+"',"+rs1.getString("CMND")+","+rs1.getString("SDT")
+//                        +",to_date('"+NGSINH+"','DD/MM/YYYY HH24:MI'),to_date('"+NGTHUE+" 12:00','DD/MM/YYYY HH24:MI'),"
+//                                +"'"+MADAT+"',to_date('"+NGTRA+" 12:00','DD/MM/YYYY HH24:MI'))");*/
+//                        //System.out.printf("Insert into HOA_DON(MADAT, TINHTRANG, TONGTIEN) VALUES('"+MADAT+"','chua thanh toan',"+TONGTIEN+")");
+//                        /*for (int i=0;i<50;i++){
+//                            if(rs1.getString("SOPHONG").equals(Tenphong[i])){
+//                                index=i;
+//                            }
+//                        }
+//                        Jphong[index].setOpaque(true);
+//                        Jphong[index].setBorderPainted(false);
+//                        Jphong[index].setBackground(new Color(255,0,0));
+//                        Sophongthue++;
+//                        Sophongcoc--;
+//                        Phongthue.setText(String.valueOf(Sophongthue));
+//                        Phongcoc.setText(String.valueOf(Sophongcoc)); */
+////                        SetTinhTrangSanhDefault();
+////                        SetMauSanh("tat ca");
+//                        Class.forName("oracle.jdbc.driver.OracleDriver");
+//                        java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "lethien", "31101999");
+//                        //InputStream in = new FileInputStream(new File("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieuthue.jrxml"));  
+//                        JasperDesign jd = JRXmlLoader.load("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieutiec.jrxml");
+//                        JRDesignQuery newQuery = new JRDesignQuery();
+//                        newQuery.setText("select DISTINCT DT.SOTIEC, KHT.HOTEN, KHT.SDT, KHT.CMND, LT.TENLT, S.TENSANH, DT.SOBAN, TD.TEN, TD.GIA, CTTD.TENMON,CTTD.MATD, NV.MANV, NV.HOTEN AS TENNV,TD.GIA*DT.SOBAN as THANHTIEN, DT.COC,DT.TIENCON, DT.TGDIENRA\n"
+//                                + "from \n"
+//                                + "DAT_TIEC DT inner join KHACH_HANG_TIEC KHT on DT.MAKHTIEC=KHT.MAKHTIEC\n"
+//                                + "inner join LOAI_TIEC LT on LT.MALT=DT.MALT\n"
+//                                + "inner join SANH S on S.MASANH=DT.MASANH\n"
+//                                + "inner join THUC_DON TD on TD.MATD=DT.MATD\n"
+//                                + "inner join CT_THUC_DON CTTD on TD.MATD=CTTD.MATD\n"
+//                                + "inner join NHAN_VIEN NV on NV.MANV=DT.MANV\n"
+//                                + "WHERE DT.SOTIEC='" + SOTIEC + "'");
+//                        jd.setQuery(newQuery);
+//                        JasperReport jr = JasperCompileManager.compileReport(jd);
+//                        HashMap para = new HashMap();
+//                        JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+//                        JasperViewer.viewReport(jp, false);
+//                    }
+//                }
+//            } else {
+//                JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng !");
+//            }
+//        } catch (JRException | ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_LapPhieuTiecActionPerformed
 
     private void InPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InPhongActionPerformed
@@ -5521,26 +5374,26 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_ThongketiecActionPerformed
 
     private void ThongkephongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThongkephongActionPerformed
-        int t = Thang1.getMonth() + 1;
-        int y = Nam1.getYear();
-        //System.out.println(String.valueOf(t)+" "+String.valueOf(y));
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "lethien", "31101999");
-            //InputStream in = new FileInputStream(new File("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieuthue.jrxml"));  
-            JasperDesign jd = JRXmlLoader.load("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Thongkephong.jrxml");
-            JRDesignQuery newQuery = new JRDesignQuery();
-            newQuery.setText("SELECT distinct EXTRACT(MONTH FROM NGAYLAP),EXTRACT(YEAR FROM NGAYLAP), SOHD,MADAT, SOHDDV, MANV, NGAYLAP, TONGTIEN\n"
-                    + "FROM HOA_DON \n"
-                    + "WHERE EXTRACT(MONTH FROM NGAYLAP)=" + String.valueOf(t) + " AND EXTRACT(YEAR FROM NGAYLAP)=" + String.valueOf(y));
-            jd.setQuery(newQuery);
-            JasperReport jr = JasperCompileManager.compileReport(jd);
-            HashMap para = new HashMap();
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
-            JasperViewer.viewReport(jp, false);
-        } catch (JRException | ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        int t = Thang1.getMonth() + 1;
+//        int y = Nam1.getYear();
+//        //System.out.println(String.valueOf(t)+" "+String.valueOf(y));
+//        try {
+//            Class.forName("oracle.jdbc.driver.OracleDriver");
+//            java.sql.Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "lethien", "31101999");
+//            //InputStream in = new FileInputStream(new File("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Phieuthue.jrxml"));  
+//            JasperDesign jd = JRXmlLoader.load("C:\\Users\\LeThien\\Desktop\\QLKS_GUI\\QLKS_v1.0\\src\\report\\Thongkephong.jrxml");
+//            JRDesignQuery newQuery = new JRDesignQuery();
+//            newQuery.setText("SELECT distinct EXTRACT(MONTH FROM NGAYLAP),EXTRACT(YEAR FROM NGAYLAP), SOHD,MADAT, SOHDDV, MANV, NGAYLAP, TONGTIEN\n"
+//                    + "FROM HOA_DON \n"
+//                    + "WHERE EXTRACT(MONTH FROM NGAYLAP)=" + String.valueOf(t) + " AND EXTRACT(YEAR FROM NGAYLAP)=" + String.valueOf(y));
+//            jd.setQuery(newQuery);
+//            JasperReport jr = JasperCompileManager.compileReport(jd);
+//            HashMap para = new HashMap();
+//            JasperPrint jp = JasperFillManager.fillReport(jr, null, con);
+//            JasperViewer.viewReport(jp, false);
+//        } catch (JRException | ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_ThongkephongActionPerformed
 
     private void SanhAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SanhAActionPerformed
@@ -5549,38 +5402,38 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_SanhAActionPerformed
 
     private void TracuulapphieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TracuulapphieuActionPerformed
-        DefaultTableModel model = (DefaultTableModel) Tablephieuthue.getModel();
-        String s = Madatlapphieu.getText();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        boolean check = false;
-        ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DAT_PHONG");
-        int temp = model.getRowCount();
-        for (int i = temp - 1; i >= 0; i--) {
-            model.removeRow(i);
-        }
-        try {
-            while (rs.next()) {
-                if (s.equals(rs.getString("MADAT"))) {
-                    model.addRow(new Object[]{rs.getString("MADAT"), rs.getString("HOTEN"), rs.getString("CMND"),
-                        rs.getString("SDT"), rs.getString("SOPHONG"),
-                        dateFormat.format(rs.getDate("NGAYTHUE")), dateFormat.format(rs.getDate("NGAYTRA")),
-                        decimalFormat.format(rs.getInt("TIENTRA"))
-                    });
-                    check = true;
-                    //if ((dateFormat.format(rs.getDate("NGAYTRA"))) < (dateFormat.format(rs.getDate("NGAYTHUE")))){
-                    // String tam=dateFormat.format(rs.getDate("NGAYTRA")).toString().substring(0,9);
-                    //System.out.println(tam+" 14:00");
-                    //}
-                }
-            }
-            if (check == false) {
-                JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng không tồn tại");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        DefaultTableModel model = (DefaultTableModel) Tablephieuthue.getModel();
+//        String s = Madatlapphieu.getText();
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        boolean check = false;
+//        ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DAT_PHONG");
+//        int temp = model.getRowCount();
+//        for (int i = temp - 1; i >= 0; i--) {
+//            model.removeRow(i);
+//        }
+//        try {
+//            while (rs.next()) {
+//                if (s.equals(rs.getString("MADAT"))) {
+//                    model.addRow(new Object[]{rs.getString("MADAT"), rs.getString("HOTEN"), rs.getString("CMND"),
+//                        rs.getString("SDT"), rs.getString("SOPHONG"),
+//                        dateFormat.format(rs.getDate("NGAYTHUE")), dateFormat.format(rs.getDate("NGAYTRA")),
+//                        decimalFormat.format(rs.getInt("TIENTRA"))
+//                    });
+//                    check = true;
+//                    //if ((dateFormat.format(rs.getDate("NGAYTRA"))) < (dateFormat.format(rs.getDate("NGAYTHUE")))){
+//                    // String tam=dateFormat.format(rs.getDate("NGAYTRA")).toString().substring(0,9);
+//                    //System.out.println(tam+" 14:00");
+//                    //}
+//                }
+//            }
+//            if (check == false) {
+//                JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng không tồn tại");
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_TracuulapphieuActionPerformed
 
     private void TablephieuthueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablephieuthueMouseClicked
@@ -5589,46 +5442,46 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_TablephieuthueMouseClicked
 
     private void ThemdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemdichvuActionPerformed
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        DefaultTableModel model = (DefaultTableModel) Tablelapdichvu.getModel();
-        DefaultTableModel model1 = (DefaultTableModel) Tabledichvu.getModel();
-        int index = Tablelapdichvu.getRowCount();
-        if ((index != 0) && (!Soluongdv.getText().equals("0"))) {
-            String MADAT = (String) model.getValueAt(0, 0);
-            //ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU where");
-            String MADV = ComboBoxtendv.getSelectedItem().toString().substring(0, 3);
-            int SL = Integer.parseInt(Soluongdv.getText());
-            ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DICH_VU");
-            try {
-                while (rs.next()) {
-                    boolean check = true;
-                    int templ1 = -1;
-                    if (MADV.equals(rs.getString("MADV"))) {
-                        int temp = model1.getRowCount();
-                        for (int i = temp - 1; i >= 0; i--) {
-                            if (((String) model1.getValueAt(i, 1)).equals(MADV)) {
-                                check = false;
-                                templ1 = i;
-                            }
-                        }
-                        if (check == false) {
-                            model1.setValueAt((int) model1.getValueAt(templ1, 4) + SL, templ1, 4);
-                            model1.setValueAt(decimalFormat.format((int) model1.getValueAt(templ1, 4) * rs.getInt("GIA")), templ1, 5);
-                        } else {
-                            model1.addRow(new Object[]{MADAT, rs.getString("MADV"), rs.getString("TENDV"),
-                                decimalFormat.format(rs.getInt("GIA")), SL, decimalFormat.format(SL * rs.getInt("GIA"))
-                            });
-                        }
-                    }
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng! ");
-        }
-        // TODO add your handling code here:
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        DefaultTableModel model = (DefaultTableModel) Tablelapdichvu.getModel();
+//        DefaultTableModel model1 = (DefaultTableModel) Tabledichvu.getModel();
+//        int index = Tablelapdichvu.getRowCount();
+//        if ((index != 0) && (!Soluongdv.getText().equals("0"))) {
+//            String MADAT = (String) model.getValueAt(0, 0);
+//            //ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU where");
+//            String MADV = ComboBoxtendv.getSelectedItem().toString().substring(0, 3);
+//            int SL = Integer.parseInt(Soluongdv.getText());
+//            ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DICH_VU");
+//            try {
+//                while (rs.next()) {
+//                    boolean check = true;
+//                    int templ1 = -1;
+//                    if (MADV.equals(rs.getString("MADV"))) {
+//                        int temp = model1.getRowCount();
+//                        for (int i = temp - 1; i >= 0; i--) {
+//                            if (((String) model1.getValueAt(i, 1)).equals(MADV)) {
+//                                check = false;
+//                                templ1 = i;
+//                            }
+//                        }
+//                        if (check == false) {
+//                            model1.setValueAt((int) model1.getValueAt(templ1, 4) + SL, templ1, 4);
+//                            model1.setValueAt(decimalFormat.format((int) model1.getValueAt(templ1, 4) * rs.getInt("GIA")), templ1, 5);
+//                        } else {
+//                            model1.addRow(new Object[]{MADAT, rs.getString("MADV"), rs.getString("TENDV"),
+//                                decimalFormat.format(rs.getInt("GIA")), SL, decimalFormat.format(SL * rs.getInt("GIA"))
+//                            });
+//                        }
+//                    }
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng! ");
+//        }
+//        // TODO add your handling code here:
     }//GEN-LAST:event_ThemdichvuActionPerformed
 
     private void DeletedichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletedichvuActionPerformed
@@ -5643,150 +5496,142 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_DeletedichvuActionPerformed
 
     private void OkdichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkdichvuActionPerformed
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        String SOHDDV = "/0";
-        int THANHTIEN = 0;
-        int TIENPHONG = 0;
-        boolean check = false;
-        DefaultTableModel model = (DefaultTableModel) Tabledichvu.getModel();
-        int index = model.getRowCount();
-        if (index != 0) {
-            try {
-                String MADAT = (String) model.getValueAt(0, 0);
-                ResultSet rs9 = conn.ExcuteQueryGetTable("SELECT * FROM DAT_PHONG where MADAT='" + MADAT + "'");
-                while (rs9.next()) {
-                    TIENPHONG = rs9.getInt("TIENTRA") + rs9.getInt("TIENCON");
-                }
-                ResultSet rs = conn.ExcuteQueryGetTable("SELECT SOHDDV FROM HD_DICH_VU where MADAT='" + MADAT + "'");
-                for (int i = 0; i < index; i++) {
-                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT GIA FROM DICH_VU where MADV='" + (String) model.getValueAt(i, 1) + "'");
-                    while (rs1.next()) {
-                        int GIA = rs1.getInt("GIA");
-                        THANHTIEN = THANHTIEN + (int) model.getValueAt(i, 4) * GIA;
-                    }
-                }
-                while (rs.next()) {
-                    check = true;
-                    SOHDDV = rs.getString("SOHDDV");
-                }
-                if (check == true) {
-                    conn.ExcuteQueryUpdateDB("Delete from CTHD_DICH_VU where SOHDDV='" + SOHDDV + "'");
-                    for (int i = 0; i < index; i++) {
-                        conn.ExcuteQueryUpdateDB("Insert into CTHD_DICH_VU VALUES ('" + SOHDDV + "','" + (String) model.getValueAt(i, 1)
-                                + "'," + String.valueOf((int) model.getValueAt(i, 4)) + ")");
-                    }
-                    conn.ExcuteQueryUpdateDB("update HD_DICH_VU set HD_DICH_VU.THANHTIEN=" + String.valueOf(THANHTIEN)
-                            + ", HD_DICH_VU.NGAYLAP=SYSDATE where HD_DICH_VU.SOHDDV='" + SOHDDV + "'");
-                    conn.ExcuteQueryUpdateDB("update HOA_DON set HOA_DON.TONGTIEN=" + String.valueOf(THANHTIEN) + "+" + String.valueOf(TIENPHONG)
-                            + ", HOA_DON.SOHDDV='" + SOHDDV + "' where HOA_DON.MADAT='" + MADAT + "'");
-                    JOptionPane.showMessageDialog(rootPane, "Cập nật thành công! ");
-                } else {
-                    ResultSet rs3 = conn.ExcuteQueryGetTable("select 'HD'||to_char(SOHDDV_SEQ.NEXTVAL) from dual");
-                    while (rs3.next()) {
-                        SOHDDV = rs3.getString("'HD'||to_char(SOHDDV_SEQ.NEXTVAL)");
-                    }
-                    conn.ExcuteQueryUpdateDB("Insert into HD_DICH_VU VALUES('" + SOHDDV + "','" + MANV + "','" + MADAT + "',"
-                            + String.valueOf(THANHTIEN) + ",SYSDATE)");
-                    conn.ExcuteQueryUpdateDB("update HOA_DON set HOA_DON.TONGTIEN=HOA_DON.TONGTIEN+" + String.valueOf(THANHTIEN)
-                            + ",HOA_DON.SOHDDV='" + SOHDDV + "' where HOA_DON.MADAT='" + MADAT + "'");
-                    ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT SOHDDV FROM HD_DICH_VU where MADAT='" + MADAT + "'");
-                    while (rs2.next()) {
-                        SOHDDV = rs2.getString("SOHDDV");
-                    }
-                    System.out.println(SOHDDV);
-                    for (int i = 0; i < index; i++) {
-                        conn.ExcuteQueryUpdateDB("Insert into CTHD_DICH_VU VALUES ('" + SOHDDV + "','" + (String) model.getValueAt(i, 1)
-                                + "'," + String.valueOf((int) model.getValueAt(i, 4)) + ")");
-                    }
-                    JOptionPane.showMessageDialog(rootPane, "Thêm thành công! ");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa chọn dịch vụ! ");
-        }
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        String SOHDDV = "/0";
+//        int THANHTIEN = 0;
+//        int TIENPHONG = 0;
+//        boolean check = false;
+//        DefaultTableModel model = (DefaultTableModel) Tabledichvu.getModel();
+//        int index = model.getRowCount();
+//        if (index != 0) {
+//            try {
+//                String MADAT = (String) model.getValueAt(0, 0);
+//                ResultSet rs9 = conn.ExcuteQueryGetTable("SELECT * FROM DAT_PHONG where MADAT='" + MADAT + "'");
+//                while (rs9.next()) {
+//                    TIENPHONG = rs9.getInt("TIENTRA") + rs9.getInt("TIENCON");
+//                }
+//                ResultSet rs = conn.ExcuteQueryGetTable("SELECT SOHDDV FROM HD_DICH_VU where MADAT='" + MADAT + "'");
+//                for (int i = 0; i < index; i++) {
+//                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT GIA FROM DICH_VU where MADV='" + (String) model.getValueAt(i, 1) + "'");
+//                    while (rs1.next()) {
+//                        int GIA = rs1.getInt("GIA");
+//                        THANHTIEN = THANHTIEN + (int) model.getValueAt(i, 4) * GIA;
+//                    }
+//                }
+//                while (rs.next()) {
+//                    check = true;
+//                    SOHDDV = rs.getString("SOHDDV");
+//                }
+//                if (check == true) {
+//                    conn.ExcuteQueryUpdateDB("Delete from CTHD_DICH_VU where SOHDDV='" + SOHDDV + "'");
+//                    for (int i = 0; i < index; i++) {
+//                        conn.ExcuteQueryUpdateDB("Insert into CTHD_DICH_VU VALUES ('" + SOHDDV + "','" + (String) model.getValueAt(i, 1)
+//                                + "'," + String.valueOf((int) model.getValueAt(i, 4)) + ")");
+//                    }
+//                    conn.ExcuteQueryUpdateDB("update HD_DICH_VU set HD_DICH_VU.THANHTIEN=" + String.valueOf(THANHTIEN)
+//                            + ", HD_DICH_VU.NGAYLAP=SYSDATE where HD_DICH_VU.SOHDDV='" + SOHDDV + "'");
+//                    conn.ExcuteQueryUpdateDB("update HOA_DON set HOA_DON.TONGTIEN=" + String.valueOf(THANHTIEN) + "+" + String.valueOf(TIENPHONG)
+//                            + ", HOA_DON.SOHDDV='" + SOHDDV + "' where HOA_DON.MADAT='" + MADAT + "'");
+//                    JOptionPane.showMessageDialog(rootPane, "Cập nật thành công! ");
+//                } else {
+//                    ResultSet rs3 = conn.ExcuteQueryGetTable("select 'HD'||to_char(SOHDDV_SEQ.NEXTVAL) from dual");
+//                    while (rs3.next()) {
+//                        SOHDDV = rs3.getString("'HD'||to_char(SOHDDV_SEQ.NEXTVAL)");
+//                    }
+//                    conn.ExcuteQueryUpdateDB("Insert into HD_DICH_VU VALUES('" + SOHDDV + "','" + MANV + "','" + MADAT + "',"
+//                            + String.valueOf(THANHTIEN) + ",SYSDATE)");
+//                    conn.ExcuteQueryUpdateDB("update HOA_DON set HOA_DON.TONGTIEN=HOA_DON.TONGTIEN+" + String.valueOf(THANHTIEN)
+//                            + ",HOA_DON.SOHDDV='" + SOHDDV + "' where HOA_DON.MADAT='" + MADAT + "'");
+//                    ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT SOHDDV FROM HD_DICH_VU where MADAT='" + MADAT + "'");
+//                    while (rs2.next()) {
+//                        SOHDDV = rs2.getString("SOHDDV");
+//                    }
+//                    System.out.println(SOHDDV);
+//                    for (int i = 0; i < index; i++) {
+//                        conn.ExcuteQueryUpdateDB("Insert into CTHD_DICH_VU VALUES ('" + SOHDDV + "','" + (String) model.getValueAt(i, 1)
+//                                + "'," + String.valueOf((int) model.getValueAt(i, 4)) + ")");
+//                    }
+//                    JOptionPane.showMessageDialog(rootPane, "Thêm thành công! ");
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa chọn dịch vụ! ");
+//        }
     }//GEN-LAST:event_OkdichvuActionPerformed
 
     private void ComboBoxloaiphongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxloaiphongActionPerformed
-        String MALP = ComboBoxloaiphong.getSelectedItem().toString();
-        DefaultTableModel model = (DefaultTableModel) Tablecoso.getModel();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT MACS FROM CT_LOAI_PHONG where MALP='" + MALP + "'");
-        int i = 1;
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        try {
-            while (rs1.next()) {
-                String MACS = rs1.getString("MACS");
-                ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM CO_SO where MACS='" + MACS + "'");
-                while (rs2.next()) {
-                    model.addRow(new Object[]{i++, MACS, rs2.getString("TEN")});
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        String MALP = ComboBoxloaiphong.getSelectedItem().toString();
+//        DefaultTableModel model = (DefaultTableModel) Tablecoso.getModel();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT MACS FROM CT_LOAI_PHONG where MALP='" + MALP + "'");
+//        int i = 1;
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        try {
+//            while (rs1.next()) {
+//                String MACS = rs1.getString("MACS");
+//                ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM CO_SO where MACS='" + MACS + "'");
+//                while (rs2.next()) {
+//                    model.addRow(new Object[]{i++, MACS, rs2.getString("TEN")});
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_ComboBoxloaiphongActionPerformed
 
     private void ComboBoxthucdonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxthucdonActionPerformed
-        String MATD = ComboBoxthucdon.getSelectedItem().toString();
-        DefaultTableModel model = (DefaultTableModel) Tablethucdon.getModel();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM CT_THUC_DON where MATD='" + MATD + "'");
-        int i = 1;
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        try {
-            while (rs1.next()) {
-                model.addRow(new Object[]{i++, rs1.getString("TENMON")});
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:        // TODO add your handling code here:
+//        String MATD = ComboBoxthucdon.getSelectedItem().toString();
+//        DefaultTableModel model = (DefaultTableModel) Tablethucdon.getModel();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM CT_THUC_DON where MATD='" + MATD + "'");
+//        int i = 1;
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        try {
+//            while (rs1.next()) {
+//                model.addRow(new Object[]{i++, rs1.getString("TENMON")});
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }        // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxthucdonActionPerformed
-
-    private void CanceldichvuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanceldichvuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CanceldichvuActionPerformed
 
     private void TracuuphongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TracuuphongActionPerformed
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String NGAYTHUE = dateFormat.format(DateIn.getDate());
-        String NGAYTRA = dateFormat.format(DateOut.getDate());
-        String TINHTRANG = ComboBoxTinhtrangphong.getSelectedItem().toString();
-        switch (TINHTRANG) {
-            case "Tất cả":
-                TINHTRANG = "tat ca";
-                break;
-            case "Còn trống":
-                TINHTRANG = "trong";
-                break;
-            case "Đang thuê":
-                TINHTRANG = "thue";
-                break;
-            case "Đã cọc":
-                TINHTRANG = "coc";
-                break;
-        }
-        String LOAI = ComboBoxloai.getSelectedItem().toString();
-        if (LOAI.equals("Tất cả")) {
-            LOAI = "tat ca";
-        }
-//        SetTinhTrangPhongDateToDate(NGAYTHUE,NGAYTRA);
-//        SetMauPhong(TINHTRANG,LOAI);
-        //SetTinhTrangPhongDefault();
-
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        String NGAYTHUE = dateFormat.format(DateIn.getDate());
+//        String NGAYTRA = dateFormat.format(DateOut.getDate());
+//        String TINHTRANG = ComboBoxTinhtrangphong.getSelectedItem().toString();
+//        switch (TINHTRANG) {
+//            case "Tất cả":
+//                TINHTRANG = "tat ca";
+//                break;
+//            case "Còn trống":
+//                TINHTRANG = "trong";
+//                break;
+//            case "Đang thuê":
+//                TINHTRANG = "thue";
+//                break;
+//            case "Đã cọc":
+//                TINHTRANG = "coc";
+//                break;
+//        }
+//        String LOAI = ComboBoxloai.getSelectedItem().toString();
+//        if (LOAI.equals("Tất cả")) {
+//            LOAI = "tat ca";
+//        }
+////        SetTinhTrangPhongDateToDate(NGAYTHUE,NGAYTRA);
+////        SetMauPhong(TINHTRANG,LOAI);
+//        //SetTinhTrangPhongDefault();
+//
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TracuuphongActionPerformed
-
-    private void ComboBoxTinhtrangphongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxTinhtrangphongActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxTinhtrangphongActionPerformed
 
     private void LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamMoiActionPerformed
 //        SetTinhTrangPhongDefault();
@@ -5795,404 +5640,404 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_LamMoiActionPerformed
 
     private void TimkiemdangluutruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimkiemdangluutruActionPerformed
-        String text = Textdangluutru.getText();
-        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        if (!text.equals("")) {
-            try {
-                boolean check = false;
-                if (Hoten1.isSelected()) {
-                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where HOTEN='" + text + "' and (NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
-                    while (rs1.next()) {
-                        check = true;
-                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-                        /*if(!rs1.getString("MADAT").equals(null)&&!rs1.getString("MADAT").equals("")){
-                                Ngayden1.getDateEditor().setEnabled(false);   
-                                Ngaydi1.getDateEditor().setEnabled(false);  
-                            }*/
-                    }
-                    rs1.close();
-                    if (check == false) {
-                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                    }
-                } else if (CMND1.isSelected()) {
-                    try {
-                        temp = Integer.parseInt(text);
-                    } catch (NumberFormatException e) {
-                        temp = 0;
-                    }
-                    if (temp != 0) {
-                        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where CMND=" + text + " and (NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
-                        while (rs1.next()) {
-                            check = true;
-                            model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                                dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-                        }
-                        rs1.close();
-                        if (check == false) {
-                            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy");
-                    }
-                } else if (Sophong1.isSelected()) {
-                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where SOPHONG='" + text + "' and (NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
-                    while (rs1.next()) {
-                        check = true;
-                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-                    }
-                    rs1.close();
-                    if (check == false) {
-                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Chưa chọn phạm vi!");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
-        }
-        // TODO add your handling code here:
+//        String text = Textdangluutru.getText();
+//        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        if (!text.equals("")) {
+//            try {
+//                boolean check = false;
+//                if (Hoten1.isSelected()) {
+//                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where HOTEN='" + text + "' and (NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
+//                    while (rs1.next()) {
+//                        check = true;
+//                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//                        /*if(!rs1.getString("MADAT").equals(null)&&!rs1.getString("MADAT").equals("")){
+//                                Ngayden1.getDateEditor().setEnabled(false);   
+//                                Ngaydi1.getDateEditor().setEnabled(false);  
+//                            }*/
+//                    }
+//                    rs1.close();
+//                    if (check == false) {
+//                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                    }
+//                } else if (CMND1.isSelected()) {
+//                    try {
+//                        temp = Integer.parseInt(text);
+//                    } catch (NumberFormatException e) {
+//                        temp = 0;
+//                    }
+//                    if (temp != 0) {
+//                        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where CMND=" + text + " and (NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
+//                        while (rs1.next()) {
+//                            check = true;
+//                            model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                                dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//                        }
+//                        rs1.close();
+//                        if (check == false) {
+//                            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                        }
+//                    } else {
+//                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy");
+//                    }
+//                } else if (Sophong1.isSelected()) {
+//                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where SOPHONG='" + text + "' and (NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
+//                    while (rs1.next()) {
+//                        check = true;
+//                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//                    }
+//                    rs1.close();
+//                    if (check == false) {
+//                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                    }
+//                } else {
+//                    JOptionPane.showMessageDialog(rootPane, "Chưa chọn phạm vi!");
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
+//        }
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TimkiemdangluutruActionPerformed
 
     private void TabledangluutruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabledangluutruMouseClicked
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        int index = Tabledangluutru.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
-        String ID = model.getValueAt(index, 0).toString();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where ID='" + ID + "'");
-        try {
-            while (rs1.next()) {
-                Texthoten1.setText(rs1.getString("HOTEN"));
-                Textcmnd1.setText(rs1.getString("CMND"));
-                Textsdt1.setText(rs1.getString("SDT"));
-                Textsophong1.setText(rs1.getString("SOPHONG"));
-                Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-                Ngayden1.setDate(rs1.getDate("NGAYDEN"));
-                Ngaydi1.setDate(rs1.getDate("NGAYDI"));
-                //System.out.println("'"+rs1.getString("MADAT")+"'");
-                if (rs1.getString("MADAT") != null) {
-                    Ngayden1.getDateEditor().setEnabled(false);
-                    Ngaydi1.getDateEditor().setEnabled(false);
-                    Ngaysinh1.getDateEditor().setEnabled(false);
-                    Texthoten1.setEditable(false);
-                    Textcmnd1.setEditable(false);
-                    Textsdt1.setEditable(false);
-                    Textsophong1.setEditable(false);
-                }
-            }
-            rs1.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        int index = Tabledangluutru.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
+//        String ID = model.getValueAt(index, 0).toString();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where ID='" + ID + "'");
+//        try {
+//            while (rs1.next()) {
+//                Texthoten1.setText(rs1.getString("HOTEN"));
+//                Textcmnd1.setText(rs1.getString("CMND"));
+//                Textsdt1.setText(rs1.getString("SDT"));
+//                Textsophong1.setText(rs1.getString("SOPHONG"));
+//                Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//                Ngayden1.setDate(rs1.getDate("NGAYDEN"));
+//                Ngaydi1.setDate(rs1.getDate("NGAYDI"));
+//                //System.out.println("'"+rs1.getString("MADAT")+"'");
+//                if (rs1.getString("MADAT") != null) {
+//                    Ngayden1.getDateEditor().setEnabled(false);
+//                    Ngaydi1.getDateEditor().setEnabled(false);
+//                    Ngaysinh1.getDateEditor().setEnabled(false);
+//                    Texthoten1.setEditable(false);
+//                    Textcmnd1.setEditable(false);
+//                    Textsdt1.setEditable(false);
+//                    Textsophong1.setEditable(false);
+//                }
+//            }
+//            rs1.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_TabledangluutruMouseClicked
 
     private void TimkiemdaluutruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimkiemdaluutruActionPerformed
-        String text = Textdaluutru.getText();
-        DefaultTableModel model = (DefaultTableModel) Tabledaluutru.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        if (!text.equals("")) {
-            try {
-                boolean check = false;
-                if (Hoten2.isSelected()) {
-                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where HOTEN='" + text + "' and NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
-                    while (rs1.next()) {
-                        check = true;
-                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-                        /*if(!rs1.getString("MADAT").equals(null)&&!rs1.getString("MADAT").equals("")){
-                                Ngayden1.getDateEditor().setEnabled(false);   
-                                Ngaydi1.getDateEditor().setEnabled(false);  
-                            }*/
-                    }
-                    rs1.close();
-                    if (check == false) {
-                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                    }
-                } else if (CMND2.isSelected()) {
-                    try {
-                        temp = Integer.parseInt(text);
-                    } catch (NumberFormatException e) {
-                        temp = 0;
-                    }
-                    if (temp != 0) {
-                        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where CMND=" + text + " and NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
-                        while (rs1.next()) {
-                            check = true;
-                            model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                                dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-                        }
-                        rs1.close();
-                        if (check == false) {
-                            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy");
-                    }
-                } else if (Sophong2.isSelected()) {
-                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where SOPHONG='" + text + "' and NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
-                    while (rs1.next()) {
-                        check = true;
-                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-                    }
-                    rs1.close();
-                    if (check == false) {
-                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Chưa chọn phạm vi!");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        String text = Textdaluutru.getText();
+//        DefaultTableModel model = (DefaultTableModel) Tabledaluutru.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        if (!text.equals("")) {
+//            try {
+//                boolean check = false;
+//                if (Hoten2.isSelected()) {
+//                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where HOTEN='" + text + "' and NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
+//                    while (rs1.next()) {
+//                        check = true;
+//                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//                        /*if(!rs1.getString("MADAT").equals(null)&&!rs1.getString("MADAT").equals("")){
+//                                Ngayden1.getDateEditor().setEnabled(false);   
+//                                Ngaydi1.getDateEditor().setEnabled(false);  
+//                            }*/
+//                    }
+//                    rs1.close();
+//                    if (check == false) {
+//                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                    }
+//                } else if (CMND2.isSelected()) {
+//                    try {
+//                        temp = Integer.parseInt(text);
+//                    } catch (NumberFormatException e) {
+//                        temp = 0;
+//                    }
+//                    if (temp != 0) {
+//                        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where CMND=" + text + " and NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
+//                        while (rs1.next()) {
+//                            check = true;
+//                            model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                                dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//                        }
+//                        rs1.close();
+//                        if (check == false) {
+//                            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                        }
+//                    } else {
+//                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy");
+//                    }
+//                } else if (Sophong2.isSelected()) {
+//                    ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where SOPHONG='" + text + "' and NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
+//                    while (rs1.next()) {
+//                        check = true;
+//                        model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                            dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//                    }
+//                    rs1.close();
+//                    if (check == false) {
+//                        JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                    }
+//                } else {
+//                    JOptionPane.showMessageDialog(rootPane, "Chưa chọn phạm vi!");
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
+//        }
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TimkiemdaluutruActionPerformed
 
     private void TabledaluutruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabledaluutruMouseClicked
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        int index = Tabledaluutru.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tabledaluutru.getModel();
-        String ID = model.getValueAt(index, 0).toString();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where ID='" + ID + "'");
-        try {
-            while (rs1.next()) {
-                Texthoten2.setText(rs1.getString("HOTEN"));
-                Textcmnd2.setText(rs1.getString("CMND"));
-                Textsdt2.setText(rs1.getString("SDT"));
-                Textsophong2.setText(rs1.getString("SOPHONG"));
-                Ngaysinh2.setText(dateFormat.format(rs1.getDate("NGAYSINH")));
-                Ngayden2.setText(dateFormat.format(rs1.getDate("NGAYDEN")));
-                Ngaydi2.setText(dateFormat.format(rs1.getDate("NGAYDI")));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        int index = Tabledaluutru.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tabledaluutru.getModel();
+//        String ID = model.getValueAt(index, 0).toString();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where ID='" + ID + "'");
+//        try {
+//            while (rs1.next()) {
+//                Texthoten2.setText(rs1.getString("HOTEN"));
+//                Textcmnd2.setText(rs1.getString("CMND"));
+//                Textsdt2.setText(rs1.getString("SDT"));
+//                Textsophong2.setText(rs1.getString("SOPHONG"));
+//                Ngaysinh2.setText(dateFormat.format(rs1.getDate("NGAYSINH")));
+//                Ngayden2.setText(dateFormat.format(rs1.getDate("NGAYDEN")));
+//                Ngaydi2.setText(dateFormat.format(rs1.getDate("NGAYDI")));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TabledaluutruMouseClicked
 
     private void OkdangluutruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkdangluutruActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        int index = Tabledangluutru.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
-        //System.out.println(Ngayden1.getDate());
-        if (index == -1) {
-            if (!Texthoten1.getText().equals("")
-                    && !Textcmnd1.getText().equals("")
-                    && !Textsdt1.getText().equals("")
-                    && !Textsophong1.getText().equals("")
-                    && !Ngaysinh1.getDate().equals(null)
-                    && !Ngayden1.getDate().equals(null)
-                    && !Ngaydi1.getDate().equals(null)) {
-                String NGSINH = dateFormat.format(Ngaysinh1.getDate());
-                String NGTHUE = dateFormat.format(Ngayden1.getDate());
-                String NGTRA = dateFormat.format(Ngaydi1.getDate());
-                conn.ExcuteQueryUpdateDB("Insert into LUU_TRU values('LT'||to_char(ID_SEQ.NEXTVAL),'" + Textsophong1.getText()
-                        + "','" + Texthoten1.getText() + "'," + Textcmnd1.getText() + "," + Textsdt1.getText()
-                        + ",to_date('" + NGSINH + "','DD/MM/YYYY HH24:MI'),to_date('" + NGTHUE + " 12:00','DD/MM/YYYY HH24:MI'),"
-                        + "'',to_date('" + NGTRA + " 12:00','DD/MM/YYYY HH24:MI'))");
-                JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Nhap sai!");
-            }
-        } else {
-            // String ID = model.getValueAt(index, 0).toString();
-            String ID = model.getValueAt(index, 0).toString();
-            if (!Texthoten1.getText().equals("") && !Textcmnd1.getText().equals("")
-                    && !Textsdt1.getText().equals("") && !Textsophong1.getText().equals("")
-                    && !Ngaysinh1.getDate().equals(null) && !Ngayden1.getDate().equals(null)
-                    && !Ngaydi1.getDate().equals(null)) {
-                String NGSINH = dateFormat.format(Ngaysinh1.getDate());
-                String NGTHUE = dateFormat.format(Ngayden1.getDate());
-                String NGTRA = dateFormat.format(Ngaydi1.getDate());
-                conn.ExcuteQueryUpdateDB("UPDATE LUU_TRU "
-                        + "set LUU_TRU.SOPHONG='" + Textsophong1.getText() + "',"
-                        + "LUU_TRU.HOTEN='" + Texthoten1.getText() + "',"
-                        + "LUU_TRU.CMND=" + Textcmnd1.getText() + ","
-                        + "LUU_TRU.SDT=" + Textsdt1.getText() + ","
-                        + "LUU_TRU.NGAYSINH=to_date('" + NGSINH + "','DD/MM/YYYY HH24:MI'),"
-                        + "LUU_TRU.NGAYDEN=to_date('" + NGTHUE + " 12:00','DD/MM/YYYY HH24:MI'),"
-                        + "LUU_TRU.NGAYDI=to_date('" + NGTRA + " 14:00','DD/MM/YYYY HH24:MI') "
-                        + "where LUU_TRU.ID='" + ID + "'");
-                JOptionPane.showMessageDialog(rootPane, "Cập nhật thành công");
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Nhap sai!");
-            }
-        }
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        int index = Tabledangluutru.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
+//        //System.out.println(Ngayden1.getDate());
+//        if (index == -1) {
+//            if (!Texthoten1.getText().equals("")
+//                    && !Textcmnd1.getText().equals("")
+//                    && !Textsdt1.getText().equals("")
+//                    && !Textsophong1.getText().equals("")
+//                    && !Ngaysinh1.getDate().equals(null)
+//                    && !Ngayden1.getDate().equals(null)
+//                    && !Ngaydi1.getDate().equals(null)) {
+//                String NGSINH = dateFormat.format(Ngaysinh1.getDate());
+//                String NGTHUE = dateFormat.format(Ngayden1.getDate());
+//                String NGTRA = dateFormat.format(Ngaydi1.getDate());
+//                conn.ExcuteQueryUpdateDB("Insert into LUU_TRU values('LT'||to_char(ID_SEQ.NEXTVAL),'" + Textsophong1.getText()
+//                        + "','" + Texthoten1.getText() + "'," + Textcmnd1.getText() + "," + Textsdt1.getText()
+//                        + ",to_date('" + NGSINH + "','DD/MM/YYYY HH24:MI'),to_date('" + NGTHUE + " 12:00','DD/MM/YYYY HH24:MI'),"
+//                        + "'',to_date('" + NGTRA + " 12:00','DD/MM/YYYY HH24:MI'))");
+//                JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+//            } else {
+//                JOptionPane.showMessageDialog(rootPane, "Nhap sai!");
+//            }
+//        } else {
+//            // String ID = model.getValueAt(index, 0).toString();
+//            String ID = model.getValueAt(index, 0).toString();
+//            if (!Texthoten1.getText().equals("") && !Textcmnd1.getText().equals("")
+//                    && !Textsdt1.getText().equals("") && !Textsophong1.getText().equals("")
+//                    && !Ngaysinh1.getDate().equals(null) && !Ngayden1.getDate().equals(null)
+//                    && !Ngaydi1.getDate().equals(null)) {
+//                String NGSINH = dateFormat.format(Ngaysinh1.getDate());
+//                String NGTHUE = dateFormat.format(Ngayden1.getDate());
+//                String NGTRA = dateFormat.format(Ngaydi1.getDate());
+//                conn.ExcuteQueryUpdateDB("UPDATE LUU_TRU "
+//                        + "set LUU_TRU.SOPHONG='" + Textsophong1.getText() + "',"
+//                        + "LUU_TRU.HOTEN='" + Texthoten1.getText() + "',"
+//                        + "LUU_TRU.CMND=" + Textcmnd1.getText() + ","
+//                        + "LUU_TRU.SDT=" + Textsdt1.getText() + ","
+//                        + "LUU_TRU.NGAYSINH=to_date('" + NGSINH + "','DD/MM/YYYY HH24:MI'),"
+//                        + "LUU_TRU.NGAYDEN=to_date('" + NGTHUE + " 12:00','DD/MM/YYYY HH24:MI'),"
+//                        + "LUU_TRU.NGAYDI=to_date('" + NGTRA + " 14:00','DD/MM/YYYY HH24:MI') "
+//                        + "where LUU_TRU.ID='" + ID + "'");
+//                JOptionPane.showMessageDialog(rootPane, "Cập nhật thành công");
+//            } else {
+//                JOptionPane.showMessageDialog(rootPane, "Nhap sai!");
+//            }
+//        }
+//        // TODO add your handling code here:
     }//GEN-LAST:event_OkdangluutruActionPerformed
 
     private void DeletedangluutruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletedangluutruActionPerformed
-        int index = Tabledangluutru.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
-        if (index == -1) {
-            JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng!");
-        } else {
-            String ID = model.getValueAt(index, 0).toString();
-            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from LUU_TRU where ID='" + ID + "'");
-            try {
-                while (rs1.next()) {
-                    if (rs1.getString("MADAT") != null) {
-                        JOptionPane.showMessageDialog(rootPane, "Khách hàng này không thể xóa!");
-                    } else {
-                        int click = JOptionPane.showConfirmDialog(rootPane, "Bạn muốn xóa ?", "Delete", WIDTH);
-                        if (click == JOptionPane.YES_OPTION) {
-                            conn.ExcuteQueryUpdateDB("Delete from LUU_TRU where LUU_TRU.ID='" + ID + "'");
-                            JOptionPane.showMessageDialog(rootPane, "Xóa thành công " + ID);
-                        }
-                    }
-                }
-                rs1.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-// TODO add your handling code here:
+//        int index = Tabledangluutru.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
+//        if (index == -1) {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa chọn đối tượng!");
+//        } else {
+//            String ID = model.getValueAt(index, 0).toString();
+//            ResultSet rs1 = conn.ExcuteQueryGetTable("Select* from LUU_TRU where ID='" + ID + "'");
+//            try {
+//                while (rs1.next()) {
+//                    if (rs1.getString("MADAT") != null) {
+//                        JOptionPane.showMessageDialog(rootPane, "Khách hàng này không thể xóa!");
+//                    } else {
+//                        int click = JOptionPane.showConfirmDialog(rootPane, "Bạn muốn xóa ?", "Delete", WIDTH);
+//                        if (click == JOptionPane.YES_OPTION) {
+//                            conn.ExcuteQueryUpdateDB("Delete from LUU_TRU where LUU_TRU.ID='" + ID + "'");
+//                            JOptionPane.showMessageDialog(rootPane, "Xóa thành công " + ID);
+//                        }
+//                    }
+//                }
+//                rs1.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//        }
+//// TODO add your handling code here:
     }//GEN-LAST:event_DeletedangluutruActionPerformed
 
     private void LammoidangluutruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LammoidangluutruActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
-        Textdangluutru.setText("");
-        Hoten1.setSelected(false);
-        CMND1.setSelected(false);
-        Sophong1.setSelected(false);
-        Texthoten1.setText("");
-        Textcmnd1.setText("");
-        Textsdt1.setText("");
-        Textsophong1.setText("");
-        Ngaysinh1.setDate(null);
-        Ngayden1.setDate(null);
-        Ngaydi1.setDate(null);
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where(NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
-        try {
-            while (rs1.next()) {
-                model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                    dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-            }
-            rs1.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        DefaultTableModel model = (DefaultTableModel) Tabledangluutru.getModel();
+//        Textdangluutru.setText("");
+//        Hoten1.setSelected(false);
+//        CMND1.setSelected(false);
+//        Sophong1.setSelected(false);
+//        Texthoten1.setText("");
+//        Textcmnd1.setText("");
+//        Textsdt1.setText("");
+//        Textsophong1.setText("");
+//        Ngaysinh1.setDate(null);
+//        Ngayden1.setDate(null);
+//        Ngaydi1.setDate(null);
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where(NGAYDEN<=SYSDATE and SYSDATE<=NGAYDI)");
+//        try {
+//            while (rs1.next()) {
+//                model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                    dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//            }
+//            rs1.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_LammoidangluutruActionPerformed
 
     private void LammoidaluutruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LammoidaluutruActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        DefaultTableModel model = (DefaultTableModel) Tabledaluutru.getModel();
-        Textdaluutru.setText("");
-        Hoten2.setSelected(false);
-        CMND2.setSelected(false);
-        Sophong2.setSelected(false);
-        Texthoten2.setText("");
-        Textcmnd2.setText("");
-        Textsdt2.setText("");
-        Textsophong2.setText("");
-        Ngaysinh2.setText("");
-        Ngayden2.setText("");
-        Ngaydi2.setText("");
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
-        try {
-            while (rs1.next()) {
-                model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
-                    dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
-            }
-            rs1.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        DefaultTableModel model = (DefaultTableModel) Tabledaluutru.getModel();
+//        Textdaluutru.setText("");
+//        Hoten2.setSelected(false);
+//        CMND2.setSelected(false);
+//        Sophong2.setSelected(false);
+//        Texthoten2.setText("");
+//        Textcmnd2.setText("");
+//        Textsdt2.setText("");
+//        Textsophong2.setText("");
+//        Ngaysinh2.setText("");
+//        Ngayden2.setText("");
+//        Ngaydi2.setText("");
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM LUU_TRU where NGAYDEN<SYSDATE and SYSDATE>=NGAYDI");
+//        try {
+//            while (rs1.next()) {
+//                model.addRow(new Object[]{rs1.getString("ID"), rs1.getString("HOTEN"), rs1.getString("SOPHONG"), rs1.getString("CMND"),
+//                    dateFormat.format(rs1.getDate("NGAYDEN")), dateFormat.format(rs1.getDate("NGAYDI"))});
+//            }
+//            rs1.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_LammoidaluutruActionPerformed
 
     private void TracuuphieutiecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TracuuphieutiecActionPerformed
-        DefaultTableModel model = (DefaultTableModel) Tablephieutiec.getModel();
-        String s = Madatphieutiec.getText();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        boolean check = false;
-        ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DAT_TIEC DT inner join KHACH_HANG_TIEC KHT "
-                + "on DT.MAKHTIEC=KHT.MAKHTIEC");
-        int temp = model.getRowCount();
-        for (int i = temp - 1; i >= 0; i--) {
-            model.removeRow(i);
-        }
-        try {
-            while (rs.next()) {
-                if (s.equals(rs.getString("SOTIEC"))) {
-                    model.addRow(new Object[]{rs.getString("SOTIEC"), rs.getString("HOTEN"), rs.getString("MATD"),
-                        rs.getString("MASANH"), rs.getString("CMND"), rs.getString("SDT"),
-                        dateFormat.format(rs.getDate("TGDIENRA")), decimalFormat.format(rs.getInt("COC")),
-                        decimalFormat.format(rs.getInt("TIENCON"))
-                    });
-                    check = true;
-                    //if ((dateFormat.format(rs.getDate("NGAYTRA"))) < (dateFormat.format(rs.getDate("NGAYTHUE")))){
-                    // String tam=dateFormat.format(rs.getDate("NGAYTRA")).toString().substring(0,9);
-                    //System.out.println(tam+" 14:00");
-                    //}
-                }
-            }
-            if (check == false) {
-                JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng không tồn tại");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) Tablephieutiec.getModel();
+//        String s = Madatphieutiec.getText();
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        boolean check = false;
+//        ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM DAT_TIEC DT inner join KHACH_HANG_TIEC KHT "
+//                + "on DT.MAKHTIEC=KHT.MAKHTIEC");
+//        int temp = model.getRowCount();
+//        for (int i = temp - 1; i >= 0; i--) {
+//            model.removeRow(i);
+//        }
+//        try {
+//            while (rs.next()) {
+//                if (s.equals(rs.getString("SOTIEC"))) {
+//                    model.addRow(new Object[]{rs.getString("SOTIEC"), rs.getString("HOTEN"), rs.getString("MATD"),
+//                        rs.getString("MASANH"), rs.getString("CMND"), rs.getString("SDT"),
+//                        dateFormat.format(rs.getDate("TGDIENRA")), decimalFormat.format(rs.getInt("COC")),
+//                        decimalFormat.format(rs.getInt("TIENCON"))
+//                    });
+//                    check = true;
+//                    //if ((dateFormat.format(rs.getDate("NGAYTRA"))) < (dateFormat.format(rs.getDate("NGAYTHUE")))){
+//                    // String tam=dateFormat.format(rs.getDate("NGAYTRA")).toString().substring(0,9);
+//                    //System.out.println(tam+" 14:00");
+//                    //}
+//                }
+//            }
+//            if (check == false) {
+//                JOptionPane.showMessageDialog(rootPane, "Mã đặt phòng không tồn tại");
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TracuuphieutiecActionPerformed
 
     private void TracuutiecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TracuutiecActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String NGAYTHUE = dateFormat.format(DateIn2.getDate());
-        //String NGAYTRA = dateFormat.format(DateOut2.getDate());
-        String TINHTRANG = ComboBoxtinhtrangsanh.getSelectedItem().toString();
-        switch (TINHTRANG) {
-            case "Tất cả":
-                TINHTRANG = "tat ca";
-                break;
-            case "Còn trống":
-                TINHTRANG = "trong";
-                break;
-            case "Đang thuê":
-                TINHTRANG = "thue";
-                break;
-            case "Đã cọc":
-                TINHTRANG = "coc";
-                break;
-        }
-//        SetTinhTrangSanhDate(NGAYTHUE);
-//        SetMauSanh(TINHTRANG);
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        String NGAYTHUE = dateFormat.format(DateIn2.getDate());
+//        //String NGAYTRA = dateFormat.format(DateOut2.getDate());
+//        String TINHTRANG = ComboBoxtinhtrangsanh.getSelectedItem().toString();
+//        switch (TINHTRANG) {
+//            case "Tất cả":
+//                TINHTRANG = "tat ca";
+//                break;
+//            case "Còn trống":
+//                TINHTRANG = "trong";
+//                break;
+//            case "Đang thuê":
+//                TINHTRANG = "thue";
+//                break;
+//            case "Đã cọc":
+//                TINHTRANG = "coc";
+//                break;
+//        }
+////        SetTinhTrangSanhDate(NGAYTHUE);
+////        SetMauSanh(TINHTRANG);
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TracuutiecActionPerformed
 
     private void LammoitiecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LammoitiecActionPerformed
@@ -6202,608 +6047,608 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_LammoitiecActionPerformed
 
     private void TimkiemhoadonhientaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimkiemhoadonhientaiActionPerformed
-        String MADAT = Madatphonghientai.getText();
-        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        boolean check = false;
-        if (!MADAT.equals("")) {
-            try {
-                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP on DP.MADAT=HD.MADAT "
-                        + "where DP.MADAT='" + MADAT + "' and HD.TINHTRANG='chua thanh toan'");
-                while (rs.next()) {
-                    check = true;
-                    model.addRow(new Object[]{rs.getString("SOHD"), rs.getString("HOTEN"), rs.getString("SOPHONG"), rs.getString("CMND"),
-                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("TIENTRA")),
-                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("TIENTRA"))});
-                }
-                rs.close();
-                if (check == false) {
-                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
-        }
-        // TODO add your handling code here:
+//        String MADAT = Madatphonghientai.getText();
+//        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        boolean check = false;
+//        if (!MADAT.equals("")) {
+//            try {
+//                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP on DP.MADAT=HD.MADAT "
+//                        + "where DP.MADAT='" + MADAT + "' and HD.TINHTRANG='chua thanh toan'");
+//                while (rs.next()) {
+//                    check = true;
+//                    model.addRow(new Object[]{rs.getString("SOHD"), rs.getString("HOTEN"), rs.getString("SOPHONG"), rs.getString("CMND"),
+//                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("TIENTRA")),
+//                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("TIENTRA"))});
+//                }
+//                rs.close();
+//                if (check == false) {
+//                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
+//        }
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TimkiemhoadonhientaiActionPerformed
 
     private void TablephonghientaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablephonghientaiMouseClicked
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        int index = Tablephonghientai.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
-        String SOHD = model.getValueAt(index, 0).toString();
-        System.out.println(SOHD);
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP "
-                + "on HD.MADAT=DP.MADAT "
-                + " where HD.SOHD='" + SOHD + "'");
-        String SOHDDV = "";
-        try {
-            while (rs1.next()) {
-                SOHDDV = rs1.getString("SOHDDV");
-                Hoten_1.setText(rs1.getString("HOTEN"));
-                MDP_1.setText(rs1.getString("MADAT"));
-                SDT_1.setText(rs1.getString("SDT"));
-                Sophong_1.setText(rs1.getString("SOPHONG"));
-                CMND_1.setText(rs1.getString("CMND"));
-                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-                Ngayden_1.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
-                Ngaydi_1.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
-                Tongtien_1.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
-                Coc_1.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
-                Conlai_1.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA")));
-                //System.out.println("'"+rs1.getString("MADAT")+"'");
-            }
-            rs1.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel();
-        int temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
-                + "on HDDV.SOHDDV=CTHD.SOHDDV "
-                + "inner join DICH_VU DV "
-                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='" + SOHDDV + "'");
-        try {
-            while (rs2.next()) {
-                model1.addRow(new Object[]{rs2.getString("TENDV"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
-                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
-            }
-            rs2.close();
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        int index = Tablephonghientai.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
+//        String SOHD = model.getValueAt(index, 0).toString();
+//        System.out.println(SOHD);
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP "
+//                + "on HD.MADAT=DP.MADAT "
+//                + " where HD.SOHD='" + SOHD + "'");
+//        String SOHDDV = "";
+//        try {
+//            while (rs1.next()) {
+//                SOHDDV = rs1.getString("SOHDDV");
+//                Hoten_1.setText(rs1.getString("HOTEN"));
+//                MDP_1.setText(rs1.getString("MADAT"));
+//                SDT_1.setText(rs1.getString("SDT"));
+//                Sophong_1.setText(rs1.getString("SOPHONG"));
+//                CMND_1.setText(rs1.getString("CMND"));
+//                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//                Ngayden_1.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
+//                Ngaydi_1.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
+//                Tongtien_1.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
+//                Coc_1.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
+//                Conlai_1.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA")));
+//                //System.out.println("'"+rs1.getString("MADAT")+"'");
+//            }
+//            rs1.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel();
+//        int temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
+//                + "on HDDV.SOHDDV=CTHD.SOHDDV "
+//                + "inner join DICH_VU DV "
+//                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='" + SOHDDV + "'");
+//        try {
+//            while (rs2.next()) {
+//                model1.addRow(new Object[]{rs2.getString("TENDV"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
+//                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
+//            }
+//            rs2.close();
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_TablephonghientaiMouseClicked
 
     private void TimkiemphongdathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimkiemphongdathanhtoanActionPerformed
-        String MADAT = Madatphongdathanhtoan.getText();
-        DefaultTableModel model = (DefaultTableModel) Tablephongdathanhtoan.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        boolean check = false;
-        if (!MADAT.equals("")) {
-            try {
-                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP on DP.MADAT=HD.MADAT "
-                        + "where DP.MADAT='" + MADAT + "' and HD.TINHTRANG='da thanh toan'");
-                while (rs.next()) {
-                    check = true;
-                    model.addRow(new Object[]{rs.getString("SOHD"), rs.getString("HOTEN"), rs.getString("SOPHONG"), rs.getString("CMND"),
-                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("TIENTRA")),
-                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("TIENTRA"))});
-                }
-                rs.close();
-                if (check == false) {
-                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
-        }
-        // TODO add your handling code here:
+//        String MADAT = Madatphongdathanhtoan.getText();
+//        DefaultTableModel model = (DefaultTableModel) Tablephongdathanhtoan.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        boolean check = false;
+//        if (!MADAT.equals("")) {
+//            try {
+//                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP on DP.MADAT=HD.MADAT "
+//                        + "where DP.MADAT='" + MADAT + "' and HD.TINHTRANG='da thanh toan'");
+//                while (rs.next()) {
+//                    check = true;
+//                    model.addRow(new Object[]{rs.getString("SOHD"), rs.getString("HOTEN"), rs.getString("SOPHONG"), rs.getString("CMND"),
+//                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("TIENTRA")),
+//                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("TIENTRA"))});
+//                }
+//                rs.close();
+//                if (check == false) {
+//                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
+//        }
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TimkiemphongdathanhtoanActionPerformed
 
     private void TablephongdathanhtoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablephongdathanhtoanMouseClicked
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        int index = Tablephongdathanhtoan.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tablephongdathanhtoan.getModel();
-        String SOHD = model.getValueAt(index, 0).toString();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP "
-                + "on HD.MADAT=DP.MADAT "
-                + "inner join HD_DICH_VU HDDV "
-                + "on HD.SOHDDV=HDDV.SOHDDV  where HD.SOHD='" + SOHD + "'");
-        String SOHDDV = "";
-        try {
-            while (rs1.next()) {
-                SOHDDV = rs1.getString("SOHDDV");
-                Hoten_2.setText(rs1.getString("HOTEN"));
-                MDP_2.setText(rs1.getString("CMND"));
-                SDT_2.setText(rs1.getString("SDT"));
-                Sophong_2.setText(rs1.getString("SOPHONG"));
-                CMND_2.setText(rs1.getString("CMND"));
-                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-                Ngayden_2.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
-                Ngaydi_2.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
-                Tongtien_2.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
-                Coc_2.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
-                Conlai_2.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA")));
-                Tiennhan_2.setText(decimalFormat.format(rs1.getInt("TIENNHAN")));
-                Tienthua_2.setText(decimalFormat.format(rs1.getInt("TIENTHUA")));
-                //System.out.println("'"+rs1.getString("MADAT")+"'");
-            }
-            rs1.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) TableDV2.getModel();
-        int temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
-                + "on HDDV.SOHDDV=CTHD.SOHDDV "
-                + "inner join DICH_VU DV "
-                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='" + SOHDDV + "'");
-        try {
-            while (rs2.next()) {
-                model1.addRow(new Object[]{rs2.getString("TENDV"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
-                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
-            }
-            rs2.close();
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        int index = Tablephongdathanhtoan.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tablephongdathanhtoan.getModel();
+//        String SOHD = model.getValueAt(index, 0).toString();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HOA_DON HD inner join DAT_PHONG DP "
+//                + "on HD.MADAT=DP.MADAT "
+//                + "inner join HD_DICH_VU HDDV "
+//                + "on HD.SOHDDV=HDDV.SOHDDV  where HD.SOHD='" + SOHD + "'");
+//        String SOHDDV = "";
+//        try {
+//            while (rs1.next()) {
+//                SOHDDV = rs1.getString("SOHDDV");
+//                Hoten_2.setText(rs1.getString("HOTEN"));
+//                MDP_2.setText(rs1.getString("CMND"));
+//                SDT_2.setText(rs1.getString("SDT"));
+//                Sophong_2.setText(rs1.getString("SOPHONG"));
+//                CMND_2.setText(rs1.getString("CMND"));
+//                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//                Ngayden_2.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
+//                Ngaydi_2.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
+//                Tongtien_2.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
+//                Coc_2.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
+//                Conlai_2.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("TIENTRA")));
+//                Tiennhan_2.setText(decimalFormat.format(rs1.getInt("TIENNHAN")));
+//                Tienthua_2.setText(decimalFormat.format(rs1.getInt("TIENTHUA")));
+//                //System.out.println("'"+rs1.getString("MADAT")+"'");
+//            }
+//            rs1.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) TableDV2.getModel();
+//        int temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
+//                + "on HDDV.SOHDDV=CTHD.SOHDDV "
+//                + "inner join DICH_VU DV "
+//                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='" + SOHDDV + "'");
+//        try {
+//            while (rs2.next()) {
+//                model1.addRow(new Object[]{rs2.getString("TENDV"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
+//                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
+//            }
+//            rs2.close();
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TablephongdathanhtoanMouseClicked
 
     private void LammoiphonghientaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LammoiphonghientaiActionPerformed
-        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel();
-        temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        Madatphonghientai.setText("");
-        Hoten_1.setText("");
-        MDP_1.setText("");
-        SDT_1.setText("");
-        Sophong_1.setText("");
-        CMND_1.setText("");
-        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-        Ngayden_1.setText("");
-        Ngaydi_1.setText("");
-        Tongtien_1.setText("");
-        Coc_1.setText("");
-        Conlai_1.setText("");
-        Tiennhan_1.setText("");
-        Tienthua_1.setText("");
-        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) Tablephonghientai.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel();
+//        temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        Madatphonghientai.setText("");
+//        Hoten_1.setText("");
+//        MDP_1.setText("");
+//        SDT_1.setText("");
+//        Sophong_1.setText("");
+//        CMND_1.setText("");
+//        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//        Ngayden_1.setText("");
+//        Ngaydi_1.setText("");
+//        Tongtien_1.setText("");
+//        Coc_1.setText("");
+//        Conlai_1.setText("");
+//        Tiennhan_1.setText("");
+//        Tienthua_1.setText("");
+//        // TODO add your handling code here:
     }//GEN-LAST:event_LammoiphonghientaiActionPerformed
 
     private void LammoiphongdathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LammoiphongdathanhtoanActionPerformed
-        DefaultTableModel model = (DefaultTableModel) Tablephongdathanhtoan.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) TableDV2.getModel();
-        temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        Madatphongdathanhtoan.setText("");
-        Hoten_2.setText("");
-        MDP_2.setText("");
-        SDT_2.setText("");
-        Sophong_2.setText("");
-        CMND_2.setText("");
-        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-        Ngayden_2.setText("");
-        Ngaydi_2.setText("");
-        Tongtien_2.setText("");
-        Coc_2.setText("");
-        Conlai_2.setText("");
-        Tiennhan_2.setText("");
-        Tienthua_2.setText("");
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) Tablephongdathanhtoan.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) TableDV2.getModel();
+//        temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        Madatphongdathanhtoan.setText("");
+//        Hoten_2.setText("");
+//        MDP_2.setText("");
+//        SDT_2.setText("");
+//        Sophong_2.setText("");
+//        CMND_2.setText("");
+//        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//        Ngayden_2.setText("");
+//        Ngaydi_2.setText("");
+//        Tongtien_2.setText("");
+//        Coc_2.setText("");
+//        Conlai_2.setText("");
+//        Tiennhan_2.setText("");
+//        Tienthua_2.setText("");
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_LammoiphongdathanhtoanActionPerformed
 
     private void TimkiemtiechientaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimkiemtiechientaiActionPerformed
-        String SOTIEC = Madattiechientai.getText();
-        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        boolean check = false;
-        if (!SOTIEC.equals("")) {
-            try {
-                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DP on DP.SOTIEC=HD.SOTIEC "
-                        + "inner join KHACH_HANG_TIEC KHT on KHT.MAKHTIEC=DP.MAKHTIEC "
-                        + "where DP.SOTIEC='" + SOTIEC + "' and HD.TINHTRANG='chua thanh toan'");
-                while (rs.next()) {
-                    check = true;
-                    model.addRow(new Object[]{rs.getString("SOHDTIEC"), rs.getString("HOTEN"), rs.getString("MASANH"), rs.getString("CMND"),
-                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("COC")),
-                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("COC"))});
-                }
-                rs.close();
-                if (check == false) {
-                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
-        }
-        // TODO add your handling code here:
+//        String SOTIEC = Madattiechientai.getText();
+//        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        boolean check = false;
+//        if (!SOTIEC.equals("")) {
+//            try {
+//                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DP on DP.SOTIEC=HD.SOTIEC "
+//                        + "inner join KHACH_HANG_TIEC KHT on KHT.MAKHTIEC=DP.MAKHTIEC "
+//                        + "where DP.SOTIEC='" + SOTIEC + "' and HD.TINHTRANG='chua thanh toan'");
+//                while (rs.next()) {
+//                    check = true;
+//                    model.addRow(new Object[]{rs.getString("SOHDTIEC"), rs.getString("HOTEN"), rs.getString("MASANH"), rs.getString("CMND"),
+//                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("COC")),
+//                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("COC"))});
+//                }
+//                rs.close();
+//                if (check == false) {
+//                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
+//        }
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TimkiemtiechientaiActionPerformed
 
     private void TabletiechientaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabletiechientaiMouseClicked
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        int index = Tabletiechientai.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
-        String SOHDTIEC = model.getValueAt(index, 0).toString();
-        System.out.println(SOHDTIEC);
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DT "
-                + "on HD.SOTIEC=DT.SOTIEC "
-                + "inner join KHACH_HANG_TIEC KHT "
-                + "on DT.MAKHTIEC=KHT.MAKHTIEC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
-        //String SOHDDV="";
-        try {
-            while (rs1.next()) {
-                //SOHDDV=rs1.getString("SOHDDV");
-                Hoten_3.setText(rs1.getString("HOTEN"));
-                MDT_3.setText(rs1.getString("SOTIEC"));
-                SDT_3.setText(rs1.getString("SDT"));
-                Masanh_3.setText(rs1.getString("MASANH"));
-                CMND_3.setText(rs1.getString("CMND"));
-                MaTD_3.setText(rs1.getString("MATD"));
-                Soban_3.setText(rs1.getString("SOBAN"));
-                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-                //Ngayden_1.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
-                //Ngaydi_1.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
-                Tongtien_3.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
-                Coc_3.setText(decimalFormat.format(rs1.getInt("COC")));
-                Conlai_3.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("COC")));
-                //System.out.println("'"+rs1.getString("MADAT")+"'");
-            }
-            rs1.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
-        int temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
-                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
-                + "inner join NUOC_UONG NC "
-                + "on NC.MANUOC=CTN.MANUOC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
-        try {
-            while (rs2.next()) {
-                model1.addRow(new Object[]{rs2.getString("MANUOC"), rs2.getString("TEN"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
-                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
-            }
-            rs2.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        /*DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel(); 
-        int temp=model1.getRowCount();
-        for (int j = temp-1;j>=0;j--){
-            model1.removeRow(j);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
-                + "on HDDV.SOHDDV=CTHD.SOHDDV "
-                + "inner join DICH_VU DV "
-                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='"+SOHDDV+"'");
-        try {
-            while(rs2.next()){
-                model1.addRow(new Object[]{rs2.getString("TENDV"),decimalFormat.format(rs2.getInt("GIA")),rs2.getInt("SOLUONG"),
-                                                        decimalFormat.format(rs2.getInt("GIA")*rs2.getInt("SOLUONG"))});
-            }
-            rs2.close();
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        // TODO add your handling code here:
-        /*DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel(); 
-        int temp=model1.getRowCount();
-        for (int j = temp-1;j>=0;j--){
-            model1.removeRow(j);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
-                + "on HDDV.SOHDDV=CTHD.SOHDDV "
-                + "inner join DICH_VU DV "
-                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='"+SOHDDV+"'");
-        try {
-            while(rs2.next()){
-                model1.addRow(new Object[]{rs2.getString("TENDV"),decimalFormat.format(rs2.getInt("GIA")),rs2.getInt("SOLUONG"),
-                                                        decimalFormat.format(rs2.getInt("GIA")*rs2.getInt("SOLUONG"))});
-            }
-            rs2.close();
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        int index = Tabletiechientai.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
+//        String SOHDTIEC = model.getValueAt(index, 0).toString();
+//        System.out.println(SOHDTIEC);
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DT "
+//                + "on HD.SOTIEC=DT.SOTIEC "
+//                + "inner join KHACH_HANG_TIEC KHT "
+//                + "on DT.MAKHTIEC=KHT.MAKHTIEC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//        //String SOHDDV="";
+//        try {
+//            while (rs1.next()) {
+//                //SOHDDV=rs1.getString("SOHDDV");
+//                Hoten_3.setText(rs1.getString("HOTEN"));
+//                MDT_3.setText(rs1.getString("SOTIEC"));
+//                SDT_3.setText(rs1.getString("SDT"));
+//                Masanh_3.setText(rs1.getString("MASANH"));
+//                CMND_3.setText(rs1.getString("CMND"));
+//                MaTD_3.setText(rs1.getString("MATD"));
+//                Soban_3.setText(rs1.getString("SOBAN"));
+//                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//                //Ngayden_1.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
+//                //Ngaydi_1.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
+//                Tongtien_3.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
+//                Coc_3.setText(decimalFormat.format(rs1.getInt("COC")));
+//                Conlai_3.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("COC")));
+//                //System.out.println("'"+rs1.getString("MADAT")+"'");
+//            }
+//            rs1.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
+//        int temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
+//                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
+//                + "inner join NUOC_UONG NC "
+//                + "on NC.MANUOC=CTN.MANUOC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//        try {
+//            while (rs2.next()) {
+//                model1.addRow(new Object[]{rs2.getString("MANUOC"), rs2.getString("TEN"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
+//                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
+//            }
+//            rs2.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        /*DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel(); 
+//        int temp=model1.getRowCount();
+//        for (int j = temp-1;j>=0;j--){
+//            model1.removeRow(j);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
+//                + "on HDDV.SOHDDV=CTHD.SOHDDV "
+//                + "inner join DICH_VU DV "
+//                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='"+SOHDDV+"'");
+//        try {
+//            while(rs2.next()){
+//                model1.addRow(new Object[]{rs2.getString("TENDV"),decimalFormat.format(rs2.getInt("GIA")),rs2.getInt("SOLUONG"),
+//                                                        decimalFormat.format(rs2.getInt("GIA")*rs2.getInt("SOLUONG"))});
+//            }
+//            rs2.close();
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }*/
+//        // TODO add your handling code here:
+//        /*DefaultTableModel model1 = (DefaultTableModel) TableDV.getModel(); 
+//        int temp=model1.getRowCount();
+//        for (int j = temp-1;j>=0;j--){
+//            model1.removeRow(j);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_DICH_VU HDDV inner join CTHD_DICH_VU CTHD "
+//                + "on HDDV.SOHDDV=CTHD.SOHDDV "
+//                + "inner join DICH_VU DV "
+//                + "on CTHD.MADV=DV.MADV  where HDDV.SOHDDV='"+SOHDDV+"'");
+//        try {
+//            while(rs2.next()){
+//                model1.addRow(new Object[]{rs2.getString("TENDV"),decimalFormat.format(rs2.getInt("GIA")),rs2.getInt("SOLUONG"),
+//                                                        decimalFormat.format(rs2.getInt("GIA")*rs2.getInt("SOLUONG"))});
+//            }
+//            rs2.close();
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }*/
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TabletiechientaiMouseClicked
 
     private void ThemnuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemnuocActionPerformed
-        int index = Tabletiechientai.getSelectedRow();
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
-        String SOHDTIEC = model.getValueAt(index, 0).toString();
-        String MANUOC = ComboBoxnuoc.getSelectedItem().toString();
-        String SL = Soluong_3.getText();
-        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
-        int temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        boolean check = false;
-        ResultSet rs = conn.ExcuteQueryGetTable("Select * from CT_NUOC_UONG where MANUOC='" + MANUOC + "' and SOHDTIEC='" + SOHDTIEC + "'");
-        try {
-            while (rs.next()) {
-                check = true;
-                conn.ExcuteQueryUpdateDB("Update CT_NUOC_UONG CTN set  "
-                        + "CTN.SOLUONG=CTN.SOLUONG+" + SL + " where CTN.MANUOC='" + MANUOC + "' and CTN.SOHDTIEC='" + SOHDTIEC + "'");
-            }
-            rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (check == false) {
-            conn.ExcuteQueryUpdateDB("Insert into CT_NUOC_UONG values('" + MANUOC + "','" + SOHDTIEC + "'," + SL + ")");
-        }
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
-                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
-                + "inner join NUOC_UONG NC "
-                + "on NC.MANUOC=CTN.MANUOC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
-        try {
-            while (rs1.next()) {
-                conn.ExcuteQueryUpdateDB("Update HD_TIEC HD set "
-                        + "HD.TONGTIEN=HD.TONGTIEN+" + SL + "*" + rs1.getString("GIA") + ",HD.TIENNUOC=HD.TIENNUOC+" + SL + "*" + rs1.getString("GIA"));
-                model1.addRow(new Object[]{rs1.getString("MANUOC"), rs1.getString("TEN"), decimalFormat.format(rs1.getInt("GIA")), rs1.getInt("SOLUONG"),
-                    decimalFormat.format(rs1.getInt("GIA") * rs1.getInt("SOLUONG"))});
-            }
-            rs1.close();
-            ResultSet rs2 = conn.ExcuteQueryGetTable("Select * from HD_TIEC HD inner join DAT_TIEC DT on DT.SOTIEC=HD.SOTIEC where HD.SOHDTIEC='" + SOHDTIEC + "'");
-            while (rs2.next()) {
-                Tongtien_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN")));
-                Conlai_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN") - rs2.getInt("COC")));
-            }
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        int index = Tabletiechientai.getSelectedRow();
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
+//        String SOHDTIEC = model.getValueAt(index, 0).toString();
+//        String MANUOC = ComboBoxnuoc.getSelectedItem().toString();
+//        String SL = Soluong_3.getText();
+//        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
+//        int temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        boolean check = false;
+//        ResultSet rs = conn.ExcuteQueryGetTable("Select * from CT_NUOC_UONG where MANUOC='" + MANUOC + "' and SOHDTIEC='" + SOHDTIEC + "'");
+//        try {
+//            while (rs.next()) {
+//                check = true;
+//                conn.ExcuteQueryUpdateDB("Update CT_NUOC_UONG CTN set  "
+//                        + "CTN.SOLUONG=CTN.SOLUONG+" + SL + " where CTN.MANUOC='" + MANUOC + "' and CTN.SOHDTIEC='" + SOHDTIEC + "'");
+//            }
+//            rs.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        if (check == false) {
+//            conn.ExcuteQueryUpdateDB("Insert into CT_NUOC_UONG values('" + MANUOC + "','" + SOHDTIEC + "'," + SL + ")");
+//        }
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
+//                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
+//                + "inner join NUOC_UONG NC "
+//                + "on NC.MANUOC=CTN.MANUOC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//        try {
+//            while (rs1.next()) {
+//                conn.ExcuteQueryUpdateDB("Update HD_TIEC HD set "
+//                        + "HD.TONGTIEN=HD.TONGTIEN+" + SL + "*" + rs1.getString("GIA") + ",HD.TIENNUOC=HD.TIENNUOC+" + SL + "*" + rs1.getString("GIA"));
+//                model1.addRow(new Object[]{rs1.getString("MANUOC"), rs1.getString("TEN"), decimalFormat.format(rs1.getInt("GIA")), rs1.getInt("SOLUONG"),
+//                    decimalFormat.format(rs1.getInt("GIA") * rs1.getInt("SOLUONG"))});
+//            }
+//            rs1.close();
+//            ResultSet rs2 = conn.ExcuteQueryGetTable("Select * from HD_TIEC HD inner join DAT_TIEC DT on DT.SOTIEC=HD.SOTIEC where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//            while (rs2.next()) {
+//                Tongtien_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN")));
+//                Conlai_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN") - rs2.getInt("COC")));
+//            }
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_ThemnuocActionPerformed
 
     private void XoanuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoanuocActionPerformed
-        int index = Tabletiechientai.getSelectedRow();
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
-        String SOHDTIEC = model.getValueAt(index, 0).toString();
-        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
-        index = Tablenuoc_3.getSelectedRow();
-        String MANUOC = model1.getValueAt(index, 0).toString();
-        String SL = model1.getValueAt(index, 3).toString();
-        model1.removeRow(index);
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
-                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
-                + "inner join NUOC_UONG NC "
-                + "on NC.MANUOC=CTN.MANUOC  where CTN.SOHDTIEC='" + SOHDTIEC + "' and CTN.MANUOC='" + MANUOC + "'");
-        try {
-            while (rs1.next()) {
-                conn.ExcuteQueryUpdateDB("Update HD_TIEC HD set "
-                        + "HD.TONGTIEN=HD.TONGTIEN-" + SL + "*" + rs1.getString("GIA") + ",HD.TIENNUOC=HD.TIENNUOC-" + SL + "*" + rs1.getString("GIA"));
-            }
-            conn.ExcuteQueryUpdateDB("Delete from CT_NUOC_UONG CTN where CTN.SOHDTIEC='" + SOHDTIEC + "' and CTN.MANUOC='" + MANUOC + "'");
-            rs1.close();
-            ResultSet rs2 = conn.ExcuteQueryGetTable("Select * from HD_TIEC HD inner join DAT_TIEC DT on DT.SOTIEC=HD.SOTIEC "
-                    + "where HD.SOHDTIEC='" + SOHDTIEC + "'");
-            while (rs2.next()) {
-                Tongtien_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN")));
-                Conlai_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN") - rs2.getInt("COC")));
-            }
-            // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        int index = Tabletiechientai.getSelectedRow();
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
+//        String SOHDTIEC = model.getValueAt(index, 0).toString();
+//        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
+//        index = Tablenuoc_3.getSelectedRow();
+//        String MANUOC = model1.getValueAt(index, 0).toString();
+//        String SL = model1.getValueAt(index, 3).toString();
+//        model1.removeRow(index);
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
+//                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
+//                + "inner join NUOC_UONG NC "
+//                + "on NC.MANUOC=CTN.MANUOC  where CTN.SOHDTIEC='" + SOHDTIEC + "' and CTN.MANUOC='" + MANUOC + "'");
+//        try {
+//            while (rs1.next()) {
+//                conn.ExcuteQueryUpdateDB("Update HD_TIEC HD set "
+//                        + "HD.TONGTIEN=HD.TONGTIEN-" + SL + "*" + rs1.getString("GIA") + ",HD.TIENNUOC=HD.TIENNUOC-" + SL + "*" + rs1.getString("GIA"));
+//            }
+//            conn.ExcuteQueryUpdateDB("Delete from CT_NUOC_UONG CTN where CTN.SOHDTIEC='" + SOHDTIEC + "' and CTN.MANUOC='" + MANUOC + "'");
+//            rs1.close();
+//            ResultSet rs2 = conn.ExcuteQueryGetTable("Select * from HD_TIEC HD inner join DAT_TIEC DT on DT.SOTIEC=HD.SOTIEC "
+//                    + "where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//            while (rs2.next()) {
+//                Tongtien_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN")));
+//                Conlai_3.setText(decimalFormat.format(rs2.getInt("TONGTIEN") - rs2.getInt("COC")));
+//            }
+//            // TODO add your handling code here:
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_XoanuocActionPerformed
 
     private void TimkiemtiecdathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimkiemtiecdathanhtoanActionPerformed
-        String SOTIEC = Madattiecdathanhtoan.getText();
-        DefaultTableModel model = (DefaultTableModel) Tabletiecdathanhtoan.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        boolean check = false;
-        if (!SOTIEC.equals("")) {
-            try {
-                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DP on DP.SOTIEC=HD.SOTIEC "
-                        + "inner join KHACH_HANG_TIEC KHT on KHT.MAKHTIEC=DP.MAKHTIEC "
-                        + "where DP.SOTIEC='" + SOTIEC + "' and HD.TINHTRANG='da thanh toan'");
-                while (rs.next()) {
-                    check = true;
-                    model.addRow(new Object[]{rs.getString("SOHDTIEC"), rs.getString("HOTEN"), rs.getString("MASANH"), rs.getString("CMND"),
-                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("COC")),
-                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("COC"))});
-                }
-                rs.close();
-                if (check == false) {
-                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
-        }
-        // TODO add your handling code here:
+//        String SOTIEC = Madattiecdathanhtoan.getText();
+//        DefaultTableModel model = (DefaultTableModel) Tabletiecdathanhtoan.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        boolean check = false;
+//        if (!SOTIEC.equals("")) {
+//            try {
+//                ResultSet rs = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DP on DP.SOTIEC=HD.SOTIEC "
+//                        + "inner join KHACH_HANG_TIEC KHT on KHT.MAKHTIEC=DP.MAKHTIEC "
+//                        + "where DP.SOTIEC='" + SOTIEC + "' and HD.TINHTRANG='da thanh toan'");
+//                while (rs.next()) {
+//                    check = true;
+//                    model.addRow(new Object[]{rs.getString("SOHDTIEC"), rs.getString("HOTEN"), rs.getString("MASANH"), rs.getString("CMND"),
+//                        decimalFormat.format(rs.getInt("TONGTIEN")), decimalFormat.format(rs.getInt("COC")),
+//                        decimalFormat.format(rs.getInt("TONGTIEN") - rs.getInt("COC"))});
+//                }
+//                rs.close();
+//                if (check == false) {
+//                    JOptionPane.showMessageDialog(rootPane, "Không tìm thấy !");
+//                }
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(rootPane, "Chưa nhập thông tin!");
+//        }
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TimkiemtiecdathanhtoanActionPerformed
 
     private void TabletiecdathanhtoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabletiecdathanhtoanMouseClicked
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
-        decimalFormat.applyPattern("###,###,###");
-        int index = Tabletiecdathanhtoan.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) Tabletiecdathanhtoan.getModel();
-        String SOHDTIEC = model.getValueAt(index, 0).toString();
-        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DT "
-                + "on HD.SOTIEC=DT.SOTIEC "
-                + "inner join KHACH_HANG_TIEC KHT "
-                + "on DT.MAKHTIEC=KHT.MAKHTIEC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
-        //String SOHDDV="";
-        try {
-            while (rs1.next()) {
-                //SOHDDV=rs1.getString("SOHDDV");
-                Hoten_4.setText(rs1.getString("HOTEN"));
-                MDT_4.setText(rs1.getString("SOTIEC"));
-                SDT_4.setText(rs1.getString("SDT"));
-                Masanh_4.setText(rs1.getString("MASANH"));
-                CMND_4.setText(rs1.getString("CMND"));
-                MaTD_4.setText(rs1.getString("MATD"));
-                Soban_4.setText(rs1.getString("SOBAN"));
-                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-                //Ngayden_1.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
-                //Ngaydi_1.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
-                Tongtien_4.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
-                Coc_4.setText(decimalFormat.format(rs1.getInt("COC")));
-                Conlai_4.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("COC")));
-                Tiennhan_4.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
-                Tienthua_4.setText(decimalFormat.format(rs1.getInt("TIENTHUA")));
-                //System.out.println("'"+rs1.getString("MADAT")+"'");
-            }
-            rs1.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_4.getModel();
-        int temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
-                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
-                + "inner join NUOC_UONG NC "
-                + "on NC.MANUOC=CTN.MANUOC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
-        try {
-            while (rs2.next()) {
-                model1.addRow(new Object[]{rs2.getString("MANUOC"), rs2.getString("TEN"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
-                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
-            }
-            rs2.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+//        DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(new Locale("<em>vi</em>", "VN"));
+//        decimalFormat.applyPattern("###,###,###");
+//        int index = Tabletiecdathanhtoan.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel) Tabletiecdathanhtoan.getModel();
+//        String SOHDTIEC = model.getValueAt(index, 0).toString();
+//        ResultSet rs1 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join DAT_TIEC DT "
+//                + "on HD.SOTIEC=DT.SOTIEC "
+//                + "inner join KHACH_HANG_TIEC KHT "
+//                + "on DT.MAKHTIEC=KHT.MAKHTIEC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//        //String SOHDDV="";
+//        try {
+//            while (rs1.next()) {
+//                //SOHDDV=rs1.getString("SOHDDV");
+//                Hoten_4.setText(rs1.getString("HOTEN"));
+//                MDT_4.setText(rs1.getString("SOTIEC"));
+//                SDT_4.setText(rs1.getString("SDT"));
+//                Masanh_4.setText(rs1.getString("MASANH"));
+//                CMND_4.setText(rs1.getString("CMND"));
+//                MaTD_4.setText(rs1.getString("MATD"));
+//                Soban_4.setText(rs1.getString("SOBAN"));
+//                //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//                //Ngayden_1.setText(dateFormat.format(rs1.getDate("NGAYTHUE")));
+//                //Ngaydi_1.setText(dateFormat.format(rs1.getDate("NGAYTRA")));
+//                Tongtien_4.setText(decimalFormat.format(rs1.getInt("TONGTIEN")));
+//                Coc_4.setText(decimalFormat.format(rs1.getInt("COC")));
+//                Conlai_4.setText(decimalFormat.format(rs1.getInt("TONGTIEN") - rs1.getInt("COC")));
+//                Tiennhan_4.setText(decimalFormat.format(rs1.getInt("TIENTRA")));
+//                Tienthua_4.setText(decimalFormat.format(rs1.getInt("TIENTHUA")));
+//                //System.out.println("'"+rs1.getString("MADAT")+"'");
+//            }
+//            rs1.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_4.getModel();
+//        int temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        ResultSet rs2 = conn.ExcuteQueryGetTable("SELECT * FROM HD_TIEC HD inner join CT_NUOC_UONG CTN "
+//                + "on CTN.SOHDTIEC=HD.SOHDTIEC "
+//                + "inner join NUOC_UONG NC "
+//                + "on NC.MANUOC=CTN.MANUOC  where HD.SOHDTIEC='" + SOHDTIEC + "'");
+//        try {
+//            while (rs2.next()) {
+//                model1.addRow(new Object[]{rs2.getString("MANUOC"), rs2.getString("TEN"), decimalFormat.format(rs2.getInt("GIA")), rs2.getInt("SOLUONG"),
+//                    decimalFormat.format(rs2.getInt("GIA") * rs2.getInt("SOLUONG"))});
+//            }
+//            rs2.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        // TODO add your handling code here:
+//        // TODO add your handling code here:
     }//GEN-LAST:event_TabletiecdathanhtoanMouseClicked
 
     private void LammoitiechientaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LammoitiechientaiActionPerformed
-        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
-        temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        Madattiechientai.setText("");
-        Hoten_3.setText("");
-        MDT_3.setText("");
-        SDT_3.setText("");
-        Masanh_3.setText("");
-        CMND_3.setText("");
-        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-        //Ngayden_1.setText("");
-        //Ngaydi_1.setText("");
-        MaTD_3.setText("");
-        Soban_3.setText("");
-        Soluong_3.setText("");
-        Tongtien_3.setText("");
-        Coc_3.setText("");
-        Conlai_3.setText("");
-        Tiennhan_3.setText("");
-        Tienthua_3.setText("");
-        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) Tabletiechientai.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_3.getModel();
+//        temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        Madattiechientai.setText("");
+//        Hoten_3.setText("");
+//        MDT_3.setText("");
+//        SDT_3.setText("");
+//        Masanh_3.setText("");
+//        CMND_3.setText("");
+//        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//        //Ngayden_1.setText("");
+//        //Ngaydi_1.setText("");
+//        MaTD_3.setText("");
+//        Soban_3.setText("");
+//        Soluong_3.setText("");
+//        Tongtien_3.setText("");
+//        Coc_3.setText("");
+//        Conlai_3.setText("");
+//        Tiennhan_3.setText("");
+//        Tienthua_3.setText("");
+//        // TODO add your handling code here:
     }//GEN-LAST:event_LammoitiechientaiActionPerformed
 
     private void LammoitiecdathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LammoitiecdathanhtoanActionPerformed
-        DefaultTableModel model = (DefaultTableModel) Tabletiecdathanhtoan.getModel();
-        int temp = model.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model.removeRow(j);
-        }
-        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_4.getModel();
-        temp = model1.getRowCount();
-        for (int j = temp - 1; j >= 0; j--) {
-            model1.removeRow(j);
-        }
-        Madattiecdathanhtoan.setText("");
-        Hoten_4.setText("");
-        MDT_4.setText("");
-        SDT_4.setText("");
-        Masanh_4.setText("");
-        CMND_4.setText("");
-        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
-        //Ngayden_1.setText("");
-        //Ngaydi_1.setText("");
-        MaTD_4.setText("");
-        Soban_4.setText("");
-        //Soluong_3.setText("");
-        Tongtien_4.setText("");
-        Coc_4.setText("");
-        Conlai_4.setText("");
-        Tiennhan_4.setText("");
-        Tienthua_4.setText("");
-        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) Tabletiecdathanhtoan.getModel();
+//        int temp = model.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model.removeRow(j);
+//        }
+//        DefaultTableModel model1 = (DefaultTableModel) Tablenuoc_4.getModel();
+//        temp = model1.getRowCount();
+//        for (int j = temp - 1; j >= 0; j--) {
+//            model1.removeRow(j);
+//        }
+//        Madattiecdathanhtoan.setText("");
+//        Hoten_4.setText("");
+//        MDT_4.setText("");
+//        SDT_4.setText("");
+//        Masanh_4.setText("");
+//        CMND_4.setText("");
+//        //Ngaysinh1.setDate(rs1.getDate("NGAYSINH"));
+//        //Ngayden_1.setText("");
+//        //Ngaydi_1.setText("");
+//        MaTD_4.setText("");
+//        Soban_4.setText("");
+//        //Soluong_3.setText("");
+//        Tongtien_4.setText("");
+//        Coc_4.setText("");
+//        Conlai_4.setText("");
+//        Tiennhan_4.setText("");
+//        Tienthua_4.setText("");
+//        // TODO add your handling code here:
     }//GEN-LAST:event_LammoitiecdathanhtoanActionPerformed
 
     /**
