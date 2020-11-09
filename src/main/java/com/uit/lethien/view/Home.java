@@ -55,36 +55,36 @@ public final class Home extends javax.swing.JFrame {
      */
     public abstract class JphongAction implements ActionListener {
 
-        @Override
-        public void actionPerformed(ActionEvent evt) {
-            JButton button = (JButton) evt.getSource();
-            String MAPHONG = button.getText();
-            String MADAT = "";
-            for (int i = 0; i < 50; i++) {
-                if (Tenphong[i].equals(MAPHONG)) {
-                    MADAT = Madatphong[i];
-                    System.out.println(MADAT + " " + MAPHONG);
-                }
-            }
-            new Booking(Home.this, MAPHONG, MADAT, MANV).setVisible(true);
-        }
+//        @Override
+//        public void actionPerformed(ActionEvent evt) {
+//            JButton button = (JButton) evt.getSource();
+//            String MAPHONG = button.getText();
+//            String MADAT = "";
+//            for (int i = 0; i < 50; i++) {
+//                if (Tenphong[i].equals(MAPHONG)) {
+//                    MADAT = Madatphong[i];
+//                    System.out.println(MADAT + " " + MAPHONG);
+//                }
+//            }
+//            new Booking(Home.this, MAPHONG, MADAT, MANV).setVisible(true);
+//        }
     }
 
     public abstract class JsanhAction implements ActionListener {
 
-        @Override
-        public void actionPerformed(ActionEvent evt) {
-            JButton button = (JButton) evt.getSource();
-            String MASANH = button.getText();
-            String MADAT = "";
-            for (int i = 0; i < 6; i++) {
-                if (Maloaisanh[i].equals(MASANH)) {
-                    MADAT = Madattiec[i];
-                }
-            }
-            new Order(Home.this, MASANH, MADAT, MANV).setVisible(true);
-            // System.out.println("window closed");
-        }
+//        @Override
+//        public void actionPerformed(ActionEvent evt) {
+//            JButton button = (JButton) evt.getSource();
+//            String MASANH = button.getText();
+//            String MADAT = "";
+//            for (int i = 0; i < 6; i++) {
+//                if (Maloaisanh[i].equals(MASANH)) {
+//                    MADAT = Madattiec[i];
+//                }
+//            }
+//            new Order(Home.this, MASANH, MADAT, MANV).setVisible(true);
+//            // System.out.println("window closed");
+//        }
     }
     public Order od;
     public String HOTEN_NV;
@@ -106,10 +106,10 @@ public final class Home extends javax.swing.JFrame {
     public int Sosanhthue;
     public int Sosanhcoc;
     public int Sosanhtrong;
-    public JphongAction ActionPhong = new JphongAction() {
-    };
-    public JsanhAction ActionSanh = new JsanhAction() {
-    };
+//    public JphongAction ActionPhong = new JphongAction() {
+//    };
+//    public JsanhAction ActionSanh = new JsanhAction() {
+//    };
 
     private RoleService roleService = null;
 //    public void reset(Component[] component){
@@ -353,7 +353,7 @@ public final class Home extends javax.swing.JFrame {
 //        }
     }
 
-    public void SetTinhTrangPhongDefault(){
+    public void SetTinhTrangPhongDefault() {
 //        //Sophongthue=0;
 //        //Sophongcoc=0;
 //        //Sophongtrong=0;
@@ -455,7 +455,8 @@ public final class Home extends javax.swing.JFrame {
 //        }
 //        SetSoPhong();
     }
-    public void SetMauPhong(String TTP,String L){
+
+    public void SetMauPhong(String TTP, String L) {
 //            for(int i=0; i<50;i++){
 //                String SOPHONG = Tenphong[i];
 //                String TINHTRANG = Tinhtrangphong[i];
@@ -644,7 +645,8 @@ public final class Home extends javax.swing.JFrame {
 //                }
 //            }
     }
-    public void SetTinhTrangPhongDateToDate(String DateIn, String DateOut){
+
+    public void SetTinhTrangPhongDateToDate(String DateIn, String DateOut) {
 //        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 //        DateIn = DateIn+" 14:00";
 //        DateOut = DateOut+" 12:00";
@@ -717,7 +719,8 @@ public final class Home extends javax.swing.JFrame {
 //        }
     }
 //    
-   public void SetSoSanh(){
+
+    public void SetSoSanh() {
 //        Sosanhthue=0;
 //        Sosanhcoc=0;
 //        Sosanhtrong=0;
@@ -741,7 +744,8 @@ public final class Home extends javax.swing.JFrame {
 //    }
     }
 //    
-    public void SetSoPhong(){
+
+    public void SetSoPhong() {
 //        Sophongthue=0;
 //        Sophongcoc=0;
 //        Sophongtrong=0;
@@ -767,7 +771,8 @@ public final class Home extends javax.swing.JFrame {
 //    }
     }
 //    
-   public void SetTinhTrangSanhDefault(){
+
+    public void SetTinhTrangSanhDefault() {
 //        //=0;
 //        //Sosanhcoc=0;
 //        //Sosanhtrong=0;
@@ -872,7 +877,8 @@ public final class Home extends javax.swing.JFrame {
 //        SetSoSanh();
     }
 //    
-   public void SetMauSanh(String TTS){
+
+    public void SetMauSanh(String TTS) {
 //        for(int i=0; i<6;i++){
 //                String TENSANH = Maloaisanh[i];
 //                String TINHTRANG = Tinhtrangsanh[i];
@@ -965,9 +971,10 @@ public final class Home extends javax.swing.JFrame {
 //
 //                    }
 //        }
-   }
+    }
 //    
-   public void SetTinhTrangSanhDate(String DateIn2){
+
+    public void SetTinhTrangSanhDate(String DateIn2) {
 //        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 //        //DateIn = DateIn;
 //        //DateOut = DateOut;
@@ -1044,7 +1051,8 @@ public final class Home extends javax.swing.JFrame {
 //        } catch (SQLException ex) {
 //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-   }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1450,6 +1458,23 @@ public final class Home extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableRole = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextNewRoleName = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextNewRoleDesc = new javax.swing.JTextField();
+        jButtonAddRole = new javax.swing.JButton();
+        jButtonCancelAddRole = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextRoleName = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jTextRoleDesc = new javax.swing.JTextField();
+        jButtonUpdateRole = new javax.swing.JButton();
+        jButtonCancelUpdateRole = new javax.swing.JButton();
+        jButtonDeleteRole = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jTextRoleId = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -1844,7 +1869,7 @@ public final class Home extends javax.swing.JFrame {
                 .addComponent(Themdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Deletedichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
             .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -1882,7 +1907,7 @@ public final class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Madatlapdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
-                .addComponent(Tracuulapdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Tracuulapdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1890,13 +1915,12 @@ public final class Home extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Tracuulapdichvu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Madatlapdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Madatlapdichvu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Tracuulapdichvu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -4766,6 +4790,11 @@ public final class Home extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableRole.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableRoleMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTableRole);
         if (jTableRole.getColumnModel().getColumnCount() > 0) {
             jTableRole.getColumnModel().getColumn(0).setMinWidth(15);
@@ -4790,20 +4819,174 @@ public final class Home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel7.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thêm mới", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel6.setText("Tên quyền:");
+
+        jLabel7.setText("Chú thích:");
+
+        jButtonAddRole.setText("OK");
+        jButtonAddRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddRoleActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelAddRole.setText("Cancel");
+        jButtonCancelAddRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelAddRoleActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextNewRoleName)
+                            .addComponent(jTextNewRoleDesc)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jButtonAddRole, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelAddRole, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextNewRoleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextNewRoleDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddRole)
+                    .addComponent(jButtonCancelAddRole))
+                .addContainerGap())
+        );
+
+        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cập nhật", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel17.setText("Tên quyền:");
+
+        jLabel18.setText("Chú thích:");
+
+        jButtonUpdateRole.setText("OK");
+        jButtonUpdateRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateRoleActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelUpdateRole.setText("Cancel");
+        jButtonCancelUpdateRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelUpdateRoleActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteRole.setText("Xoá");
+        jButtonDeleteRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteRoleActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Id:");
+
+        jTextRoleId.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButtonUpdateRole, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelUpdateRole, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButtonDeleteRole, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextRoleDesc))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel20))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextRoleName)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jTextRoleId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jTextRoleId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jTextRoleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jTextRoleDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonUpdateRole)
+                    .addComponent(jButtonCancelUpdateRole)
+                    .addComponent(jButtonDeleteRole))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPaneRoleLayout = new javax.swing.GroupLayout(jPaneRole);
         jPaneRole.setLayout(jPaneRoleLayout);
         jPaneRoleLayout.setHorizontalGroup(
             jPaneRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaneRoleLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(jPaneRoleLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPaneRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addGap(49, 49, 49))
         );
         jPaneRoleLayout.setVerticalGroup(
             jPaneRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPaneRoleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPaneRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPaneRoleLayout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -6651,6 +6834,76 @@ public final class Home extends javax.swing.JFrame {
 //        // TODO add your handling code here:
     }//GEN-LAST:event_LammoitiecdathanhtoanActionPerformed
 
+    private void jTableRoleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRoleMouseClicked
+        int index = jTableRole.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableRole.getModel();
+        int id = (int) model.getValueAt(index, 0);
+
+        RoleDto dto = roleService.getById(id);
+        jTextRoleId.setText(Integer.toString(dto.getId()));
+        jTextRoleName.setText(dto.getName());
+        jTextRoleDesc.setText(dto.getDescription());
+    }//GEN-LAST:event_jTableRoleMouseClicked
+
+    private void jButtonAddRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddRoleActionPerformed
+
+        String name = jTextNewRoleName.getText();
+        String desc = jTextNewRoleDesc.getText();
+        if ((!name.equals("")) && (!desc.equals(""))) {
+            RoleDto dto = new RoleDto();
+
+            dto.setName(name);
+            dto.setDescription(desc);
+
+            roleService.add(dto);
+            
+            jTextNewRoleName.setText("");
+            jTextNewRoleDesc.setText("");
+            setJTableRole();
+        }
+    }//GEN-LAST:event_jButtonAddRoleActionPerformed
+
+    private void jButtonCancelAddRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelAddRoleActionPerformed
+
+        jTextNewRoleName.setText("");
+        jTextNewRoleDesc.setText("");
+    }//GEN-LAST:event_jButtonCancelAddRoleActionPerformed
+
+    private void jButtonUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateRoleActionPerformed
+
+        int id = Integer.parseInt(jTextRoleId.getText());
+        String name = jTextRoleName.getText();
+        String desc = jTextRoleDesc.getText();
+
+        RoleDto dto = new RoleDto();
+        dto.setId(id);
+        dto.setName(name);
+        dto.setDescription(desc);
+
+        roleService.edit(dto);
+        jTextRoleId.setText("");
+        jTextRoleName.setText("");
+        jTextRoleDesc.setText("");
+        setJTableRole();
+    }//GEN-LAST:event_jButtonUpdateRoleActionPerformed
+
+    private void jButtonDeleteRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteRoleActionPerformed
+
+        int id = Integer.parseInt(jTextRoleId.getText());
+        roleService.removeById(id);
+        jTextRoleId.setText("");
+        jTextRoleName.setText("");
+        jTextRoleDesc.setText("");
+        setJTableRole();
+    }//GEN-LAST:event_jButtonDeleteRoleActionPerformed
+
+    private void jButtonCancelUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateRoleActionPerformed
+
+        jTextRoleId.setText("");
+        jTextRoleName.setText("");
+        jTextRoleDesc.setText("");
+    }//GEN-LAST:event_jButtonCancelUpdateRoleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -6916,6 +7169,11 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton68;
     private javax.swing.JButton jButton86;
     private javax.swing.JButton jButton90;
+    private javax.swing.JButton jButtonAddRole;
+    private javax.swing.JButton jButtonCancelAddRole;
+    private javax.swing.JButton jButtonCancelUpdateRole;
+    private javax.swing.JButton jButtonDeleteRole;
+    private javax.swing.JButton jButtonUpdateRole;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel102;
@@ -6963,8 +7221,11 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel140;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel34;
@@ -6992,10 +7253,12 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
@@ -7060,6 +7323,8 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel60;
     private javax.swing.JPanel jPanel61;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -7091,5 +7356,10 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane8;
     private javax.swing.JTabbedPane jTabbedPane9;
     private javax.swing.JTable jTableRole;
+    private javax.swing.JTextField jTextNewRoleDesc;
+    private javax.swing.JTextField jTextNewRoleName;
+    private javax.swing.JTextField jTextRoleDesc;
+    private javax.swing.JTextField jTextRoleId;
+    private javax.swing.JTextField jTextRoleName;
     // End of variables declaration//GEN-END:variables
 }
