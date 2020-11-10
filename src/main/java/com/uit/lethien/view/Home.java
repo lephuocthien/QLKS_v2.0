@@ -5003,7 +5003,7 @@ public final class Home extends javax.swing.JFrame {
             .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jTabbedPane8.addTab("tab2", jPanel3);
+        jTabbedPane8.addTab("Nhân viên", jPanel3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -5016,7 +5016,7 @@ public final class Home extends javax.swing.JFrame {
             .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jTabbedPane8.addTab("tab3", jPanel4);
+        jTabbedPane8.addTab("Khách sạn", jPanel4);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -5029,7 +5029,7 @@ public final class Home extends javax.swing.JFrame {
             .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jTabbedPane8.addTab("tab4", jPanel5);
+        jTabbedPane8.addTab("Nhà hàng", jPanel5);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
