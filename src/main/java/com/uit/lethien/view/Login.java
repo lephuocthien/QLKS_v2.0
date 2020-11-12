@@ -248,21 +248,19 @@ public class Login extends javax.swing.JFrame {
         String HOTEN = null;
         String MANV = null;
         try {
-            PreparedStatement statement1 = conn.prepareStatement("Select MANV, HOTEN from NHAN_VIEN where TENTK=?");
+            PreparedStatement statement1 = conn.prepareStatement("Select * from NHAN_VIEN where TENTK=?");
             statement1.setString(1, User_name);
-            PreparedStatement statement2 = conn.prepareStatement("Select* from TAI_KHOAN");
+//            PreparedStatement statement2 = conn.prepareStatement("Select* from TAI_KHOAN");
 //        ResultSet rs1 = connect.ExcuteQueryGetTable("Select MANV, HOTEN from NHAN_VIEN where TENTK='"+User_name+"'");
 //        ResultSet rs2 = connect.ExcuteQueryGetTable("Select* from TAI_KHOAN");
             ResultSet rs1 = statement1.executeQuery();
-            ResultSet rs2 = statement2.executeQuery();
-            while (rs2.next()) {
-                char[] temp1 = rs2.getString("MATKHAU").toCharArray();
-                String temp2 = rs2.getString("TENTK");
+//            ResultSet rs2 = statement2.executeQuery();
+            while (rs1.next()) {
+                char[] temp1 = rs1.getString("MATKHAU").toCharArray();
+                String temp2 = rs1.getString("TENTK");
                 if ((Arrays.equals(temp1, Password)) && (User_name.equals(temp2))) {
-                    while (rs1.next()) {
-                        MANV = rs1.getString("MANV");
-                        HOTEN = rs1.getString("HOTEN");
-                    }
+                    MANV = rs1.getString("MANV");
+                    HOTEN = rs1.getString("HOTEN");
                     check = true;
                     JOptionPane.showMessageDialog(rootPane, "Chào " + HOTEN);
                     this.setVisible(false);

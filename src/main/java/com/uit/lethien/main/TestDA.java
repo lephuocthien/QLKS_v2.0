@@ -42,10 +42,10 @@ public class TestDA {
            System.out.println("name: "+role.getName());
            System.out.println("desc: "+role.getDescription());
        }
-//       Login login = new Login();
-//       login.setVisible(true);
-        Home home = new Home();
-        home.setVisible(true);
+       Login login = new Login();
+       login.setVisible(true);
+//        Home home = new Home();
+//        home.setVisible(true);
      
         
 //        for(int i=1;i<=50;i++){
