@@ -1786,31 +1786,9 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Jphong21" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                          <Component id="Jphong26" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="Jphong22" alignment="0" pref="140" max="32767" attributes="0"/>
-                                          <Component id="Jphong27" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="Jphong23" alignment="0" pref="140" max="32767" attributes="0"/>
-                                          <Component id="Jphong28" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="Jphong24" alignment="0" pref="140" max="32767" attributes="0"/>
-                                          <Component id="Jphong29" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="Jphong25" alignment="0" pref="140" max="32767" attributes="0"/>
-                                          <Component id="Jphong30" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Jphong30" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <EmptySpace pref="840" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1818,102 +1796,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="Jphong22" min="-2" pref="170" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="Jphong21" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="Jphong23" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="Jphong24" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="Jphong25" alignment="1" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="Jphong26" alignment="0" pref="170" max="32767" attributes="0"/>
-                                          <Component id="Jphong27" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="Jphong28" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="Jphong29" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="Jphong30" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Component id="Jphong30" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <EmptySpace pref="244" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JButton" name="Jphong21">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton18"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong22">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton24"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong23">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton25"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong24">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton26"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong25">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton27"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong26">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton23"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong27">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton28"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong28">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton29"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="Jphong29">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="11" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="jButton30"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JButton" name="Jphong30">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

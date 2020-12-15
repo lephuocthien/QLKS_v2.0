@@ -1153,15 +1153,6 @@ public final class Home extends javax.swing.JFrame {
         Jphong19 = new javax.swing.JButton();
         Jphong20 = new javax.swing.JButton();
         Tang_2 = new javax.swing.JPanel();
-        Jphong21 = new javax.swing.JButton();
-        Jphong22 = new javax.swing.JButton();
-        Jphong23 = new javax.swing.JButton();
-        Jphong24 = new javax.swing.JButton();
-        Jphong25 = new javax.swing.JButton();
-        Jphong26 = new javax.swing.JButton();
-        Jphong27 = new javax.swing.JButton();
-        Jphong28 = new javax.swing.JButton();
-        Jphong29 = new javax.swing.JButton();
         Jphong30 = new javax.swing.JButton();
         Tang_3 = new javax.swing.JPanel();
         Jphong31 = new javax.swing.JButton();
@@ -2318,33 +2309,6 @@ public final class Home extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Tầng 1", Tang_1);
 
-        Jphong21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong21.setText("jButton18");
-
-        Jphong22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong22.setText("jButton24");
-
-        Jphong23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong23.setText("jButton25");
-
-        Jphong24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong24.setText("jButton26");
-
-        Jphong25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong25.setText("jButton27");
-
-        Jphong26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong26.setText("jButton23");
-
-        Jphong27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong27.setText("jButton28");
-
-        Jphong28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong28.setText("jButton29");
-
-        Jphong29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Jphong29.setText("jButton30");
-
         Jphong30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong30.setText("jButton31");
 
@@ -2353,47 +2317,16 @@ public final class Home extends javax.swing.JFrame {
         Tang_2Layout.setHorizontalGroup(
             Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Tang_2Layout.createSequentialGroup()
-                .addGroup(Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Jphong21, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jphong26, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong22, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong23, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong24, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong25, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Jphong30, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(840, Short.MAX_VALUE))
         );
         Tang_2Layout.setVerticalGroup(
             Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Tang_2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Tang_2Layout.createSequentialGroup()
-                        .addComponent(Jphong22, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(Jphong21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(Tang_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong26, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addComponent(Jphong27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(8, 8, 8))
+                .addComponent(Jphong30, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Tầng 2", Tang_2);
@@ -7152,15 +7085,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JButton Jphong19;
     private javax.swing.JButton Jphong2;
     private javax.swing.JButton Jphong20;
-    private javax.swing.JButton Jphong21;
-    private javax.swing.JButton Jphong22;
-    private javax.swing.JButton Jphong23;
-    private javax.swing.JButton Jphong24;
-    private javax.swing.JButton Jphong25;
-    private javax.swing.JButton Jphong26;
-    private javax.swing.JButton Jphong27;
-    private javax.swing.JButton Jphong28;
-    private javax.swing.JButton Jphong29;
     private javax.swing.JButton Jphong3;
     private javax.swing.JButton Jphong30;
     private javax.swing.JButton Jphong31;

@@ -5,6 +5,8 @@
  */
 package com.uit.lethien.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author LeThien
@@ -90,52 +92,95 @@ public class Test extends javax.swing.JFrame {
         Jphong10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jphong10.setText("SD001-10");
         Jphong10.setBorderPainted(false);
-
+        JButton phong[]={Jphong1, Jphong2, Jphong3, Jphong4, Jphong5, Jphong6, Jphong7, Jphong8, Jphong9, Jphong10};
+        
         javax.swing.GroupLayout Tang_tretLayout = new javax.swing.GroupLayout(Tang_tret);
         Tang_tret.setLayout(Tang_tretLayout);
-        Tang_tretLayout.setHorizontalGroup(
-            Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tang_tretLayout.createSequentialGroup()
-                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong4, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70)
-                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong5, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Jphong10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tang_tretLayout.setVerticalGroup(
+        for(int i=0;i<phong.length; i++){
+//            System.out.println(i);
+            Tang_tretLayout.setHorizontalGroup(
             Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Tang_tretLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jphong1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Jphong6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jphong10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(phong[i], javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))  
+//                    .addGap(70, 70, 70)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            
         );
+        }
+//        Tang_tretLayout.setVerticalGroup(
+//            Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(Tang_tretLayout.createSequentialGroup()
+//                .addContainerGap()
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+//                    .addGap(18, 18, 18)
+//                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//            
+//        );
+//        }
+//        Tang_tretLayout.setHorizontalGroup(
+//            Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(Tang_tretLayout.createSequentialGroup()
+//                .addContainerGap()
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+//                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//        );
+//        Tang_tretLayout.setVerticalGroup(
+//            Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(Tang_tretLayout.createSequentialGroup()
+//                .addContainerGap()
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+//                
+//                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//        );
+//        }
+//        Tang_tretLayout.setHorizontalGroup(
+//            Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(Tang_tretLayout.createSequentialGroup()
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+//                    .addComponent(Jphong6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addGap(70, 70, 70)
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+//                    .addComponent(Jphong7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addGap(70, 70, 70)
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+//                    .addComponent(Jphong8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addGap(70, 70, 70)
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong4, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+//                    .addComponent(Jphong9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addGap(70, 70, 70)
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong5, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+//                    .addComponent(Jphong10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//        );
+//        Tang_tretLayout.setVerticalGroup(
+//            Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(Tang_tretLayout.createSequentialGroup()
+//                .addContainerGap()
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+//                    .addComponent(Jphong1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+//                    .addComponent(Jphong2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(Jphong5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(Jphong3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(Jphong4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addGap(18, 18, 18)
+//                .addGroup(Tang_tretLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+//                    .addComponent(Jphong6, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+//                    .addComponent(Jphong7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(Jphong8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(Jphong9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(Jphong10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                .addContainerGap())
+//        );
 
         jTabbedPane2.addTab("Tầng trệt", Tang_tret);
 //        jPanel1.add(jTabbedPane2);
