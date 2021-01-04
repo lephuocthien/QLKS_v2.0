@@ -247,8 +247,12 @@ public class Login extends javax.swing.JFrame {
 
         String HOTEN = null;
         String MANV = null;
+        String roleName= null;
+        
         try {
-            PreparedStatement statement1 = conn.prepareStatement("Select * from NHAN_VIEN where TENTK=?");
+            PreparedStatement statement1 = conn.prepareStatement("Select NV.MANV, NV.HOTEN, NV.TENTK, NV.MATKHAU, R.NAME "
+                    + "from NHAN_VIEN NV join ROLES R "
+                    + "on NV.ROLE_ID = R.ID where NV.TENTK=?");
             statement1.setString(1, User_name);
 //            PreparedStatement statement2 = conn.prepareStatement("Select* from TAI_KHOAN");
 //        ResultSet rs1 = connect.ExcuteQueryGetTable("Select MANV, HOTEN from NHAN_VIEN where TENTK='"+User_name+"'");
@@ -256,15 +260,17 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs1 = statement1.executeQuery();
 //            ResultSet rs2 = statement2.executeQuery();
             while (rs1.next()) {
-                char[] temp1 = rs1.getString("MATKHAU").toCharArray();
-                String temp2 = rs1.getString("TENTK");
+                char[] temp1 = rs1.getString("NV.MATKHAU").toCharArray();
+                String temp2 = rs1.getString("NV.TENTK");
                 if ((Arrays.equals(temp1, Password)) && (User_name.equals(temp2))) {
-                    MANV = rs1.getString("MANV");
-                    HOTEN = rs1.getString("HOTEN");
+                    MANV = rs1.getString("NV.MANV");
+                    HOTEN = rs1.getString("NV.HOTEN");
+                    roleName = rs1.getString("R.NAME");
+                    System.out.println(roleName);
                     check = true;
                     JOptionPane.showMessageDialog(rootPane, "Chào " + HOTEN);
                     this.setVisible(false);
-                    new Home(HOTEN, MANV).setVisible(true);
+                    new Home(HOTEN, MANV, roleName).setVisible(true);
                     new Infor().setVisible(true);
                 }
             }
