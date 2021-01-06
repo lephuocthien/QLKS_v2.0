@@ -1,4 +1,4 @@
-drop database qlks;
+-- drop database qlks;
 create database qlks;
 use qlks;
 
@@ -322,25 +322,24 @@ Insert into LUU_TRU(MADAT, SOPHONG, HOTEN, CMND,SDT, NGAYSINH, NGAYDEN, NGAYDI)
 create table NHAN_VIEN
 (
    MANV                 INT NOT NULL AUTO_INCREMENT,
-   TENTK                varchar(25),
+   TENTK                varchar(25) NOT NULL UNIQUE,
    MATKHAU              varchar(25),
    HOTEN                varchar(50),
-   CHUCVU               varchar(100),
    DIACHI               varchar(100),
-   SDT                  numeric(12,0),
-   NGAYVAOLAM           date,
+   SDT                  varchar(25),
+   NGAYVAOLAM           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
    ROLE_ID				int,
    primary key (MANV)
 );
 
-Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, CHUCVU, DIACHI, SDT, NGAYVAOLAM, ROLE_ID) 
-	VALUES('hoangduc','duc123','Trần Hoàng Đức','Quản trị hệ thống','163 Thống Nhất Hồ Chí Minh','0958789875',STR_TO_DATE('03/02/2019','%d/%m/%Y'), 1);
-Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, CHUCVU, DIACHI, SDT, NGAYVAOLAM, ROLE_ID)
-	VALUES('thanhngan','ngan123','Nguyễn Thanh Ngân','Quản lý','164 Thống Nhất Hồ Chí Minh','0958789876',STR_TO_DATE('03/02/2019','%d/%m/%Y'), 2);
-Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, CHUCVU, DIACHI, SDT, NGAYVAOLAM, ROLE_ID)
-	VALUES('minhnhat','nhat123','Phạm Minh Nhật','Nhân viên','165 Thống Nhất Hồ Chí Minh','0958789877',STR_TO_DATE('03/02/2019','%d/%m/%Y'), 3);
-Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, CHUCVU, DIACHI, SDT, NGAYVAOLAM, ROLE_ID)
-	VALUES('tramy','my123','Đỗ Trà My','Quản trị hệ thống','166 Thống Nhất Hồ Chí Minh','0958789878',STR_TO_DATE('03/02/2019','%d/%m/%Y'), 1);
+Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, DIACHI, SDT, ROLE_ID) 
+	VALUES('hoangduc','duc123','Trần Hoàng Đức','163 Thống Nhất Hồ Chí Minh','0958789875', 1);
+Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, DIACHI, SDT, ROLE_ID)
+	VALUES('thanhngan','ngan123','Nguyễn Thanh Ngân','164 Thống Nhất Hồ Chí Minh','0958789874', 2);
+Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, DIACHI, SDT, ROLE_ID)
+	VALUES('minhnhat','nhat123','Phạm Minh Nhật','165 Thống Nhất Hồ Chí Minh','0958789877', 3);
+Insert into NHAN_VIEN(TENTK, MATKHAU, HOTEN, DIACHI, SDT, ROLE_ID)
+	VALUES('tramy','my123','Đỗ Trà My','166 Thống Nhất Hồ Chí Minh','0958789878', 1);
 /*==============================================================*/
 /* Table: ROLE                                            */
 /*==============================================================*/
@@ -377,64 +376,78 @@ create table PHONG
 (
    SOPHONG              INT NOT NULL AUTO_INCREMENT,
    TENPHONG				varchar(15),
-   MADAT                int,
+   MATANG                int,
    MALP                 INT,
    TINHTRANG            varchar(15),
    primary key (SOPHONG)
 );
 
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1000',null,1,'thue');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1001',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1002',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1003',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1004',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1005',null,2,'coc');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1006',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1007',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1008',null,3,'sua');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P1009',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2000',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2001',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2002',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2003',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2004',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2005',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2006',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2007',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2008',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P2009',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3000',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3001',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3002',null,1,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3003',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3004',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3005',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3006',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3007',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3008',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P3009',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4000',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4001',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4002',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4003',null,5,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4004',null,5,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4005',null,5,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4006',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4007',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4008',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P4009',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5000',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5001',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5002',null,4,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5003',null,5,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5004',null,5,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5005',null,5,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5006',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5007',null,2,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5008',null,3,'trong');
-Insert into PHONG(TENPHONG, MADAT, MALP, TINHTRANG) VALUES('P5009',null,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1000',1,1,'thue');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1001',1,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1002',1,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1003',1,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1004',1,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1005',1,2,'coc');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1006',1,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1007',1,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1008',1,3,'sua');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P1009',1,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2000',2,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2001',2,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2002',2,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2003',2,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2004',2,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2005',2,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2006',2,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2007',2,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2008',2,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P2009',2,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3000',3,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3001',3,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3002',3,1,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3003',3,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3004',3,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3005',3,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3006',3,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3007',3,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3008',3,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P3009',3,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4000',4,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4001',4,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4002',4,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4003',4,5,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4004',4,5,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4005',4,5,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4006',4,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4007',4,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4008',4,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P4009',4,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5000',5,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5001',5,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5002',5,4,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5003',5,5,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5004',5,5,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5005',5,5,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5006',5,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5007',5,2,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5008',5,3,'trong');
+Insert into PHONG(TENPHONG, MATANG, MALP, TINHTRANG) VALUES('P5009',5,3,'trong');
 
+/*==============================================================*/
+/* Table: TANG                                               */
+/*==============================================================*/
+create table TANG
+(
+   MATANG              INT NOT NULL AUTO_INCREMENT,
+   TENTANG				varchar(15),
+   primary key (MATANG)
+);
 
+Insert into TANG(TENTANG) VALUES("Tầng 1");
+Insert into TANG(TENTANG) VALUES("Tầng 2");
+Insert into TANG(TENTANG) VALUES("Tầng 3");
+Insert into TANG(TENTANG) VALUES("Tầng 4");
+Insert into TANG(TENTANG) VALUES("Tầng 5");
 /*==============================================================*/
 /* Table: SANH                                                  */
 /*==============================================================*/
@@ -539,5 +552,9 @@ alter table LUU_TRU add constraint FK_LUU_TRU__ foreign key (SOPHONG)
 
 alter table PHONG add constraint FK_GOM foreign key (MALP)
       references LOAI_PHONG (MALP) on delete restrict on update restrict;
+      
 alter table nhan_vien add constraint FK_ROLES foreign key(role_id) 
 	  references roles(id) on delete restrict on update restrict;
+      
+alter table PHONG add constraint FK_GOM_3 foreign key (MATANG)
+      references TANG (MATANG) on delete restrict on update restrict;
