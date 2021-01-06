@@ -47,4 +47,8 @@ public class RoleDto {
         this.description = description;
     }
     
+    @Override
+    public String toString() {
+        return getDescription();
+    }
 }

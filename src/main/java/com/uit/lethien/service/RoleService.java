@@ -50,7 +50,7 @@ public class RoleService {
         role.setName(dto.getName());
         role.setDescription(dto.getDescription());
         // Gọi hàm add của DAO để chạy câu lệnh INSERT
-        roleRepository.add(role);
+        roleRepository.insert(role);
     }
 
     public void edit(RoleDto dto) {

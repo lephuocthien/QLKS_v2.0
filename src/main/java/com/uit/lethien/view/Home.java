@@ -18,9 +18,11 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import com.uit.lethien.database.ConnectDatabase;
 import com.uit.lethien.dto.RoleDto;
+import com.uit.lethien.dto.UserDto;
 import com.uit.lethien.model.Role;
 import com.uit.lethien.repository.RoleRepository;
 import com.uit.lethien.service.RoleService;
+import com.uit.lethien.service.UserService;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -112,6 +114,7 @@ public final class Home extends javax.swing.JFrame {
 //    };
 
     private RoleService roleService = null;
+    private UserService userService = null;
 //    public void reset(Component[] component){
 //            for(int i=0; i<component.length; i++)
 //            {
@@ -123,24 +126,39 @@ public final class Home extends javax.swing.JFrame {
 //                }
 //            }
 //    }
-
-    public void setJTableRole() {
-        DefaultTableModel table = (DefaultTableModel) jTableRole.getModel();
+    public void clearTable(DefaultTableModel table){
         int row = table.getRowCount();
         for (int i = row - 1; i >= 0; i--) {
             table.removeRow(i);
         }
+    }
+    public void setJTableRole() {
+        DefaultTableModel table = (DefaultTableModel) jTableRole.getModel();
+        clearTable(table);
         for (RoleDto dto : roleService.getAll()) {
             table.addRow(new Object[]{dto.getId(), dto.getName(), dto.getDescription()});
         }
 
     }
-
+    public void setJTableUser() {
+        DefaultTableModel table = (DefaultTableModel) jTableUser.getModel();
+        clearTable(table);
+        for (UserDto dto : userService.getAllDto()) {
+            table.addRow(new Object[]{
+                dto.getId(),
+                dto.getFullname(),
+                dto.getRoleDescription(),
+                dto.getPhone(),
+                dto.getAddress()});
+        }
+    }
     public Home() {
         initComponents();
         roleService = new RoleService();
+        userService = new UserService();
         setJTableRole();
-        jTabbedPane8.setVisible(false);
+        setJTableUser();
+//        jTabbedPane8.setVisible(false);
 //        this.jTabbedPane4.setVisible(false);
 //        Component[] component = Lap_phieu.getComponents();
 //
@@ -1474,7 +1492,7 @@ public final class Home extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableUser = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -4996,8 +5014,8 @@ public final class Home extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách nhân viên", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTableUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "abc", "fdgd", "fsf", "sfs"},
                 {"2", "vvs", "dfg", "rge", "dssf"},
@@ -5007,19 +5025,24 @@ public final class Home extends javax.swing.JFrame {
                 "Id", "Họ tên", "Chức vụ", "SĐT", "Địa chỉ"
             }
         ));
-        jTable1.setRowHeight(20);
-        jScrollPane13.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(20);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(30);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(200);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(200);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(30);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(150);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(150);
+        jTableUser.setRowHeight(20);
+        jTableUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableUserMouseClicked(evt);
+            }
+        });
+        jScrollPane13.setViewportView(jTableUser);
+        if (jTableUser.getColumnModel().getColumnCount() > 0) {
+            jTableUser.getColumnModel().getColumn(0).setMinWidth(20);
+            jTableUser.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jTableUser.getColumnModel().getColumn(0).setMaxWidth(30);
+            jTableUser.getColumnModel().getColumn(1).setPreferredWidth(200);
+            jTableUser.getColumnModel().getColumn(1).setMaxWidth(200);
+            jTableUser.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTableUser.getColumnModel().getColumn(2).setMaxWidth(200);
+            jTableUser.getColumnModel().getColumn(3).setMinWidth(30);
+            jTableUser.getColumnModel().getColumn(3).setPreferredWidth(150);
+            jTableUser.getColumnModel().getColumn(3).setMaxWidth(150);
         }
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -6999,6 +7022,14 @@ public final class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InTiec1ActionPerformed
 
+    private void jTableUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableUserMouseClicked
+        int index = jTableUser.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableUser.getModel();
+        int id = (int) model.getValueAt(index, 0);
+        System.out.println(id);
+        new UserEdit(Home.this, id).setVisible(true);
+    }//GEN-LAST:event_jTableUserMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -7453,8 +7484,8 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTabbedPane jTabbedPane8;
     private javax.swing.JTabbedPane jTabbedPane9;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableRole;
+    private javax.swing.JTable jTableUser;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextNewRoleDesc;
     private javax.swing.JTextField jTextNewRoleName;

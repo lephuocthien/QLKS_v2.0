@@ -64,7 +64,7 @@ public class RoleRepository {
         return role;
     }
 
-    public void add(Role role) {
+    public void insert(Role role) {
         String query = "INSERT INTO roles(name, description) VALUES (?, ?)";
         try {
             // Tạo câu lệnh truy vấn sử dụng PreparedStatement
