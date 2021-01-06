@@ -255,7 +255,7 @@ public class UserAdd extends javax.swing.JFrame {
             if (userService.getByUserName(user.getUserName()) == null) {
                 try {
                     userService.add(user);
-                    home.setJTableUser();
+                    home.setJTableUserByAdmin();
                     JOptionPane.showMessageDialog(rootPane, "Thêm thành công!");
                     this.setVisible(false);
                 } catch (Exception e) {

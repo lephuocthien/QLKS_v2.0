@@ -1014,7 +1014,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Component id="jPanel50" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jPanel49" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                   </Group>
@@ -1089,7 +1089,7 @@
                                         </Property>
                                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                           <TableColumnModel selectionModel="0">
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                            <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
                                               <Title/>
                                               <Editor/>
                                               <Renderer/>
@@ -1141,12 +1141,12 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jScrollPane20" pref="0" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane20" pref="390" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="ComboBoxloaiphong" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="169" max="32767" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -1202,20 +1202,26 @@
                                     <Component class="javax.swing.JTable" name="Tablecoso">
                                       <Properties>
                                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                          <Table columnCount="3" rowCount="0">
+                                          <Table columnCount="4" rowCount="0">
                                             <Column editable="false" title="STT" type="java.lang.Object"/>
                                             <Column editable="false" title="M&#xe3; CS" type="java.lang.Object"/>
-                                            <Column editable="false" title="T&#xea;n" type="java.lang.Object"/>
+                                            <Column editable="true" title="T&#xea;n" type="java.lang.Object"/>
+                                            <Column editable="true" title="Gi&#xe1;" type="java.lang.Object"/>
                                           </Table>
                                         </Property>
                                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                           <TableColumnModel selectionModel="0">
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
+                                            <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
                                               <Title/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
-                                            <Column maxWidth="-1" minWidth="-1" prefWidth="10" resizable="false">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                               <Title/>
                                               <Editor/>
                                               <Renderer/>
@@ -6270,7 +6276,7 @@
                                               <Renderer/>
                                             </Column>
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title/>
+                                              <Title value="Ch&#xfa; th&#xed;ch"/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
@@ -6747,15 +6753,1844 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="990" max="32767" attributes="0"/>
+                                  <Component id="jTabbedPane11" alignment="1" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="465" max="32767" attributes="0"/>
+                                  <Component id="jTabbedPane11" alignment="0" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>
+                          <SubComponents>
+                            <Container class="javax.swing.JTabbedPane" name="jTabbedPane11">
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="jPanel10">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="T&#x1ea7;ng">
+                                        <Property name="tabTitle" type="java.lang.String" value="T&#x1ea7;ng"/>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jPanel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jPanel27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace pref="120" max="32767" attributes="0"/>
+                                              <Component id="jPanel36" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                              <Component id="jPanel27" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace pref="63" max="32767" attributes="0"/>
+                                              <Component id="jPanel35" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jPanel36" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="jPanel27">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="Th&#xea;m m&#x1edb;i">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="jTextFieldNewFloorName" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jButtonAddFloor" min="-2" pref="127" max="-2" attributes="0"/>
+                                                          <EmptySpace pref="76" max="32767" attributes="0"/>
+                                                          <Component id="jButtonCancelAddFloor" min="-2" pref="124" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldNewFloorName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jButtonAddFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonCancelAddFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel21">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#xea;n t&#x1ea7;ng:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldNewFloorName">
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonAddFloor">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="OK"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddFloorActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonCancelAddFloor">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Cancel"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelAddFloorActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel35">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="C&#x1ead;p nh&#x1ead;t">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jTextFieldFloorId" min="-2" pref="92" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldFloorName" min="-2" pref="271" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                          <Component id="jButtonUpdateFloor" min="-2" pref="94" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="jButtonCancelUpdateFloor" min="-2" pref="97" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="jButtonDeleteFloor" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldFloorId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldFloorName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jButtonCancelUpdateFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonDeleteFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonUpdateFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel23">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#xea;n t&#x1ea7;ng:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldFloorName">
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonUpdateFloor">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="OK"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateFloorActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonCancelUpdateFloor">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Cancel"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelUpdateFloorActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonDeleteFloor">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteFloorActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel25">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Id:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldFloorId">
+                                          <Properties>
+                                            <Property name="enabled" type="boolean" value="false"/>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel36">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="Danh s&#xe1;ch t&#x1ea7;ng">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane17" alignment="0" pref="355" max="32767" attributes="0"/>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane17" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Container class="javax.swing.JScrollPane" name="jScrollPane17">
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JTable" name="jTableFloor">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                                  <Table columnCount="2" rowCount="0">
+                                                    <Column editable="false" title="Id" type="java.lang.Object"/>
+                                                    <Column editable="false" title="T&#xea;n t&#x1ea7;ng" type="java.lang.Object"/>
+                                                  </Table>
+                                                </Property>
+                                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                                  <TableColumnModel selectionModel="0">
+                                                    <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                      <Title value="T&#xea;n t&#x1ea7;ng"/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                  </TableColumnModel>
+                                                </Property>
+                                                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                                </Property>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableFloorMouseClicked"/>
+                                              </Events>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel11">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="C&#x1a1; s&#x1edf; v&#x1ead;t ch&#x1ea5;t">
+                                        <Property name="tabTitle" type="java.lang.String" value="C&#x1a1; s&#x1edf; v&#x1ead;t ch&#x1ea5;t"/>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jPanel37" max="32767" attributes="0"/>
+                                                  <Component id="jPanel44" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace pref="98" max="32767" attributes="0"/>
+                                              <Component id="jPanel46" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                              <Component id="jPanel37" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace pref="37" max="32767" attributes="0"/>
+                                              <Component id="jPanel44" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jPanel46" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="jPanel37">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="Th&#xea;m m&#x1edb;i">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jButtonAddInfrastructure" min="-2" pref="127" max="-2" attributes="0"/>
+                                                          <EmptySpace pref="76" max="32767" attributes="0"/>
+                                                          <Component id="jButtonCancelAddInfrastructure" min="-2" pref="124" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jTextFieldNewInfrastructurePrice" max="32767" attributes="0"/>
+                                                              <Component id="jTextFieldNewInfrastructureName" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldNewInfrastructureName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldNewInfrastructurePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jButtonAddInfrastructure" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonCancelAddInfrastructure" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel22">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#xea;n:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldNewInfrastructureName">
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonAddInfrastructure">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="OK"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddInfrastructureActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonCancelAddInfrastructure">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Cancel"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelAddInfrastructureActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel27">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Gi&#xe1;:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldNewInfrastructurePrice">
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel44">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="C&#x1ead;p nh&#x1ead;t">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jButtonUpdateInfrastructure" min="-2" pref="94" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="jButtonCancelUpdateInfrastructure" min="-2" pref="97" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="jButtonDeleteInfrastructure" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jTextFieldInfrastructurePrice" max="32767" attributes="0"/>
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="jTextFieldInfrastructureId" min="-2" pref="92" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                              </Group>
+                                                              <Component id="jTextFieldInfrastructureName" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldInfrastructureId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldInfrastructureName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldInfrastructurePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jButtonUpdateInfrastructure" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonCancelUpdateInfrastructure" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonDeleteInfrastructure" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel24">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#xea;n:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldInfrastructureName">
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonUpdateInfrastructure">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="OK"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateInfrastructureActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonCancelUpdateInfrastructure">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Cancel"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelUpdateInfrastructureActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonDeleteInfrastructure">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteInfrastructureActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel26">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Id:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldInfrastructureId">
+                                          <Properties>
+                                            <Property name="enabled" type="boolean" value="false"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel29">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Gi&#xe1;:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldInfrastructurePrice">
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel46">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="Danh s&#xe1;ch c&#x1a1; s&#x1edf; v&#x1ead;t ch&#x1ea5;t">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane18" alignment="0" pref="481" max="32767" attributes="0"/>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane18" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Container class="javax.swing.JScrollPane" name="jScrollPane18">
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JTable" name="jTableInfrastructure">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                                  <Table columnCount="3" rowCount="0">
+                                                    <Column editable="false" title="Id" type="java.lang.Object"/>
+                                                    <Column editable="true" title="T&#xea;n" type="java.lang.Object"/>
+                                                    <Column editable="true" title="Gi&#xe1;" type="java.lang.Object"/>
+                                                  </Table>
+                                                </Property>
+                                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                                  <TableColumnModel selectionModel="0">
+                                                    <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                  </TableColumnModel>
+                                                </Property>
+                                                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                                </Property>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableInfrastructureMouseClicked"/>
+                                              </Events>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel12">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="Chi ti&#x1ebf;t lo&#x1ea1;i ph&#xf2;ng">
+                                        <Property name="tabTitle" type="java.lang.String" value="Chi ti&#x1ebf;t lo&#x1ea1;i ph&#xf2;ng"/>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTabbedPane12" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTabbedPane12" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JTabbedPane" name="jTabbedPane12">
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+                                      <SubComponents>
+                                        <Container class="javax.swing.JPanel" name="jPanel47">
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                              <JTabbedPaneConstraints tabName="Lo&#x1ea1;i ph&#xf2;ng">
+                                                <Property name="tabTitle" type="java.lang.String" value="Lo&#x1ea1;i ph&#xf2;ng"/>
+                                              </JTabbedPaneConstraints>
+                                            </Constraint>
+                                          </Constraints>
+
+                                          <Layout>
+                                            <DimensionLayout dim="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="jPanel63" max="32767" attributes="0"/>
+                                                          <Component id="jPanel62" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                                                      <Component id="jPanel66" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                            </DimensionLayout>
+                                            <DimensionLayout dim="1">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jPanel62" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                                                      <Component id="jPanel63" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jPanel66" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                            </DimensionLayout>
+                                          </Layout>
+                                          <SubComponents>
+                                            <Container class="javax.swing.JPanel" name="jPanel62">
+                                              <Properties>
+                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                                </Property>
+                                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                                    <TitledBorder title="Th&#xea;m m&#x1edb;i">
+                                                      <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                                      <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                                    </TitledBorder>
+                                                  </Border>
+                                                </Property>
+                                              </Properties>
+
+                                              <Layout>
+                                                <DimensionLayout dim="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="jButtonAddRoomType" min="-2" pref="127" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="32767" attributes="0"/>
+                                                                  <Component id="jButtonCancelAddRoomType" min="-2" pref="124" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jTextFieldNewRoomTypePrice" alignment="0" max="32767" attributes="0"/>
+                                                                      <Component id="jTextFieldNewRoomTypeName" alignment="0" max="32767" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                </DimensionLayout>
+                                                <DimensionLayout dim="1">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldNewRoomTypeName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldNewRoomTypePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jButtonAddRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jButtonCancelAddRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                </DimensionLayout>
+                                              </Layout>
+                                              <SubComponents>
+                                                <Component class="javax.swing.JLabel" name="jLabel30">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="T&#xea;n:"/>
+                                                  </Properties>
+                                                </Component>
+                                                <Component class="javax.swing.JTextField" name="jTextFieldNewRoomTypeName">
+                                                </Component>
+                                                <Component class="javax.swing.JButton" name="jButtonAddRoomType">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="OK"/>
+                                                  </Properties>
+                                                  <Events>
+                                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddRoomTypeActionPerformed"/>
+                                                  </Events>
+                                                </Component>
+                                                <Component class="javax.swing.JButton" name="jButtonCancelAddRoomType">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="Cancel"/>
+                                                  </Properties>
+                                                  <Events>
+                                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelAddRoomTypeActionPerformed"/>
+                                                  </Events>
+                                                </Component>
+                                                <Component class="javax.swing.JLabel" name="jLabel31">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="Gi&#xe1;:"/>
+                                                  </Properties>
+                                                </Component>
+                                                <Component class="javax.swing.JTextField" name="jTextFieldNewRoomTypePrice">
+                                                </Component>
+                                              </SubComponents>
+                                            </Container>
+                                            <Container class="javax.swing.JPanel" name="jPanel63">
+                                              <Properties>
+                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                                </Property>
+                                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                                    <TitledBorder title="C&#x1ead;p nh&#x1ead;t">
+                                                      <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                                      <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                                    </TitledBorder>
+                                                  </Border>
+                                                </Property>
+                                              </Properties>
+
+                                              <Layout>
+                                                <DimensionLayout dim="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="jButtonUpdateRoomType" min="-2" pref="94" max="-2" attributes="0"/>
+                                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                  <Component id="jButtonCancelUpdateRoomType" min="-2" pref="97" max="-2" attributes="0"/>
+                                                                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                                                                  <Component id="jButtonDeleteRoomType" min="-2" pref="103" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jTextFieldRoomTypePrice" alignment="0" max="32767" attributes="0"/>
+                                                                      <Group type="102" alignment="0" attributes="0">
+                                                                          <Component id="jTextFieldRoomTypeId" min="-2" pref="92" max="-2" attributes="0"/>
+                                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                                      </Group>
+                                                                      <Component id="jTextFieldRoomTypeName" alignment="0" max="32767" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                </DimensionLayout>
+                                                <DimensionLayout dim="1">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldRoomTypeId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldRoomTypeName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jTextFieldRoomTypePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jButtonUpdateRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jButtonCancelUpdateRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jButtonDeleteRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                </DimensionLayout>
+                                              </Layout>
+                                              <SubComponents>
+                                                <Component class="javax.swing.JLabel" name="jLabel32">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="T&#xea;n:"/>
+                                                  </Properties>
+                                                </Component>
+                                                <Component class="javax.swing.JTextField" name="jTextFieldRoomTypeName">
+                                                </Component>
+                                                <Component class="javax.swing.JButton" name="jButtonUpdateRoomType">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="OK"/>
+                                                  </Properties>
+                                                  <Events>
+                                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateRoomTypeActionPerformed"/>
+                                                  </Events>
+                                                </Component>
+                                                <Component class="javax.swing.JButton" name="jButtonCancelUpdateRoomType">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="Cancel"/>
+                                                  </Properties>
+                                                  <Events>
+                                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelUpdateRoomTypeActionPerformed"/>
+                                                  </Events>
+                                                </Component>
+                                                <Component class="javax.swing.JButton" name="jButtonDeleteRoomType">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
+                                                  </Properties>
+                                                  <Events>
+                                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteRoomTypeActionPerformed"/>
+                                                  </Events>
+                                                </Component>
+                                                <Component class="javax.swing.JLabel" name="jLabel33">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="Id:"/>
+                                                  </Properties>
+                                                </Component>
+                                                <Component class="javax.swing.JTextField" name="jTextFieldRoomTypeId">
+                                                  <Properties>
+                                                    <Property name="enabled" type="boolean" value="false"/>
+                                                  </Properties>
+                                                </Component>
+                                                <Component class="javax.swing.JLabel" name="jLabel35">
+                                                  <Properties>
+                                                    <Property name="text" type="java.lang.String" value="Gi&#xe1;:"/>
+                                                  </Properties>
+                                                </Component>
+                                                <Component class="javax.swing.JTextField" name="jTextFieldRoomTypePrice">
+                                                </Component>
+                                              </SubComponents>
+                                            </Container>
+                                            <Container class="javax.swing.JPanel" name="jPanel66">
+                                              <Properties>
+                                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                                </Property>
+                                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                                    <TitledBorder title="Danh s&#xe1;ch lo&#x1ea1;i ph&#xf2;ng">
+                                                      <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                                      <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                                    </TitledBorder>
+                                                  </Border>
+                                                </Property>
+                                              </Properties>
+
+                                              <Layout>
+                                                <DimensionLayout dim="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jScrollPane27" alignment="0" pref="509" max="32767" attributes="0"/>
+                                                  </Group>
+                                                </DimensionLayout>
+                                                <DimensionLayout dim="1">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jScrollPane27" alignment="0" pref="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                </DimensionLayout>
+                                              </Layout>
+                                              <SubComponents>
+                                                <Container class="javax.swing.JScrollPane" name="jScrollPane27">
+
+                                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                                  <SubComponents>
+                                                    <Component class="javax.swing.JTable" name="jTableRoomType">
+                                                      <Properties>
+                                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                                          <Table columnCount="3" rowCount="0">
+                                                            <Column editable="false" title="Id" type="java.lang.Object"/>
+                                                            <Column editable="true" title="T&#xea;n" type="java.lang.Object"/>
+                                                            <Column editable="true" title="Gi&#xe1;" type="java.lang.Object"/>
+                                                          </Table>
+                                                        </Property>
+                                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                                          <TableColumnModel selectionModel="0">
+                                                            <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
+                                                              <Title/>
+                                                              <Editor/>
+                                                              <Renderer/>
+                                                            </Column>
+                                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                              <Title/>
+                                                              <Editor/>
+                                                              <Renderer/>
+                                                            </Column>
+                                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                              <Title/>
+                                                              <Editor/>
+                                                              <Renderer/>
+                                                            </Column>
+                                                          </TableColumnModel>
+                                                        </Property>
+                                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                                        </Property>
+                                                      </Properties>
+                                                      <Events>
+                                                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableRoomTypeMouseClicked"/>
+                                                      </Events>
+                                                    </Component>
+                                                  </SubComponents>
+                                                </Container>
+                                              </SubComponents>
+                                            </Container>
+                                          </SubComponents>
+                                        </Container>
+                                        <Container class="javax.swing.JPanel" name="jPanel67">
+                                          <Properties>
+                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                            </Property>
+                                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                                <TitledBorder title="Danh s&#xe1;ch c&#x1a1; s&#x1edf; v&#x1ead;t ch&#x1ea5;t">
+                                                  <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                                  <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                                </TitledBorder>
+                                              </Border>
+                                            </Property>
+                                          </Properties>
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                              <JTabbedPaneConstraints tabName="C&#x1a1; s&#x1edf; v&#x1ead;t ch&#x1ea5;t c&#x1ee7;a ph&#xf2;ng">
+                                                <Property name="tabTitle" type="java.lang.String" value="C&#x1a1; s&#x1edf; v&#x1ead;t ch&#x1ea5;t c&#x1ee7;a ph&#xf2;ng"/>
+                                              </JTabbedPaneConstraints>
+                                            </Constraint>
+                                          </Constraints>
+
+                                          <Layout>
+                                            <DimensionLayout dim="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel61" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Component id="jComboBoxInfrastructure" pref="170" max="32767" attributes="0"/>
+                                                              <Component id="jComboBoxRoomType" max="32767" attributes="0"/>
+                                                          </Group>
+                                                          <Component id="jTextFieldInfrastructureOfRoomTypeCount" min="-2" pref="64" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="jButtonDeleteInfrastructureOfRoomType" max="32767" attributes="0"/>
+                                                          <Component id="jButtonAddInfrastructureOfRoomType" pref="94" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                                      <Component id="jScrollPane28" min="-2" pref="461" max="-2" attributes="0"/>
+                                                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                            </DimensionLayout>
+                                            <DimensionLayout dim="1">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jScrollPane28" alignment="0" pref="387" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jComboBoxRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jComboBoxInfrastructure" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jButtonAddInfrastructureOfRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="jButtonDeleteInfrastructureOfRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jTextFieldInfrastructureOfRoomTypeCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                            </DimensionLayout>
+                                          </Layout>
+                                          <SubComponents>
+                                            <Container class="javax.swing.JScrollPane" name="jScrollPane28">
+
+                                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                              <SubComponents>
+                                                <Component class="javax.swing.JTable" name="jTableInfrastructureOfRoomType">
+                                                  <Properties>
+                                                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                                      <Table columnCount="4" rowCount="0">
+                                                        <Column editable="false" title="Id" type="java.lang.Object"/>
+                                                        <Column editable="false" title="T&#xea;n" type="java.lang.Object"/>
+                                                        <Column editable="false" title="Gi&#xe1;" type="java.lang.Object"/>
+                                                        <Column editable="false" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Object"/>
+                                                      </Table>
+                                                    </Property>
+                                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                                      <TableColumnModel selectionModel="0">
+                                                        <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
+                                                          <Title/>
+                                                          <Editor/>
+                                                          <Renderer/>
+                                                        </Column>
+                                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                                                          <Title/>
+                                                          <Editor/>
+                                                          <Renderer/>
+                                                        </Column>
+                                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                          <Title/>
+                                                          <Editor/>
+                                                          <Renderer/>
+                                                        </Column>
+                                                        <Column maxWidth="80" minWidth="40" prefWidth="80" resizable="true">
+                                                          <Title/>
+                                                          <Editor/>
+                                                          <Renderer/>
+                                                        </Column>
+                                                      </TableColumnModel>
+                                                    </Property>
+                                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                                    </Property>
+                                                  </Properties>
+                                                  <Events>
+                                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableInfrastructureOfRoomTypeMouseClicked"/>
+                                                  </Events>
+                                                </Component>
+                                              </SubComponents>
+                                            </Container>
+                                            <Component class="javax.swing.JLabel" name="jLabel36">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i ph&#xf2;ng:"/>
+                                              </Properties>
+                                            </Component>
+                                            <Component class="javax.swing.JComboBox" name="jComboBoxRoomType">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                                  <StringArray count="0"/>
+                                                </Property>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxRoomTypeActionPerformed"/>
+                                              </Events>
+                                              <AuxValues>
+                                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                              </AuxValues>
+                                            </Component>
+                                            <Component class="javax.swing.JLabel" name="jLabel40">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" value="C&#x1a1; s&#x1edf; v&#x1ead;t ch&#x1ea5;t:"/>
+                                              </Properties>
+                                            </Component>
+                                            <Component class="javax.swing.JComboBox" name="jComboBoxInfrastructure">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                                  <StringArray count="0"/>
+                                                </Property>
+                                              </Properties>
+                                              <AuxValues>
+                                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                              </AuxValues>
+                                            </Component>
+                                            <Component class="javax.swing.JButton" name="jButtonAddInfrastructureOfRoomType">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddInfrastructureOfRoomTypeActionPerformed"/>
+                                              </Events>
+                                            </Component>
+                                            <Component class="javax.swing.JButton" name="jButtonDeleteInfrastructureOfRoomType">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteInfrastructureOfRoomTypeActionPerformed"/>
+                                              </Events>
+                                            </Component>
+                                            <Component class="javax.swing.JLabel" name="jLabel61">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng:"/>
+                                              </Properties>
+                                            </Component>
+                                            <Component class="javax.swing.JTextField" name="jTextFieldInfrastructureOfRoomTypeCount">
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel55">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="Ph&#xf2;ng">
+                                        <Property name="tabTitle" type="java.lang.String" value="Ph&#xf2;ng"/>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jPanel68" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jPanel68" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="jPanel68">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="Danh s&#xe1;ch ph&#xf2;ng">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jButtonAddRoom" min="-2" pref="94" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="jButtonUpdateRoom" min="-2" pref="94" max="-2" attributes="0"/>
+                                                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                                                          <Component id="jButtonDeleteRoom" min="-2" pref="94" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel65" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel63" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel67" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="jComboBoxRoomRoomType" min="-2" pref="170" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                      <Component id="jComboBoxRoomFloor" alignment="0" pref="170" max="32767" attributes="0"/>
+                                                                      <Component id="jTextFieldRoomName" alignment="0" max="32767" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                  <Component id="jLabel68" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Component id="jTextFieldRoomId" max="32767" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <Component id="jScrollPane29" min="-2" pref="461" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane29" alignment="0" pref="415" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jComboBoxRoomFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldRoomName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel68" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldRoomId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jComboBoxRoomRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jButtonDeleteRoom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonAddRoom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonUpdateRoom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Container class="javax.swing.JScrollPane" name="jScrollPane29">
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JTable" name="jTableRoom">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                                  <Table columnCount="4" rowCount="0">
+                                                    <Column editable="false" title="Id" type="java.lang.Object"/>
+                                                    <Column editable="false" title="T&#xea;n ph&#xf2;ng" type="java.lang.Object"/>
+                                                    <Column editable="false" title="Lo&#x1ea1;i ph&#xf2;ng" type="java.lang.Object"/>
+                                                    <Column editable="false" title="Gi&#xe1;" type="java.lang.Object"/>
+                                                  </Table>
+                                                </Property>
+                                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                                  <TableColumnModel selectionModel="0">
+                                                    <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="80" minWidth="40" prefWidth="80" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                  </TableColumnModel>
+                                                </Property>
+                                                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                                </Property>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableRoomMouseClicked"/>
+                                              </Events>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                        <Component class="javax.swing.JLabel" name="jLabel63">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#x1ea7;ng:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JComboBox" name="jComboBoxRoomFloor">
+                                          <Properties>
+                                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                              <StringArray count="0"/>
+                                            </Property>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxRoomFloorActionPerformed"/>
+                                          </Events>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel65">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i ph&#xf2;ng:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JComboBox" name="jComboBoxRoomRoomType">
+                                          <Properties>
+                                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                              <StringArray count="0"/>
+                                            </Property>
+                                          </Properties>
+                                          <AuxValues>
+                                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                          </AuxValues>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonUpdateRoom">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateRoomActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonDeleteRoom">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteRoomActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel67">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#xea;n ph&#xf2;ng:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldRoomName">
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonAddRoom">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Th&#xea;m m&#x1edb;i"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddRoomActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel68">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Id:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldRoomId">
+                                          <Properties>
+                                            <Property name="editable" type="boolean" value="false"/>
+                                          </Properties>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel64">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="D&#x1ecb;ch v&#x1ee5;">
+                                        <Property name="tabTitle" type="java.lang.String" value="D&#x1ecb;ch v&#x1ee5;"/>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jPanel65" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jPanel69" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace pref="98" max="32767" attributes="0"/>
+                                              <Component id="jPanel70" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Component id="jPanel65" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace pref="37" max="32767" attributes="0"/>
+                                              <Component id="jPanel69" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jPanel70" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="jPanel65">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="Th&#xea;m m&#x1edb;i">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jButtonAddService" min="-2" pref="127" max="-2" attributes="0"/>
+                                                          <EmptySpace pref="76" max="32767" attributes="0"/>
+                                                          <Component id="jButtonCancelAddService" min="-2" pref="124" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel70" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel80" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel69" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jTextFieldNewServiceName" max="32767" attributes="0"/>
+                                                              <Component id="jTextFieldNewServicePrice" max="32767" attributes="0"/>
+                                                              <Component id="jTextFieldNewServiceDvt" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel69" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldNewServiceName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel80" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldNewServiceDvt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldNewServicePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jButtonAddService" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonCancelAddService" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel69">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#xea;n:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldNewServiceName">
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonAddService">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="OK"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddServiceActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonCancelAddService">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Cancel"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelAddServiceActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel70">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Gi&#xe1;:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldNewServicePrice">
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel80">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="&#x110;VT:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldNewServiceDvt">
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel69">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="C&#x1ead;p nh&#x1ead;t">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jButtonUpdateService" min="-2" pref="94" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="jButtonCancelUpdateService" min="-2" pref="97" max="-2" attributes="0"/>
+                                                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                                                          <Component id="jButtonDeleteService" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel78" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Component id="jTextFieldServiceId" min="-2" pref="92" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" attributes="0">
+                                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                                                  <Component id="jTextFieldServiceName" max="32767" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="1" attributes="0">
+                                                                  <Component id="jLabel81" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jTextFieldServiceDvt" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="jTextFieldServicePrice" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel78" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldServiceId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldServiceName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jTextFieldServiceDvt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jLabel79" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldServicePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="jButtonUpdateService" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonCancelUpdateService" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jButtonDeleteService" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel71">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="T&#xea;n:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldServiceName">
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonUpdateService">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="OK"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateServiceActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonCancelUpdateService">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Cancel"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelUpdateServiceActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButtonDeleteService">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
+                                          </Properties>
+                                          <Events>
+                                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteServiceActionPerformed"/>
+                                          </Events>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel78">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Id:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldServiceId">
+                                          <Properties>
+                                            <Property name="enabled" type="boolean" value="false"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel79">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Gi&#xe1;:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldServicePrice">
+                                        </Component>
+                                        <Component class="javax.swing.JLabel" name="jLabel81">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="&#x110;VT:"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JTextField" name="jTextFieldServiceDvt">
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel70">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                            <TitledBorder title="Danh s&#xe1;ch d&#x1ecb;ch v&#x1ee5;">
+                                              <Font PropertyName="font" name="Tahoma" size="11" style="3"/>
+                                              <Color PropertyName="color" blue="0" green="99" red="0" type="rgb"/>
+                                            </TitledBorder>
+                                          </Border>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout>
+                                        <DimensionLayout dim="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane24" alignment="0" pref="481" max="32767" attributes="0"/>
+                                          </Group>
+                                        </DimensionLayout>
+                                        <DimensionLayout dim="1">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jScrollPane24" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                        </DimensionLayout>
+                                      </Layout>
+                                      <SubComponents>
+                                        <Container class="javax.swing.JScrollPane" name="jScrollPane24">
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JTable" name="jTableService">
+                                              <Properties>
+                                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                                  <Table columnCount="4" rowCount="0">
+                                                    <Column editable="false" title="Id" type="java.lang.Object"/>
+                                                    <Column editable="true" title="T&#xea;n" type="java.lang.Object"/>
+                                                    <Column editable="false" title="&#x110;VT" type="java.lang.Object"/>
+                                                    <Column editable="true" title="Gi&#xe1;" type="java.lang.Object"/>
+                                                  </Table>
+                                                </Property>
+                                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                                  <TableColumnModel selectionModel="0">
+                                                    <Column maxWidth="30" minWidth="15" prefWidth="30" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="80" minWidth="40" prefWidth="80" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                                      <Title/>
+                                                      <Editor/>
+                                                      <Renderer/>
+                                                    </Column>
+                                                  </TableColumnModel>
+                                                </Property>
+                                                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                                </Property>
+                                              </Properties>
+                                              <Events>
+                                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableServiceMouseClicked"/>
+                                              </Events>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                          </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel5">
                           <Constraints>

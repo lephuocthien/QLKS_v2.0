@@ -383,7 +383,7 @@ public class UserEdit extends javax.swing.JFrame {
             if (user.getUserName().equals(userService.getById(id).getUserName())) {
                 try {
                     userService.edit(user);
-                    home.setJTableUser();
+                    home.setJTableUserByAdmin();
                     JOptionPane.showMessageDialog(rootPane, "Cập nhật thành công!");
                     this.setVisible(false);
                 } catch (Exception e) {
@@ -394,7 +394,7 @@ public class UserEdit extends javax.swing.JFrame {
                 if (userService.getByUserName(user.getUserName()) == null) {
                     try {
                         userService.edit(user);
-                        home.setJTableUser();
+                        home.setJTableUserByAdmin();
                         JOptionPane.showMessageDialog(rootPane, "Cập nhật thành công!");
                         this.setVisible(false);
                     } catch (Exception e) {
@@ -415,7 +415,7 @@ public class UserEdit extends javax.swing.JFrame {
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         try {
             userService.removeById(id);
-            home.setJTableUser();
+            home.setJTableUserByAdmin();
             JOptionPane.showMessageDialog(rootPane, "Xoá thành công!");
             this.setVisible(false);
         } catch (Exception e) {

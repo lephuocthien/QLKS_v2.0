@@ -17,18 +17,31 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import com.uit.lethien.database.ConnectDatabase;
+import com.uit.lethien.dto.FloorDto;
+import com.uit.lethien.dto.InfrastructureDto;
+import com.uit.lethien.dto.InfrastructureOfRoomTypeDto;
 import com.uit.lethien.dto.RoleDto;
+import com.uit.lethien.dto.RoomDto;
+import com.uit.lethien.dto.RoomTypeDto;
+import com.uit.lethien.dto.ServiceDto;
 import com.uit.lethien.dto.UserDto;
 import com.uit.lethien.model.Role;
 import com.uit.lethien.repository.RoleRepository;
+import com.uit.lethien.service.FloorService;
+import com.uit.lethien.service.InfrastructureOfRoomTypeService;
 import com.uit.lethien.service.RoleService;
 import com.uit.lethien.service.UserService;
+import com.uit.lethien.service.InfrastructureService;
+import com.uit.lethien.service.RoomService;
+import com.uit.lethien.service.RoomTypeService;
+import com.uit.lethien.service.ServiceService;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.math.BigDecimal;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,6 +50,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.view.JasperViewer;
@@ -115,6 +129,12 @@ public final class Home extends javax.swing.JFrame {
 
     private RoleService roleService = null;
     private UserService userService = null;
+    private FloorService floorService = null;
+    private InfrastructureService infrastructureService = null;
+    private RoomTypeService roomTypeService = null;
+    private InfrastructureOfRoomTypeService infrastructureOfRoomTypeService = null;
+    private RoomService roomService = null;
+    private ServiceService serviceService = null;
 //    public void reset(Component[] component){
 //            for(int i=0; i<component.length; i++)
 //            {
@@ -126,21 +146,23 @@ public final class Home extends javax.swing.JFrame {
 //                }
 //            }
 //    }
-    public void clearTable(DefaultTableModel table){
+
+    public void clearTable(DefaultTableModel table) {
         int row = table.getRowCount();
         for (int i = row - 1; i >= 0; i--) {
             table.removeRow(i);
         }
     }
-    public void setJTableRole() {
+
+    public void setJTableRoleByAdmin() {
         DefaultTableModel table = (DefaultTableModel) jTableRole.getModel();
         clearTable(table);
         for (RoleDto dto : roleService.getAll()) {
             table.addRow(new Object[]{dto.getId(), dto.getName(), dto.getDescription()});
         }
-
     }
-    public void setJTableUser() {
+
+    public void setJTableUserByAdmin() {
         DefaultTableModel table = (DefaultTableModel) jTableUser.getModel();
         clearTable(table);
         for (UserDto dto : userService.getAllDto()) {
@@ -152,12 +174,135 @@ public final class Home extends javax.swing.JFrame {
                 dto.getAddress()});
         }
     }
+
+    public void setJTableFloorByAdmin() {
+        DefaultTableModel table = (DefaultTableModel) jTableFloor.getModel();
+        clearTable(table);
+        for (FloorDto dto : floorService.getAll()) {
+            table.addRow(new Object[]{dto.getId(), dto.getName()});
+        }
+    }
+
+    public void setJTableInfrastructureByAdmin() {
+        DefaultTableModel table = (DefaultTableModel) jTableInfrastructure.getModel();
+        clearTable(table);
+        for (InfrastructureDto dto : infrastructureService.getAll()) {
+            table.addRow(new Object[]{dto.getId(), dto.getName(), dto.getPrice()});
+        }
+    }
+
+    public void setJTableRoomTypeByAdmin() {
+        DefaultTableModel table = (DefaultTableModel) jTableRoomType.getModel();
+        clearTable(table);
+        for (RoomTypeDto dto : roomTypeService.getAll()) {
+            table.addRow(new Object[]{dto.getId(), dto.getName(), dto.getPrice()});
+        }
+    }
+
+    public void setJComboBoxRoomTypeByAdmin() {
+        List<RoomTypeDto> dtos = roomTypeService.getAll();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (RoomTypeDto dto : dtos) {
+            model.addElement(dto);
+        }
+        jComboBoxRoomType.setModel(model);
+    }
+
+    public void setJComboBoxInfrastructureByAdmin() {
+        List<InfrastructureDto> dtos = infrastructureService.getAll();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (InfrastructureDto dto : dtos) {
+            model.addElement(dto);
+        }
+        jComboBoxInfrastructure.setModel(model);
+    }
+
+    public void setJTableInfrastructureOfRoomTypeByAdmin() {
+        DefaultTableModel table = (DefaultTableModel) jTableInfrastructureOfRoomType.getModel();
+        clearTable(table);
+        int roomTypeId = ((RoomTypeDto) jComboBoxRoomType.getSelectedItem()).getId();
+        List<InfrastructureOfRoomTypeDto> infrastructureOfRoomTypes
+                = infrastructureOfRoomTypeService.getAllByRoomTypeId(roomTypeId);
+        for (InfrastructureOfRoomTypeDto dto : infrastructureOfRoomTypes) {
+            InfrastructureDto infrastructureDto
+                    = infrastructureService.getById(dto.getInfrastructureId());
+            table.addRow(
+                    new Object[]{infrastructureDto.getId(),
+                        infrastructureDto.getName(),
+                        infrastructureDto.getPrice(),
+                        dto.getCount()});
+        }
+    }
+
+    public void setJComboBoxRoomFloorByAdmin() {
+        List<FloorDto> dtos = floorService.getAll();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (FloorDto dto : dtos) {
+            model.addElement(dto);
+        }
+        jComboBoxRoomFloor.setModel(model);
+    }
+
+    public void setJComboBoxRoomRoomTypeByAdmin() {
+        List<RoomTypeDto> dtos = roomTypeService.getAll();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (RoomTypeDto dto : dtos) {
+            model.addElement(dto);
+        }
+        jComboBoxRoomRoomType.setModel(model);
+    }
+
+    public void setJTableRoomByAdmin() {
+        DefaultTableModel table = (DefaultTableModel) jTableRoom.getModel();
+        int floorId = ((FloorDto) jComboBoxRoomFloor.getSelectedItem()).getId();
+        clearTable(table);
+        for (RoomDto dto : roomService.getByFloorId(floorId)) {
+            table.addRow(new Object[]{
+                dto.getId(),
+                dto.getName(),
+                roomTypeService.getById(dto.getRoomTypeId()).getName(),
+                roomTypeService.getById(dto.getRoomTypeId()).getPrice()});
+        }
+    }
+
+    public void setJTableServiceByAdmin() {
+        DefaultTableModel table = (DefaultTableModel) jTableService.getModel();
+        clearTable(table);
+        for (ServiceDto dto : serviceService.getAll()) {
+            table.addRow(new Object[]{
+                dto.getId(),
+                dto.getName(),
+                dto.getDvt(),
+                dto.getPrice()});
+        }
+    }
+
     public Home() {
         initComponents();
+
         roleService = new RoleService();
         userService = new UserService();
-        setJTableRole();
-        setJTableUser();
+        floorService = new FloorService();
+        infrastructureService = new InfrastructureService();
+        roomTypeService = new RoomTypeService();
+        infrastructureOfRoomTypeService = new InfrastructureOfRoomTypeService();
+        roomService = new RoomService();
+        serviceService = new ServiceService();
+
+        setJComboBoxRoomTypeByAdmin();
+        setJComboBoxInfrastructureByAdmin();
+        setJComboBoxRoomFloorByAdmin();
+        setJComboBoxRoomRoomTypeByAdmin();
+
+        setJTableRoleByAdmin();
+        setJTableUserByAdmin();
+        setJTableFloorByAdmin();
+        setJTableInfrastructureByAdmin();
+        setJTableRoomTypeByAdmin();
+        setJTableInfrastructureOfRoomTypeByAdmin();
+        setJTableRoomByAdmin();
+        setJTableServiceByAdmin();
+
 //        jTabbedPane8.setVisible(false);
 //        this.jTabbedPane4.setVisible(false);
 //        Component[] component = Lap_phieu.getComponents();
@@ -175,7 +320,6 @@ public final class Home extends javax.swing.JFrame {
 ////            Component[] componentTemp = component[i].getComponents();
 //
 //        }
-
 //        DecimalFormat decimalFormat = (DecimalFormat)
 //        NumberFormat.getNumberInstance(new Locale("<em>vi</em>" , "VN"));
 //        decimalFormat.applyPattern("###,###,###");
@@ -1501,6 +1645,119 @@ public final class Home extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jTabbedPane11 = new javax.swing.JTabbedPane();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jTextFieldNewFloorName = new javax.swing.JTextField();
+        jButtonAddFloor = new javax.swing.JButton();
+        jButtonCancelAddFloor = new javax.swing.JButton();
+        jPanel35 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextFieldFloorName = new javax.swing.JTextField();
+        jButtonUpdateFloor = new javax.swing.JButton();
+        jButtonCancelUpdateFloor = new javax.swing.JButton();
+        jButtonDeleteFloor = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jTextFieldFloorId = new javax.swing.JTextField();
+        jPanel36 = new javax.swing.JPanel();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        jTableFloor = new javax.swing.JTable();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel37 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jTextFieldNewInfrastructureName = new javax.swing.JTextField();
+        jButtonAddInfrastructure = new javax.swing.JButton();
+        jButtonCancelAddInfrastructure = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jTextFieldNewInfrastructurePrice = new javax.swing.JTextField();
+        jPanel44 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jTextFieldInfrastructureName = new javax.swing.JTextField();
+        jButtonUpdateInfrastructure = new javax.swing.JButton();
+        jButtonCancelUpdateInfrastructure = new javax.swing.JButton();
+        jButtonDeleteInfrastructure = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jTextFieldInfrastructureId = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jTextFieldInfrastructurePrice = new javax.swing.JTextField();
+        jPanel46 = new javax.swing.JPanel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        jTableInfrastructure = new javax.swing.JTable();
+        jPanel12 = new javax.swing.JPanel();
+        jTabbedPane12 = new javax.swing.JTabbedPane();
+        jPanel47 = new javax.swing.JPanel();
+        jPanel62 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jTextFieldNewRoomTypeName = new javax.swing.JTextField();
+        jButtonAddRoomType = new javax.swing.JButton();
+        jButtonCancelAddRoomType = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        jTextFieldNewRoomTypePrice = new javax.swing.JTextField();
+        jPanel63 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jTextFieldRoomTypeName = new javax.swing.JTextField();
+        jButtonUpdateRoomType = new javax.swing.JButton();
+        jButtonCancelUpdateRoomType = new javax.swing.JButton();
+        jButtonDeleteRoomType = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jTextFieldRoomTypeId = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        jTextFieldRoomTypePrice = new javax.swing.JTextField();
+        jPanel66 = new javax.swing.JPanel();
+        jScrollPane27 = new javax.swing.JScrollPane();
+        jTableRoomType = new javax.swing.JTable();
+        jPanel67 = new javax.swing.JPanel();
+        jScrollPane28 = new javax.swing.JScrollPane();
+        jTableInfrastructureOfRoomType = new javax.swing.JTable();
+        jLabel36 = new javax.swing.JLabel();
+        jComboBoxRoomType = new javax.swing.JComboBox<>();
+        jLabel40 = new javax.swing.JLabel();
+        jComboBoxInfrastructure = new javax.swing.JComboBox<>();
+        jButtonAddInfrastructureOfRoomType = new javax.swing.JButton();
+        jButtonDeleteInfrastructureOfRoomType = new javax.swing.JButton();
+        jLabel61 = new javax.swing.JLabel();
+        jTextFieldInfrastructureOfRoomTypeCount = new javax.swing.JTextField();
+        jPanel55 = new javax.swing.JPanel();
+        jPanel68 = new javax.swing.JPanel();
+        jScrollPane29 = new javax.swing.JScrollPane();
+        jTableRoom = new javax.swing.JTable();
+        jLabel63 = new javax.swing.JLabel();
+        jComboBoxRoomFloor = new javax.swing.JComboBox<>();
+        jLabel65 = new javax.swing.JLabel();
+        jComboBoxRoomRoomType = new javax.swing.JComboBox<>();
+        jButtonUpdateRoom = new javax.swing.JButton();
+        jButtonDeleteRoom = new javax.swing.JButton();
+        jLabel67 = new javax.swing.JLabel();
+        jTextFieldRoomName = new javax.swing.JTextField();
+        jButtonAddRoom = new javax.swing.JButton();
+        jLabel68 = new javax.swing.JLabel();
+        jTextFieldRoomId = new javax.swing.JTextField();
+        jPanel64 = new javax.swing.JPanel();
+        jPanel65 = new javax.swing.JPanel();
+        jLabel69 = new javax.swing.JLabel();
+        jTextFieldNewServiceName = new javax.swing.JTextField();
+        jButtonAddService = new javax.swing.JButton();
+        jButtonCancelAddService = new javax.swing.JButton();
+        jLabel70 = new javax.swing.JLabel();
+        jTextFieldNewServicePrice = new javax.swing.JTextField();
+        jLabel80 = new javax.swing.JLabel();
+        jTextFieldNewServiceDvt = new javax.swing.JTextField();
+        jPanel69 = new javax.swing.JPanel();
+        jLabel71 = new javax.swing.JLabel();
+        jTextFieldServiceName = new javax.swing.JTextField();
+        jButtonUpdateService = new javax.swing.JButton();
+        jButtonCancelUpdateService = new javax.swing.JButton();
+        jButtonDeleteService = new javax.swing.JButton();
+        jLabel78 = new javax.swing.JLabel();
+        jTextFieldServiceId = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        jTextFieldServicePrice = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
+        jTextFieldServiceDvt = new javax.swing.JTextField();
+        jPanel70 = new javax.swing.JPanel();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        jTableService = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         Logout = new javax.swing.JPanel();
@@ -1985,6 +2242,11 @@ public final class Home extends javax.swing.JFrame {
             }
         });
         jScrollPane19.setViewportView(Tablegiaphong);
+        if (Tablegiaphong.getColumnModel().getColumnCount() > 0) {
+            Tablegiaphong.getColumnModel().getColumn(0).setMinWidth(15);
+            Tablegiaphong.getColumnModel().getColumn(0).setPreferredWidth(30);
+            Tablegiaphong.getColumnModel().getColumn(0).setMaxWidth(30);
+        }
 
         javax.swing.GroupLayout jPanel49Layout = new javax.swing.GroupLayout(jPanel49);
         jPanel49.setLayout(jPanel49Layout);
@@ -2020,11 +2282,11 @@ public final class Home extends javax.swing.JFrame {
 
             },
             new String [] {
-                "STT", "Mã CS", "Tên"
+                "STT", "Mã CS", "Tên", "Giá"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2033,10 +2295,9 @@ public final class Home extends javax.swing.JFrame {
         });
         jScrollPane20.setViewportView(Tablecoso);
         if (Tablecoso.getColumnModel().getColumnCount() > 0) {
-            Tablecoso.getColumnModel().getColumn(0).setResizable(false);
-            Tablecoso.getColumnModel().getColumn(0).setPreferredWidth(5);
-            Tablecoso.getColumnModel().getColumn(1).setResizable(false);
-            Tablecoso.getColumnModel().getColumn(1).setPreferredWidth(10);
+            Tablecoso.getColumnModel().getColumn(0).setMinWidth(15);
+            Tablecoso.getColumnModel().getColumn(0).setPreferredWidth(30);
+            Tablecoso.getColumnModel().getColumn(0).setMaxWidth(30);
         }
 
         javax.swing.GroupLayout jPanel50Layout = new javax.swing.GroupLayout(jPanel50);
@@ -2046,12 +2307,12 @@ public final class Home extends javax.swing.JFrame {
             .addGroup(jPanel50Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
                     .addGroup(jPanel50Layout.createSequentialGroup()
                         .addComponent(jLabel42)
                         .addGap(18, 18, 18)
                         .addComponent(ComboBoxloaiphong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 169, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel50Layout.setVerticalGroup(
@@ -2073,7 +2334,7 @@ public final class Home extends javax.swing.JFrame {
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(71, 71, 71))
         );
@@ -4819,6 +5080,7 @@ public final class Home extends javax.swing.JFrame {
             jTableRole.getColumnModel().getColumn(0).setMinWidth(15);
             jTableRole.getColumnModel().getColumn(0).setPreferredWidth(30);
             jTableRole.getColumnModel().getColumn(0).setMaxWidth(30);
+            jTableRole.getColumnModel().getColumn(2).setHeaderValue("Chú thích");
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -5115,15 +5377,1133 @@ public final class Home extends javax.swing.JFrame {
 
         jTabbedPane8.addTab("Nhân viên", jPanel3);
 
+        jPanel27.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thêm mới", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel21.setText("Tên tầng:");
+
+        jButtonAddFloor.setText("OK");
+        jButtonAddFloor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddFloorActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelAddFloor.setText("Cancel");
+        jButtonCancelAddFloor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelAddFloorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel27Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldNewFloorName))
+                    .addGroup(jPanel27Layout.createSequentialGroup()
+                        .addComponent(jButtonAddFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelAddFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jTextFieldNewFloorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddFloor)
+                    .addComponent(jButtonCancelAddFloor))
+                .addContainerGap())
+        );
+
+        jPanel35.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel35.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cập nhật", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel23.setText("Tên tầng:");
+
+        jButtonUpdateFloor.setText("OK");
+        jButtonUpdateFloor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateFloorActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelUpdateFloor.setText("Cancel");
+        jButtonCancelUpdateFloor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelUpdateFloorActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteFloor.setText("Xoá");
+        jButtonDeleteFloor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteFloorActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setText("Id:");
+
+        jTextFieldFloorId.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
+        jPanel35.setLayout(jPanel35Layout);
+        jPanel35Layout.setHorizontalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel35Layout.createSequentialGroup()
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel35Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldFloorId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldFloorName, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel35Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jButtonUpdateFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCancelUpdateFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonDeleteFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel35Layout.setVerticalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel35Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jTextFieldFloorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jTextFieldFloorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCancelUpdateFloor)
+                    .addComponent(jButtonDeleteFloor)
+                    .addComponent(jButtonUpdateFloor))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel36.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách tầng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jTableFloor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tên tầng"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableFloor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableFloorMouseClicked(evt);
+            }
+        });
+        jScrollPane17.setViewportView(jTableFloor);
+        if (jTableFloor.getColumnModel().getColumnCount() > 0) {
+            jTableFloor.getColumnModel().getColumn(0).setMinWidth(15);
+            jTableFloor.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jTableFloor.getColumnModel().getColumn(0).setMaxWidth(30);
+            jTableFloor.getColumnModel().getColumn(1).setHeaderValue("Tên tầng");
+        }
+
+        javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
+        jPanel36.setLayout(jPanel36Layout);
+        jPanel36Layout.setHorizontalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+        );
+        jPanel36Layout.setVerticalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+            .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane11.addTab("Tầng", jPanel10);
+
+        jPanel37.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel37.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thêm mới", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel22.setText("Tên:");
+
+        jButtonAddInfrastructure.setText("OK");
+        jButtonAddInfrastructure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddInfrastructureActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelAddInfrastructure.setText("Cancel");
+        jButtonCancelAddInfrastructure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelAddInfrastructureActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Giá:");
+
+        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
+        jPanel37.setLayout(jPanel37Layout);
+        jPanel37Layout.setHorizontalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel37Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel37Layout.createSequentialGroup()
+                        .addComponent(jButtonAddInfrastructure, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelAddInfrastructure, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel37Layout.createSequentialGroup()
+                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel27))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNewInfrastructurePrice)
+                            .addComponent(jTextFieldNewInfrastructureName))))
+                .addContainerGap())
+        );
+        jPanel37Layout.setVerticalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel37Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jTextFieldNewInfrastructureName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jTextFieldNewInfrastructurePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddInfrastructure)
+                    .addComponent(jButtonCancelAddInfrastructure))
+                .addContainerGap())
+        );
+
+        jPanel44.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel44.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cập nhật", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel24.setText("Tên:");
+
+        jButtonUpdateInfrastructure.setText("OK");
+        jButtonUpdateInfrastructure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateInfrastructureActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelUpdateInfrastructure.setText("Cancel");
+        jButtonCancelUpdateInfrastructure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelUpdateInfrastructureActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteInfrastructure.setText("Xoá");
+        jButtonDeleteInfrastructure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteInfrastructureActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Id:");
+
+        jTextFieldInfrastructureId.setEnabled(false);
+
+        jLabel29.setText("Giá:");
+
+        javax.swing.GroupLayout jPanel44Layout = new javax.swing.GroupLayout(jPanel44);
+        jPanel44.setLayout(jPanel44Layout);
+        jPanel44Layout.setHorizontalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel44Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel44Layout.createSequentialGroup()
+                        .addComponent(jButtonUpdateInfrastructure, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCancelUpdateInfrastructure, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonDeleteInfrastructure, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel44Layout.createSequentialGroup()
+                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel29))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldInfrastructurePrice)
+                            .addGroup(jPanel44Layout.createSequentialGroup()
+                                .addComponent(jTextFieldInfrastructureId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTextFieldInfrastructureName))))
+                .addContainerGap())
+        );
+        jPanel44Layout.setVerticalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel44Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jTextFieldInfrastructureId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jTextFieldInfrastructureName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jTextFieldInfrastructurePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonUpdateInfrastructure)
+                    .addComponent(jButtonCancelUpdateInfrastructure)
+                    .addComponent(jButtonDeleteInfrastructure))
+                .addContainerGap())
+        );
+
+        jPanel46.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel46.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách cơ sở vật chất", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jTableInfrastructure.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tên", "Giá"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableInfrastructure.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableInfrastructureMouseClicked(evt);
+            }
+        });
+        jScrollPane18.setViewportView(jTableInfrastructure);
+        if (jTableInfrastructure.getColumnModel().getColumnCount() > 0) {
+            jTableInfrastructure.getColumnModel().getColumn(0).setMinWidth(15);
+            jTableInfrastructure.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jTableInfrastructure.getColumnModel().getColumn(0).setMaxWidth(30);
+        }
+
+        javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
+        jPanel46.setLayout(jPanel46Layout);
+        jPanel46Layout.setHorizontalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+        );
+        jPanel46Layout.setVerticalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(jPanel46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
+            .addComponent(jPanel46, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane11.addTab("Cơ sở vật chất", jPanel11);
+
+        jPanel62.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel62.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thêm mới", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel30.setText("Tên:");
+
+        jButtonAddRoomType.setText("OK");
+        jButtonAddRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelAddRoomType.setText("Cancel");
+        jButtonCancelAddRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelAddRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Giá:");
+
+        javax.swing.GroupLayout jPanel62Layout = new javax.swing.GroupLayout(jPanel62);
+        jPanel62.setLayout(jPanel62Layout);
+        jPanel62Layout.setHorizontalGroup(
+            jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel62Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel62Layout.createSequentialGroup()
+                        .addComponent(jButtonAddRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelAddRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel62Layout.createSequentialGroup()
+                        .addGroup(jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel31))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNewRoomTypePrice)
+                            .addComponent(jTextFieldNewRoomTypeName))))
+                .addContainerGap())
+        );
+        jPanel62Layout.setVerticalGroup(
+            jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel62Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(jTextFieldNewRoomTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(jTextFieldNewRoomTypePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel62Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddRoomType)
+                    .addComponent(jButtonCancelAddRoomType))
+                .addContainerGap())
+        );
+
+        jPanel63.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel63.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cập nhật", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel32.setText("Tên:");
+
+        jButtonUpdateRoomType.setText("OK");
+        jButtonUpdateRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelUpdateRoomType.setText("Cancel");
+        jButtonCancelUpdateRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelUpdateRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteRoomType.setText("Xoá");
+        jButtonDeleteRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setText("Id:");
+
+        jTextFieldRoomTypeId.setEnabled(false);
+
+        jLabel35.setText("Giá:");
+
+        javax.swing.GroupLayout jPanel63Layout = new javax.swing.GroupLayout(jPanel63);
+        jPanel63.setLayout(jPanel63Layout);
+        jPanel63Layout.setHorizontalGroup(
+            jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel63Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel63Layout.createSequentialGroup()
+                        .addComponent(jButtonUpdateRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCancelUpdateRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(jButtonDeleteRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel63Layout.createSequentialGroup()
+                        .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel35))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldRoomTypePrice)
+                            .addGroup(jPanel63Layout.createSequentialGroup()
+                                .addComponent(jTextFieldRoomTypeId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTextFieldRoomTypeName)))))
+        );
+        jPanel63Layout.setVerticalGroup(
+            jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel63Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(jTextFieldRoomTypeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(jTextFieldRoomTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jTextFieldRoomTypePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonUpdateRoomType)
+                    .addComponent(jButtonCancelUpdateRoomType)
+                    .addComponent(jButtonDeleteRoomType))
+                .addContainerGap())
+        );
+
+        jPanel66.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel66.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách loại phòng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jTableRoomType.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tên", "Giá"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableRoomType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableRoomTypeMouseClicked(evt);
+            }
+        });
+        jScrollPane27.setViewportView(jTableRoomType);
+        if (jTableRoomType.getColumnModel().getColumnCount() > 0) {
+            jTableRoomType.getColumnModel().getColumn(0).setMinWidth(15);
+            jTableRoomType.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jTableRoomType.getColumnModel().getColumn(0).setMaxWidth(30);
+        }
+
+        javax.swing.GroupLayout jPanel66Layout = new javax.swing.GroupLayout(jPanel66);
+        jPanel66.setLayout(jPanel66Layout);
+        jPanel66Layout.setHorizontalGroup(
+            jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane27, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+        );
+        jPanel66Layout.setVerticalGroup(
+            jPanel66Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel47Layout = new javax.swing.GroupLayout(jPanel47);
+        jPanel47.setLayout(jPanel47Layout);
+        jPanel47Layout.setHorizontalGroup(
+            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel47Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addComponent(jPanel66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel47Layout.setVerticalGroup(
+            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel47Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jPanel63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
+            .addComponent(jPanel66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane12.addTab("Loại phòng", jPanel47);
+
+        jPanel67.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel67.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách cơ sở vật chất", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jTableInfrastructureOfRoomType.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tên", "Giá", "Số lượng"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableInfrastructureOfRoomType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableInfrastructureOfRoomTypeMouseClicked(evt);
+            }
+        });
+        jScrollPane28.setViewportView(jTableInfrastructureOfRoomType);
+        if (jTableInfrastructureOfRoomType.getColumnModel().getColumnCount() > 0) {
+            jTableInfrastructureOfRoomType.getColumnModel().getColumn(0).setMinWidth(15);
+            jTableInfrastructureOfRoomType.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jTableInfrastructureOfRoomType.getColumnModel().getColumn(0).setMaxWidth(30);
+            jTableInfrastructureOfRoomType.getColumnModel().getColumn(1).setResizable(false);
+            jTableInfrastructureOfRoomType.getColumnModel().getColumn(3).setMinWidth(40);
+            jTableInfrastructureOfRoomType.getColumnModel().getColumn(3).setPreferredWidth(80);
+            jTableInfrastructureOfRoomType.getColumnModel().getColumn(3).setMaxWidth(80);
+        }
+
+        jLabel36.setText("Loại phòng:");
+
+        jComboBoxRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setText("Cơ sở vật chất:");
+
+        jButtonAddInfrastructureOfRoomType.setText("Thêm");
+        jButtonAddInfrastructureOfRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddInfrastructureOfRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteInfrastructureOfRoomType.setText("Xoá");
+        jButtonDeleteInfrastructureOfRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteInfrastructureOfRoomTypeActionPerformed(evt);
+            }
+        });
+
+        jLabel61.setText("Số lượng:");
+
+        javax.swing.GroupLayout jPanel67Layout = new javax.swing.GroupLayout(jPanel67);
+        jPanel67.setLayout(jPanel67Layout);
+        jPanel67Layout.setHorizontalGroup(
+            jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel67Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel40)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel61))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jComboBoxInfrastructure, 0, 170, Short.MAX_VALUE)
+                        .addComponent(jComboBoxRoomType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextFieldInfrastructureOfRoomTypeCount, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonDeleteInfrastructureOfRoomType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAddInfrastructureOfRoomType, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane28, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        jPanel67Layout.setVerticalGroup(
+            jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane28, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+            .addGroup(jPanel67Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(jComboBoxRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40)
+                    .addComponent(jComboBoxInfrastructure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAddInfrastructureOfRoomType))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonDeleteInfrastructureOfRoomType)
+                    .addComponent(jLabel61)
+                    .addComponent(jTextFieldInfrastructureOfRoomTypeCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane12.addTab("Cơ sở vật chất của phòng", jPanel67);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane12)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane12)
+        );
+
+        jTabbedPane11.addTab("Chi tiết loại phòng", jPanel12);
+
+        jPanel68.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel68.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phòng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jTableRoom.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tên phòng", "Loại phòng", "Giá"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableRoom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableRoomMouseClicked(evt);
+            }
+        });
+        jScrollPane29.setViewportView(jTableRoom);
+        if (jTableRoom.getColumnModel().getColumnCount() > 0) {
+            jTableRoom.getColumnModel().getColumn(0).setMinWidth(15);
+            jTableRoom.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jTableRoom.getColumnModel().getColumn(0).setMaxWidth(30);
+            jTableRoom.getColumnModel().getColumn(1).setResizable(false);
+            jTableRoom.getColumnModel().getColumn(2).setMinWidth(40);
+            jTableRoom.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTableRoom.getColumnModel().getColumn(2).setMaxWidth(80);
+        }
+
+        jLabel63.setText("Tầng:");
+
+        jComboBoxRoomFloor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRoomFloorActionPerformed(evt);
+            }
+        });
+
+        jLabel65.setText("Loại phòng:");
+
+        jButtonUpdateRoom.setText("Cập nhật");
+        jButtonUpdateRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateRoomActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteRoom.setText("Xoá");
+        jButtonDeleteRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteRoomActionPerformed(evt);
+            }
+        });
+
+        jLabel67.setText("Tên phòng:");
+
+        jButtonAddRoom.setText("Thêm mới");
+        jButtonAddRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddRoomActionPerformed(evt);
+            }
+        });
+
+        jLabel68.setText("Id:");
+
+        jTextFieldRoomId.setEditable(false);
+
+        javax.swing.GroupLayout jPanel68Layout = new javax.swing.GroupLayout(jPanel68);
+        jPanel68.setLayout(jPanel68Layout);
+        jPanel68Layout.setHorizontalGroup(
+            jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel68Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel68Layout.createSequentialGroup()
+                        .addComponent(jButtonAddRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonUpdateRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(jButtonDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83))
+                    .addGroup(jPanel68Layout.createSequentialGroup()
+                        .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel65)
+                            .addComponent(jLabel63)
+                            .addComponent(jLabel67))
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel68Layout.createSequentialGroup()
+                                .addComponent(jComboBoxRoomRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(114, 114, 114))
+                            .addGroup(jPanel68Layout.createSequentialGroup()
+                                .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBoxRoomFloor, 0, 170, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldRoomName))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel68)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldRoomId)
+                                .addGap(83, 83, 83)))))
+                .addComponent(jScrollPane29, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
+        );
+        jPanel68Layout.setVerticalGroup(
+            jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane29, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+            .addGroup(jPanel68Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel63)
+                    .addComponent(jComboBoxRoomFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel67)
+                    .addComponent(jTextFieldRoomName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel68)
+                    .addComponent(jTextFieldRoomId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel65)
+                    .addComponent(jComboBoxRoomRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel68Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonDeleteRoom)
+                    .addComponent(jButtonAddRoom)
+                    .addComponent(jButtonUpdateRoom))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel55Layout = new javax.swing.GroupLayout(jPanel55);
+        jPanel55.setLayout(jPanel55Layout);
+        jPanel55Layout.setHorizontalGroup(
+            jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel55Layout.createSequentialGroup()
+                .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel55Layout.setVerticalGroup(
+            jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel68, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane11.addTab("Phòng", jPanel55);
+
+        jPanel65.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel65.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thêm mới", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel69.setText("Tên:");
+
+        jButtonAddService.setText("OK");
+        jButtonAddService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddServiceActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelAddService.setText("Cancel");
+        jButtonCancelAddService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelAddServiceActionPerformed(evt);
+            }
+        });
+
+        jLabel70.setText("Giá:");
+
+        jLabel80.setText("ĐVT:");
+
+        javax.swing.GroupLayout jPanel65Layout = new javax.swing.GroupLayout(jPanel65);
+        jPanel65.setLayout(jPanel65Layout);
+        jPanel65Layout.setHorizontalGroup(
+            jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel65Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel65Layout.createSequentialGroup()
+                        .addComponent(jButtonAddService, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelAddService, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel65Layout.createSequentialGroup()
+                        .addGroup(jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel70)
+                            .addComponent(jLabel80)
+                            .addComponent(jLabel69))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNewServiceName)
+                            .addComponent(jTextFieldNewServicePrice)
+                            .addComponent(jTextFieldNewServiceDvt))))
+                .addContainerGap())
+        );
+        jPanel65Layout.setVerticalGroup(
+            jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel65Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel69)
+                    .addComponent(jTextFieldNewServiceName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel80)
+                    .addComponent(jTextFieldNewServiceDvt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel70)
+                    .addComponent(jTextFieldNewServicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddService)
+                    .addComponent(jButtonCancelAddService))
+                .addContainerGap())
+        );
+
+        jPanel69.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel69.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cập nhật", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jLabel71.setText("Tên:");
+
+        jButtonUpdateService.setText("OK");
+        jButtonUpdateService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateServiceActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelUpdateService.setText("Cancel");
+        jButtonCancelUpdateService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelUpdateServiceActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteService.setText("Xoá");
+        jButtonDeleteService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteServiceActionPerformed(evt);
+            }
+        });
+
+        jLabel78.setText("Id:");
+
+        jTextFieldServiceId.setEnabled(false);
+
+        jLabel79.setText("Giá:");
+
+        jLabel81.setText("ĐVT:");
+
+        javax.swing.GroupLayout jPanel69Layout = new javax.swing.GroupLayout(jPanel69);
+        jPanel69.setLayout(jPanel69Layout);
+        jPanel69Layout.setHorizontalGroup(
+            jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel69Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel69Layout.createSequentialGroup()
+                        .addComponent(jButtonUpdateService, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCancelUpdateService, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addComponent(jButtonDeleteService, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel69Layout.createSequentialGroup()
+                        .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel71)
+                            .addComponent(jLabel78))
+                        .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel69Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldServiceId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel69Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jTextFieldServiceName))))
+                    .addGroup(jPanel69Layout.createSequentialGroup()
+                        .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel69Layout.createSequentialGroup()
+                                .addComponent(jLabel79)
+                                .addGap(7, 7, 7))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel69Layout.createSequentialGroup()
+                                .addComponent(jLabel81)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldServiceDvt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldServicePrice))))
+                .addContainerGap())
+        );
+        jPanel69Layout.setVerticalGroup(
+            jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel69Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel78)
+                    .addComponent(jTextFieldServiceId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel71)
+                    .addComponent(jTextFieldServiceName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldServiceDvt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel81))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel79)
+                    .addComponent(jTextFieldServicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel69Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonUpdateService)
+                    .addComponent(jButtonCancelUpdateService)
+                    .addComponent(jButtonDeleteService))
+                .addContainerGap())
+        );
+
+        jPanel70.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel70.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách dịch vụ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11), new java.awt.Color(0, 153, 0))); // NOI18N
+
+        jTableService.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tên", "ĐVT", "Giá"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableService.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableServiceMouseClicked(evt);
+            }
+        });
+        jScrollPane24.setViewportView(jTableService);
+        if (jTableService.getColumnModel().getColumnCount() > 0) {
+            jTableService.getColumnModel().getColumn(0).setMinWidth(15);
+            jTableService.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jTableService.getColumnModel().getColumn(0).setMaxWidth(30);
+            jTableService.getColumnModel().getColumn(2).setMinWidth(40);
+            jTableService.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTableService.getColumnModel().getColumn(2).setMaxWidth(80);
+        }
+
+        javax.swing.GroupLayout jPanel70Layout = new javax.swing.GroupLayout(jPanel70);
+        jPanel70.setLayout(jPanel70Layout);
+        jPanel70Layout.setHorizontalGroup(
+            jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane24, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+        );
+        jPanel70Layout.setVerticalGroup(
+            jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel64Layout = new javax.swing.GroupLayout(jPanel64);
+        jPanel64.setLayout(jPanel64Layout);
+        jPanel64Layout.setHorizontalGroup(
+            jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel64Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel69, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(jPanel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel64Layout.setVerticalGroup(
+            jPanel64Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel64Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jPanel65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jPanel69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jPanel70, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane11.addTab("Dịch vụ", jPanel64);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 990, Short.MAX_VALUE)
+            .addComponent(jTabbedPane11, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addComponent(jTabbedPane11)
         );
 
         jTabbedPane8.addTab("Khách sạn", jPanel4);
@@ -6966,10 +8346,10 @@ public final class Home extends javax.swing.JFrame {
             dto.setDescription(desc);
 
             roleService.add(dto);
-            
+
             jTextNewRoleName.setText("");
             jTextNewRoleDesc.setText("");
-            setJTableRole();
+            setJTableRoleByAdmin();
         }
     }//GEN-LAST:event_jButtonAddRoleActionPerformed
 
@@ -6994,7 +8374,7 @@ public final class Home extends javax.swing.JFrame {
         jTextRoleId.setText("");
         jTextRoleName.setText("");
         jTextRoleDesc.setText("");
-        setJTableRole();
+        setJTableRoleByAdmin();
     }//GEN-LAST:event_jButtonUpdateRoleActionPerformed
 
     private void jButtonDeleteRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteRoleActionPerformed
@@ -7004,7 +8384,7 @@ public final class Home extends javax.swing.JFrame {
         jTextRoleId.setText("");
         jTextRoleName.setText("");
         jTextRoleDesc.setText("");
-        setJTableRole();
+        setJTableRoleByAdmin();
     }//GEN-LAST:event_jButtonDeleteRoleActionPerformed
 
     private void jButtonCancelUpdateRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateRoleActionPerformed
@@ -7029,6 +8409,358 @@ public final class Home extends javax.swing.JFrame {
         System.out.println(id);
         new UserEdit(Home.this, id).setVisible(true);
     }//GEN-LAST:event_jTableUserMouseClicked
+
+    private void jButtonAddFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFloorActionPerformed
+        String name = jTextFieldNewFloorName.getText();
+        if (!name.equals("")) {
+            FloorDto dto = new FloorDto();
+            dto.setName(name);
+            floorService.add(dto);
+            jTextFieldNewFloorName.setText("");
+            setJTableFloorByAdmin();
+        }
+    }//GEN-LAST:event_jButtonAddFloorActionPerformed
+
+    private void jButtonCancelAddFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelAddFloorActionPerformed
+        jTextFieldNewFloorName.setText("");
+    }//GEN-LAST:event_jButtonCancelAddFloorActionPerformed
+
+    private void jButtonUpdateFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateFloorActionPerformed
+        int id = Integer.parseInt(jTextFieldFloorId.getText());
+        String name = jTextFieldFloorName.getText();
+
+        FloorDto dto = new FloorDto();
+        dto.setId(id);
+        dto.setName(name);
+
+        floorService.edit(dto);
+
+        jTextFieldFloorId.setText("");
+        jTextFieldFloorName.setText("");
+
+        setJTableFloorByAdmin();
+    }//GEN-LAST:event_jButtonUpdateFloorActionPerformed
+
+    private void jButtonCancelUpdateFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateFloorActionPerformed
+        jTextFieldFloorId.setText("");
+        jTextFieldFloorName.setText("");
+    }//GEN-LAST:event_jButtonCancelUpdateFloorActionPerformed
+
+    private void jButtonDeleteFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteFloorActionPerformed
+        int id = Integer.parseInt(jTextFieldFloorId.getText());
+        floorService.removeById(id);
+        jTextFieldFloorId.setText("");
+        jTextFieldFloorName.setText("");
+
+        setJTableFloorByAdmin();
+
+    }//GEN-LAST:event_jButtonDeleteFloorActionPerformed
+
+    private void jTableFloorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFloorMouseClicked
+        int index = jTableFloor.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableFloor.getModel();
+        int id = (int) model.getValueAt(index, 0);
+
+        FloorDto dto = floorService.getById(id);
+        jTextFieldFloorId.setText(Integer.toString(dto.getId()));
+        jTextFieldFloorName.setText(dto.getName());
+    }//GEN-LAST:event_jTableFloorMouseClicked
+
+    private void jButtonAddInfrastructureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInfrastructureActionPerformed
+        String name = jTextFieldNewInfrastructureName.getText();
+        BigDecimal price = new BigDecimal(jTextFieldNewInfrastructurePrice.getText());
+        if (!name.equals("")) {
+            InfrastructureDto dto = new InfrastructureDto();
+            dto.setName(name);
+            dto.setPrice(price);
+            infrastructureService.add(dto);
+            jTextFieldNewInfrastructureName.setText("");
+            jTextFieldNewInfrastructurePrice.setText("");
+            setJTableInfrastructureByAdmin();
+        }
+    }//GEN-LAST:event_jButtonAddInfrastructureActionPerformed
+
+    private void jButtonCancelAddInfrastructureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelAddInfrastructureActionPerformed
+        jTextFieldNewInfrastructureName.setText("");
+        jTextFieldNewInfrastructurePrice.setText("");
+    }//GEN-LAST:event_jButtonCancelAddInfrastructureActionPerformed
+
+    private void jButtonUpdateInfrastructureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateInfrastructureActionPerformed
+        int id = Integer.parseInt(jTextFieldInfrastructureId.getText());
+        String name = jTextFieldInfrastructureName.getText();
+        BigDecimal price = new BigDecimal(jTextFieldInfrastructurePrice.getText());
+
+        InfrastructureDto dto = new InfrastructureDto();
+        dto.setId(id);
+        dto.setName(name);
+        dto.setPrice(price);
+
+        infrastructureService.edit(dto);
+
+        jTextFieldInfrastructureId.setText("");
+        jTextFieldInfrastructureName.setText("");
+        jTextFieldInfrastructurePrice.setText("");
+
+        setJTableInfrastructureByAdmin();
+    }//GEN-LAST:event_jButtonUpdateInfrastructureActionPerformed
+
+    private void jButtonCancelUpdateInfrastructureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateInfrastructureActionPerformed
+        jTextFieldInfrastructureId.setText("");
+        jTextFieldInfrastructureName.setText("");
+        jTextFieldInfrastructurePrice.setText("");
+    }//GEN-LAST:event_jButtonCancelUpdateInfrastructureActionPerformed
+
+    private void jButtonDeleteInfrastructureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteInfrastructureActionPerformed
+        int id = Integer.parseInt(jTextFieldInfrastructureId.getText());
+
+        infrastructureService.removeById(id);
+
+        jTextFieldInfrastructureId.setText("");
+        jTextFieldInfrastructureName.setText("");
+        jTextFieldInfrastructurePrice.setText("");
+
+        setJTableInfrastructureByAdmin();
+    }//GEN-LAST:event_jButtonDeleteInfrastructureActionPerformed
+
+    private void jTableInfrastructureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableInfrastructureMouseClicked
+        int index = jTableInfrastructure.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableInfrastructure.getModel();
+        int id = (int) model.getValueAt(index, 0);
+
+        InfrastructureDto dto = infrastructureService.getById(id);
+        jTextFieldInfrastructureId.setText(Integer.toString(dto.getId()));
+        jTextFieldInfrastructureName.setText(dto.getName());
+        jTextFieldInfrastructurePrice.setText((dto.getPrice()).toString());
+    }//GEN-LAST:event_jTableInfrastructureMouseClicked
+
+    private void jButtonAddRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddRoomTypeActionPerformed
+        String name = jTextFieldNewRoomTypeName.getText();
+        BigDecimal price = new BigDecimal(jTextFieldNewRoomTypePrice.getText());
+        if (!name.equals("")) {
+            RoomTypeDto dto = new RoomTypeDto();
+            dto.setName(name);
+            dto.setPrice(price);
+            roomTypeService.add(dto);
+            jTextFieldNewRoomTypeName.setText("");
+            jTextFieldNewRoomTypePrice.setText("");
+            setJTableRoomTypeByAdmin();
+        }
+    }//GEN-LAST:event_jButtonAddRoomTypeActionPerformed
+
+    private void jButtonCancelAddRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelAddRoomTypeActionPerformed
+        jTextFieldNewRoomTypeName.setText("");
+        jTextFieldNewRoomTypePrice.setText("");
+    }//GEN-LAST:event_jButtonCancelAddRoomTypeActionPerformed
+
+    private void jButtonUpdateRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateRoomTypeActionPerformed
+        int id = Integer.parseInt(jTextFieldRoomTypeId.getText());
+        String name = jTextFieldRoomTypeName.getText();
+        BigDecimal price = new BigDecimal(jTextFieldRoomTypePrice.getText());
+
+        RoomTypeDto dto = new RoomTypeDto();
+        dto.setId(id);
+        dto.setName(name);
+        dto.setPrice(price);
+
+        roomTypeService.edit(dto);
+
+        jTextFieldRoomTypeId.setText("");
+        jTextFieldRoomTypeName.setText("");
+        jTextFieldRoomTypePrice.setText("");
+
+        setJTableRoomTypeByAdmin();
+    }//GEN-LAST:event_jButtonUpdateRoomTypeActionPerformed
+
+    private void jButtonCancelUpdateRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateRoomTypeActionPerformed
+        jTextFieldRoomTypeId.setText("");
+        jTextFieldRoomTypeName.setText("");
+        jTextFieldRoomTypePrice.setText("");
+    }//GEN-LAST:event_jButtonCancelUpdateRoomTypeActionPerformed
+
+    private void jButtonDeleteRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteRoomTypeActionPerformed
+        int id = Integer.parseInt(jTextFieldRoomTypeId.getText());
+        roomTypeService.removeById(id);
+        jTextFieldRoomTypeId.setText("");
+        jTextFieldRoomTypeName.setText("");
+        jTextFieldRoomTypePrice.setText("");
+
+        setJTableRoomTypeByAdmin();
+    }//GEN-LAST:event_jButtonDeleteRoomTypeActionPerformed
+
+    private void jTableRoomTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRoomTypeMouseClicked
+        int index = jTableRoomType.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableRoomType.getModel();
+        int id = (int) model.getValueAt(index, 0);
+
+        RoomTypeDto dto = roomTypeService.getById(id);
+        jTextFieldRoomTypeId.setText(Integer.toString(dto.getId()));
+        jTextFieldRoomTypeName.setText(dto.getName());
+        jTextFieldRoomTypePrice.setText((dto.getPrice()).toString());
+    }//GEN-LAST:event_jTableRoomTypeMouseClicked
+
+    private void jTableInfrastructureOfRoomTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableInfrastructureOfRoomTypeMouseClicked
+        int index = jTableInfrastructureOfRoomType.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableInfrastructureOfRoomType.getModel();
+        int infrastructureId = (int) model.getValueAt(index, 0);
+        jComboBoxInfrastructure.getModel().setSelectedItem(infrastructureService.getById(infrastructureId));
+        int count = (int) model.getValueAt(index, 3);
+        jTextFieldInfrastructureOfRoomTypeCount.setText(Integer.toString(count));
+    }//GEN-LAST:event_jTableInfrastructureOfRoomTypeMouseClicked
+
+    private void jComboBoxRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRoomTypeActionPerformed
+        setJTableInfrastructureOfRoomTypeByAdmin();
+    }//GEN-LAST:event_jComboBoxRoomTypeActionPerformed
+
+    private void jButtonAddInfrastructureOfRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddInfrastructureOfRoomTypeActionPerformed
+        int roomTypeId = ((RoomTypeDto) jComboBoxRoomType.getSelectedItem()).getId();
+        int infrastructrureId = ((InfrastructureDto) jComboBoxInfrastructure.getSelectedItem()).getId();
+        int count = Integer.parseInt(jTextFieldInfrastructureOfRoomTypeCount.getText());
+        InfrastructureOfRoomTypeDto infrastructureOfRoomTypeDto
+                = new InfrastructureOfRoomTypeDto(infrastructrureId, roomTypeId, count);
+        if (infrastructureOfRoomTypeService.getById(infrastructrureId, roomTypeId) != null) {
+            infrastructureOfRoomTypeService.edit(infrastructureOfRoomTypeDto);
+        } else {
+            infrastructureOfRoomTypeService.add(infrastructureOfRoomTypeDto);
+        }
+        setJTableInfrastructureOfRoomTypeByAdmin();
+    }//GEN-LAST:event_jButtonAddInfrastructureOfRoomTypeActionPerformed
+
+    private void jButtonDeleteInfrastructureOfRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteInfrastructureOfRoomTypeActionPerformed
+        int roomTypeId = ((RoomTypeDto) jComboBoxRoomType.getSelectedItem()).getId();
+        int infrastructrureId = ((InfrastructureDto) jComboBoxInfrastructure.getSelectedItem()).getId();
+        infrastructureOfRoomTypeService.removeById(infrastructrureId, roomTypeId);
+        setJTableInfrastructureOfRoomTypeByAdmin();
+    }//GEN-LAST:event_jButtonDeleteInfrastructureOfRoomTypeActionPerformed
+
+    private void jTableRoomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRoomMouseClicked
+        int index = jTableRoom.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableRoom.getModel();
+        int id = (int) model.getValueAt(index, 0);
+        RoomDto dto = roomService.getById(id);
+
+        jTextFieldRoomId.setText(Integer.toString(id));
+        jComboBoxRoomFloor.getModel().setSelectedItem(floorService.getById(dto.getFloorId()));
+        jTextFieldRoomName.setText(dto.getName());
+        jComboBoxRoomRoomType.getModel().setSelectedItem(roomTypeService.getById(dto.getRoomTypeId()));
+    }//GEN-LAST:event_jTableRoomMouseClicked
+
+    private void jComboBoxRoomFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRoomFloorActionPerformed
+        setJTableRoomByAdmin();
+    }//GEN-LAST:event_jComboBoxRoomFloorActionPerformed
+
+    private void jButtonUpdateRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateRoomActionPerformed
+        int id = Integer.parseInt(jTextFieldRoomId.getText());
+        int floorId = ((FloorDto) jComboBoxRoomFloor.getSelectedItem()).getId();
+        String name = jTextFieldRoomName.getText();
+        int roomTypeId = ((RoomTypeDto) jComboBoxRoomRoomType.getSelectedItem()).getId();
+
+        RoomDto dto = new RoomDto();
+        dto.setId(id);
+        dto.setFloorId(floorId);
+        dto.setName(name);
+        dto.setRoomTypeId(roomTypeId);
+
+        roomService.edit(dto);
+        setJTableRoomByAdmin();
+    }//GEN-LAST:event_jButtonUpdateRoomActionPerformed
+
+    private void jButtonDeleteRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteRoomActionPerformed
+        int id = Integer.parseInt(jTextFieldRoomId.getText());
+
+        roomService.removeById(id);
+
+        jTextFieldRoomId.setText("");
+        jTextFieldRoomName.setText("");
+        setJTableRoomByAdmin();
+    }//GEN-LAST:event_jButtonDeleteRoomActionPerformed
+
+    private void jButtonAddRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddRoomActionPerformed
+        int floorId = ((FloorDto) jComboBoxRoomFloor.getSelectedItem()).getId();
+        String name = jTextFieldRoomName.getText();
+        int roomTypeId = ((RoomTypeDto) jComboBoxRoomRoomType.getSelectedItem()).getId();
+
+        RoomDto dto = new RoomDto();
+        dto.setFloorId(floorId);
+        dto.setName(name);
+        dto.setRoomTypeId(roomTypeId);
+
+        roomService.add(dto);
+        setJTableRoomByAdmin();
+    }//GEN-LAST:event_jButtonAddRoomActionPerformed
+
+    private void jButtonAddServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddServiceActionPerformed
+        String name = jTextFieldNewServiceName.getText();
+        String dvt = jTextFieldNewServiceDvt.getText();
+        BigDecimal price = new BigDecimal(jTextFieldNewServicePrice.getText());
+        
+        ServiceDto dto = new ServiceDto();
+        dto.setName(name);
+        dto.setDvt(dvt);
+        dto.setPrice(price);
+        
+        serviceService.add(dto);
+        
+        jTextFieldNewServiceName.setText("");
+        jTextFieldNewServiceDvt.setText("");
+        jTextFieldNewServicePrice.setText("");
+        setJTableServiceByAdmin();
+    }//GEN-LAST:event_jButtonAddServiceActionPerformed
+
+    private void jButtonCancelAddServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelAddServiceActionPerformed
+        jTextFieldNewServiceName.setText("");
+        jTextFieldNewServiceDvt.setText("");
+        jTextFieldNewServicePrice.setText("");
+    }//GEN-LAST:event_jButtonCancelAddServiceActionPerformed
+
+    private void jButtonUpdateServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateServiceActionPerformed
+        int id = Integer.parseInt(jTextFieldServiceId.getText());
+        String name = jTextFieldServiceName.getText();
+        String dvt = jTextFieldServiceDvt.getText();
+        BigDecimal price = new BigDecimal(jTextFieldServicePrice.getText());
+        
+        ServiceDto dto = new ServiceDto();
+        dto.setId(id);
+        dto.setName(name);
+        dto.setDvt(dvt);
+        dto.setPrice(price);
+        
+        serviceService.edit(dto);
+        
+        jTextFieldServiceId.setText("");
+        jTextFieldServiceName.setText("");
+        jTextFieldServiceDvt.setText("");
+        jTextFieldServicePrice.setText("");
+        setJTableServiceByAdmin();
+    }//GEN-LAST:event_jButtonUpdateServiceActionPerformed
+
+    private void jButtonCancelUpdateServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateServiceActionPerformed
+        jTextFieldServiceId.setText("");
+        jTextFieldServiceName.setText("");
+        jTextFieldServiceDvt.setText("");
+        jTextFieldServicePrice.setText("");
+    }//GEN-LAST:event_jButtonCancelUpdateServiceActionPerformed
+
+    private void jButtonDeleteServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteServiceActionPerformed
+        int id = Integer.parseInt(jTextFieldServiceId.getText());
+        serviceService.removeById(id);
+        jTextFieldServiceId.setText("");
+        jTextFieldServiceName.setText("");
+        jTextFieldServiceDvt.setText("");
+        jTextFieldServicePrice.setText("");
+        setJTableServiceByAdmin();
+    }//GEN-LAST:event_jButtonDeleteServiceActionPerformed
+
+    private void jTableServiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableServiceMouseClicked
+        int index = jTableService.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableService.getModel();
+        int id = (int) model.getValueAt(index, 0);
+        ServiceDto dto = serviceService.getById(id);
+
+        jTextFieldServiceId.setText(Integer.toString(id));
+        jTextFieldServiceName.setText(dto.getName());
+        jTextFieldServiceDvt.setText(dto.getDvt());
+        jTextFieldServicePrice.setText(dto.getPrice().toString());
+    }//GEN-LAST:event_jTableServiceMouseClicked
 
     /**
      * @param args the command line arguments
@@ -7293,14 +9025,43 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton87;
     private javax.swing.JButton jButton90;
     private javax.swing.JButton jButton91;
+    private javax.swing.JButton jButtonAddFloor;
+    private javax.swing.JButton jButtonAddInfrastructure;
+    private javax.swing.JButton jButtonAddInfrastructureOfRoomType;
     private javax.swing.JButton jButtonAddRole;
+    private javax.swing.JButton jButtonAddRoom;
+    private javax.swing.JButton jButtonAddRoomType;
+    private javax.swing.JButton jButtonAddService;
+    private javax.swing.JButton jButtonCancelAddFloor;
+    private javax.swing.JButton jButtonCancelAddInfrastructure;
     private javax.swing.JButton jButtonCancelAddRole;
+    private javax.swing.JButton jButtonCancelAddRoomType;
+    private javax.swing.JButton jButtonCancelAddService;
+    private javax.swing.JButton jButtonCancelUpdateFloor;
+    private javax.swing.JButton jButtonCancelUpdateInfrastructure;
     private javax.swing.JButton jButtonCancelUpdateRole;
+    private javax.swing.JButton jButtonCancelUpdateRoomType;
+    private javax.swing.JButton jButtonCancelUpdateService;
+    private javax.swing.JButton jButtonDeleteFloor;
+    private javax.swing.JButton jButtonDeleteInfrastructure;
+    private javax.swing.JButton jButtonDeleteInfrastructureOfRoomType;
     private javax.swing.JButton jButtonDeleteRole;
+    private javax.swing.JButton jButtonDeleteRoom;
+    private javax.swing.JButton jButtonDeleteRoomType;
+    private javax.swing.JButton jButtonDeleteService;
+    private javax.swing.JButton jButtonUpdateFloor;
+    private javax.swing.JButton jButtonUpdateInfrastructure;
     private javax.swing.JButton jButtonUpdateRole;
+    private javax.swing.JButton jButtonUpdateRoom;
+    private javax.swing.JButton jButtonUpdateRoomType;
+    private javax.swing.JButton jButtonUpdateService;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxInfrastructure;
+    private javax.swing.JComboBox<String> jComboBoxRoomFloor;
+    private javax.swing.JComboBox<String> jComboBoxRoomRoomType;
+    private javax.swing.JComboBox<String> jComboBoxRoomType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel102;
@@ -7353,13 +9114,28 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -7382,17 +9158,29 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
@@ -7404,6 +9192,9 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel96;
     private javax.swing.JPanel jPaneRole;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -7419,6 +9210,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
@@ -7427,6 +9219,9 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
@@ -7434,7 +9229,10 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel42;
     private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
     private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel47;
     private javax.swing.JPanel jPanel48;
     private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
@@ -7443,6 +9241,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel53;
     private javax.swing.JPanel jPanel54;
+    private javax.swing.JPanel jPanel55;
     private javax.swing.JPanel jPanel56;
     private javax.swing.JPanel jPanel57;
     private javax.swing.JPanel jPanel58;
@@ -7450,7 +9249,16 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel60;
     private javax.swing.JPanel jPanel61;
+    private javax.swing.JPanel jPanel62;
+    private javax.swing.JPanel jPanel63;
+    private javax.swing.JPanel jPanel64;
+    private javax.swing.JPanel jPanel65;
+    private javax.swing.JPanel jPanel66;
+    private javax.swing.JPanel jPanel67;
+    private javax.swing.JPanel jPanel68;
+    private javax.swing.JPanel jPanel69;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel70;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -7461,12 +9269,18 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
+    private javax.swing.JScrollPane jScrollPane24;
+    private javax.swing.JScrollPane jScrollPane27;
+    private javax.swing.JScrollPane jScrollPane28;
+    private javax.swing.JScrollPane jScrollPane29;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -7476,6 +9290,8 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane10;
+    private javax.swing.JTabbedPane jTabbedPane11;
+    private javax.swing.JTabbedPane jTabbedPane12;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
@@ -7484,9 +9300,38 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTabbedPane jTabbedPane8;
     private javax.swing.JTabbedPane jTabbedPane9;
+    private javax.swing.JTable jTableFloor;
+    private javax.swing.JTable jTableInfrastructure;
+    private javax.swing.JTable jTableInfrastructureOfRoomType;
     private javax.swing.JTable jTableRole;
+    private javax.swing.JTable jTableRoom;
+    private javax.swing.JTable jTableRoomType;
+    private javax.swing.JTable jTableService;
     private javax.swing.JTable jTableUser;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldFloorId;
+    private javax.swing.JTextField jTextFieldFloorName;
+    private javax.swing.JTextField jTextFieldInfrastructureId;
+    private javax.swing.JTextField jTextFieldInfrastructureName;
+    private javax.swing.JTextField jTextFieldInfrastructureOfRoomTypeCount;
+    private javax.swing.JTextField jTextFieldInfrastructurePrice;
+    private javax.swing.JTextField jTextFieldNewFloorName;
+    private javax.swing.JTextField jTextFieldNewInfrastructureName;
+    private javax.swing.JTextField jTextFieldNewInfrastructurePrice;
+    private javax.swing.JTextField jTextFieldNewRoomTypeName;
+    private javax.swing.JTextField jTextFieldNewRoomTypePrice;
+    private javax.swing.JTextField jTextFieldNewServiceDvt;
+    private javax.swing.JTextField jTextFieldNewServiceName;
+    private javax.swing.JTextField jTextFieldNewServicePrice;
+    private javax.swing.JTextField jTextFieldRoomId;
+    private javax.swing.JTextField jTextFieldRoomName;
+    private javax.swing.JTextField jTextFieldRoomTypeId;
+    private javax.swing.JTextField jTextFieldRoomTypeName;
+    private javax.swing.JTextField jTextFieldRoomTypePrice;
+    private javax.swing.JTextField jTextFieldServiceDvt;
+    private javax.swing.JTextField jTextFieldServiceId;
+    private javax.swing.JTextField jTextFieldServiceName;
+    private javax.swing.JTextField jTextFieldServicePrice;
     private javax.swing.JTextField jTextNewRoleDesc;
     private javax.swing.JTextField jTextNewRoleName;
     private javax.swing.JTextField jTextRoleDesc;
