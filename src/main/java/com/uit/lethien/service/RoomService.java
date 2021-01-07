@@ -32,6 +32,7 @@ public class RoomService {
             dto.setName(room.getName());
             dto.setFloorId(room.getFloorId());
             dto.setRoomTypeId(room.getRoomTypeId());
+            dto.setStatus("Trống");
             dtos.add(dto);
         }
         return dtos;
@@ -60,6 +61,7 @@ public class RoomService {
             dto.setName(room.getName());
             dto.setFloorId(room.getFloorId());
             dto.setRoomTypeId(room.getRoomTypeId());
+            dto.setStatus("Trống");
             dtos.add(dto);
         }
         return dtos;

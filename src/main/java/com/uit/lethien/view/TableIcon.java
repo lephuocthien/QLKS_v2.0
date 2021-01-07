@@ -20,16 +20,20 @@ public class TableIcon extends JPanel
             {copyIcon, "Copy"},
         };
 
-        DefaultTableModel model = new DefaultTableModel(data, columnNames)
-        {
-            //  Returning the Class of each column will allow different
-            //  renderers to be used based on Class
-            public Class getColumnClass(int column)
-            {
-                return getValueAt(0, column).getClass();
-            }
-        };
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+//        {
+//            //  Returning the Class of each column will allow different
+//            //  renderers to be used based on Class
+//            public Class getColumnClass(int column)
+//            {
+//                return getValueAt(0, column).getClass();
+//            }
+//        };
         JTable table = new JTable( model );
+        Icon statusIcon = new ImageIcon(getClass().getResource("/images/trong.png"));
+        DefaultTableModel mo = (DefaultTableModel) table.getModel();
+        System.out.println(statusIcon);
+        mo.addRow(new Object[]{statusIcon, "About"});
         table.setPreferredScrollableViewportSize(table.getPreferredSize());
 
         JScrollPane scrollPane = new JScrollPane( table );
