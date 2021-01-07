@@ -108,7 +108,7 @@ public class UserAdd extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ĐẶT TIỆC");
+        setTitle("THÊM MỚI");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));

@@ -2572,6 +2572,11 @@ public final class Home extends javax.swing.JFrame {
             }
         });
         jTableQlpRoom.setRowHeight(30);
+        jTableQlpRoom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableQlpRoomMouseClicked(evt);
+            }
+        });
         jScrollPane25.setViewportView(jTableQlpRoom);
         if (jTableQlpRoom.getColumnModel().getColumnCount() > 0) {
             jTableQlpRoom.getColumnModel().getColumn(0).setMinWidth(15);
@@ -5134,6 +5139,11 @@ public final class Home extends javax.swing.JFrame {
         jButton2.setText("Làm mới");
 
         jButton3.setText("Thêm mới nhân viên");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -8192,6 +8202,8 @@ public final class Home extends javax.swing.JFrame {
             floorService.add(dto);
             jTextFieldNewFloorName.setText("");
             setJTableFloorByAdmin();
+            setJComboBoxRoomFloorByAdmin();
+            setJComboBoxQlpRoomFloor();
         }
     }//GEN-LAST:event_jButtonAddFloorActionPerformed
 
@@ -8213,6 +8225,8 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldFloorName.setText("");
 
         setJTableFloorByAdmin();
+        setJComboBoxRoomFloorByAdmin();
+        setJComboBoxQlpRoomFloor();
     }//GEN-LAST:event_jButtonUpdateFloorActionPerformed
 
     private void jButtonCancelUpdateFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateFloorActionPerformed
@@ -8227,6 +8241,8 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldFloorName.setText("");
 
         setJTableFloorByAdmin();
+        setJComboBoxRoomFloorByAdmin();
+        setJComboBoxQlpRoomFloor();
 
     }//GEN-LAST:event_jButtonDeleteFloorActionPerformed
 
@@ -8251,6 +8267,7 @@ public final class Home extends javax.swing.JFrame {
             jTextFieldNewInfrastructureName.setText("");
             jTextFieldNewInfrastructurePrice.setText("");
             setJTableInfrastructureByAdmin();
+            setJComboBoxInfrastructureByAdmin();
         }
     }//GEN-LAST:event_jButtonAddInfrastructureActionPerformed
 
@@ -8276,6 +8293,7 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldInfrastructurePrice.setText("");
 
         setJTableInfrastructureByAdmin();
+        setJComboBoxInfrastructureByAdmin();
     }//GEN-LAST:event_jButtonUpdateInfrastructureActionPerformed
 
     private void jButtonCancelUpdateInfrastructureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateInfrastructureActionPerformed
@@ -8294,6 +8312,7 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldInfrastructurePrice.setText("");
 
         setJTableInfrastructureByAdmin();
+        setJComboBoxInfrastructureByAdmin();
     }//GEN-LAST:event_jButtonDeleteInfrastructureActionPerformed
 
     private void jTableInfrastructureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableInfrastructureMouseClicked
@@ -8318,6 +8337,10 @@ public final class Home extends javax.swing.JFrame {
             jTextFieldNewRoomTypeName.setText("");
             jTextFieldNewRoomTypePrice.setText("");
             setJTableRoomTypeByAdmin();
+            setJComboBoxRoomTypeByAdmin();
+            setJComboBoxRoomRoomTypeByAdmin();
+            setJComboBoxBangGiaRoomType();
+            setJTableBangGiaRoomType();
         }
     }//GEN-LAST:event_jButtonAddRoomTypeActionPerformed
 
@@ -8343,6 +8366,10 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldRoomTypePrice.setText("");
 
         setJTableRoomTypeByAdmin();
+        setJComboBoxRoomTypeByAdmin();
+        setJComboBoxRoomRoomTypeByAdmin();
+        setJComboBoxBangGiaRoomType();
+        setJTableBangGiaRoomType();
     }//GEN-LAST:event_jButtonUpdateRoomTypeActionPerformed
 
     private void jButtonCancelUpdateRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateRoomTypeActionPerformed
@@ -8359,6 +8386,10 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldRoomTypePrice.setText("");
 
         setJTableRoomTypeByAdmin();
+        setJComboBoxRoomTypeByAdmin();
+        setJComboBoxRoomRoomTypeByAdmin();
+        setJComboBoxBangGiaRoomType();
+        setJTableBangGiaRoomType();
     }//GEN-LAST:event_jButtonDeleteRoomTypeActionPerformed
 
     private void jTableRoomTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRoomTypeMouseClicked
@@ -8436,6 +8467,7 @@ public final class Home extends javax.swing.JFrame {
 
         roomService.edit(dto);
         setJTableRoomByAdmin();
+        setJTableQlpRoom();
     }//GEN-LAST:event_jButtonUpdateRoomActionPerformed
 
     private void jButtonDeleteRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteRoomActionPerformed
@@ -8446,6 +8478,7 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldRoomId.setText("");
         jTextFieldRoomName.setText("");
         setJTableRoomByAdmin();
+        setJTableQlpRoom();
     }//GEN-LAST:event_jButtonDeleteRoomActionPerformed
 
     private void jButtonAddRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddRoomActionPerformed
@@ -8460,6 +8493,7 @@ public final class Home extends javax.swing.JFrame {
 
         roomService.add(dto);
         setJTableRoomByAdmin();
+        setJTableQlpRoom();
     }//GEN-LAST:event_jButtonAddRoomActionPerformed
 
     private void jButtonAddServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddServiceActionPerformed
@@ -8478,6 +8512,7 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldNewServiceDvt.setText("");
         jTextFieldNewServicePrice.setText("");
         setJTableServiceByAdmin();
+        setJTableDichvu();
     }//GEN-LAST:event_jButtonAddServiceActionPerformed
 
     private void jButtonCancelAddServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelAddServiceActionPerformed
@@ -8505,6 +8540,7 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldServiceDvt.setText("");
         jTextFieldServicePrice.setText("");
         setJTableServiceByAdmin();
+        setJTableDichvu();
     }//GEN-LAST:event_jButtonUpdateServiceActionPerformed
 
     private void jButtonCancelUpdateServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelUpdateServiceActionPerformed
@@ -8522,6 +8558,7 @@ public final class Home extends javax.swing.JFrame {
         jTextFieldServiceDvt.setText("");
         jTextFieldServicePrice.setText("");
         setJTableServiceByAdmin();
+        setJTableDichvu();
     }//GEN-LAST:event_jButtonDeleteServiceActionPerformed
 
     private void jTableServiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableServiceMouseClicked
@@ -8539,6 +8576,14 @@ public final class Home extends javax.swing.JFrame {
     private void jComboBoxQlpFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxQlpFloorActionPerformed
         setJTableQlpRoom();
     }//GEN-LAST:event_jComboBoxQlpFloorActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new UserAdd(Home.this).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTableQlpRoomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableQlpRoomMouseClicked
+        new Booking().setVisible(true);
+    }//GEN-LAST:event_jTableQlpRoomMouseClicked
 
     /**
      * @param args the command line arguments

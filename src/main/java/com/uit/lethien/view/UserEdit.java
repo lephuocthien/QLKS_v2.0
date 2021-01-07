@@ -218,7 +218,7 @@ public class UserEdit extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ĐẶT TIỆC");
+        setTitle("CẬP NHẬT");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
